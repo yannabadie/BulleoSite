@@ -88,20 +88,47 @@
             // Récupérer les informations de session depuis l'URL
             const urlParams = new URLSearchParams(window.location.search);
             const sessionId = urlParams.get('session_id');
+            const actionType = urlParams.get('action') || localStorage.getItem('pendingActionType') || 'booking';
+            
+            // Récupérer les données du formulaire depuis localStorage ou sessionStorage
+            let savedFormData = localStorage.getItem('pendingFormData') || sessionStorage.getItem('pendingFormData');
+            let formData = {};
+            if (savedFormData) {
+                try {
+                    formData = JSON.parse(savedFormData);
+                } catch (e) {
+                    console.error('Erreur lors de la récupération des données:', e);
+                }
+            }
+            
+            // Déterminer l'endpoint Formspree selon le type d'action
+            const formspreeUrl = actionType === 'gift' 
+                ? 'https://formspree.io/f/meozaekb'  // Bons cadeaux
+                : 'https://formspree.io/f/xdkdeazw'; // Réservations normales
             
             // Créer un formulaire temporaire pour envoyer à Formspree
             const form = document.createElement('form');
-            form.action = 'https://formspree.io/f/xdkdeazw'; // Endpoint réservations
+            form.action = formspreeUrl;
             form.method = 'POST';
             form.style.display = 'none';
             
-            // Ajouter les champs nécessaires
+            // Ajouter les données sauvegardées
+            Object.keys(formData).forEach(key => {
+                if (key !== '_subject') { // Ne pas écraser le sujet
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = formData[key];
+                    form.appendChild(input);
+                }
+            });
+            
+            // Ajouter les champs supplémentaires
             const fields = [
-                { name: '_subject', value: 'Bulleo - Nouvelle réservation avec paiement confirmé' },
+                { name: '_subject', value: actionType === 'gift' ? 'Bulleo - Bon cadeau avec paiement confirmé' : 'Bulleo - Nouvelle réservation avec paiement confirmé' },
                 { name: 'stripe_session_id', value: sessionId || 'N/A' },
                 { name: 'paiement_statut', value: 'Confirmé via Stripe' },
-                { name: 'message', value: 'Paiement effectué avec succès. Merci de me contacter pour organiser le rendez-vous.' },
-                { name: '_next', value: window.location.origin + '/#contact' }
+                { name: '_next', value: window.location.origin + '/?confirmation=sent' }
             ];
             
             fields.forEach(field => {
@@ -111,6 +138,16 @@
                 input.value = field.value;
                 form.appendChild(input);
             });
+            
+            // Nettoyer localStorage et sessionStorage après utilisation
+            try {
+                localStorage.removeItem('pendingFormData');
+                localStorage.removeItem('pendingActionType');
+                sessionStorage.removeItem('pendingFormData');
+                sessionStorage.removeItem('pendingActionType');
+            } catch (e) {
+                console.warn('Erreur lors du nettoyage du stockage', e);
+            }
             
             document.body.appendChild(form);
             form.submit();

@@ -497,6 +497,7 @@
         }
 
         #galleryModal {
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             animation: fadeIn 0.3s ease-out;
         }
@@ -667,7 +668,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 </ul>
             </nav>
             
-            <button class="md:hidden text-white" id="mobileMenuButton">
+            <button type="button" aria-label="Menu mobile" class="md:hidden text-white" id="mobileMenuButton">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
 
@@ -686,7 +687,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                                 <p class="text-white/60 text-sm">Soins périnataux</p>
                             </div>
                         </div>
-                        <button id="closeMobileMenu" class="text-white hover:text-white/80 transition-colors duration-300 p-2">
+                        <button type="button" aria-label="Fermer menu mobile" id="closeMobileMenu" class="text-white hover:text-white/80 transition-colors duration-300 p-2">
                             <i class="fas fa-times text-3xl"></i>
                         </button>
                     </div>
@@ -809,8 +810,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Massage Prénatal')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('massage_prenatal')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Massage Prénatal')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('massage_prenatal')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -848,8 +849,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Massage Postnatal')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('massage_postnatal')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Massage Postnatal')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('massage_postnatal')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -887,8 +888,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Bain Enveloppé')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('bain_enveloppe')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Bain Enveloppé')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('bain_enveloppe')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -926,8 +927,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Atelier Massage Bébé')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('atelier_massage_bebe')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Atelier Massage Bébé')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('atelier_massage_bebe')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -965,8 +966,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Soin Rebozo')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('soin_rebozo')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Soin Rebozo')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('soin_rebozo')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -1004,8 +1005,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Réflexologie Plantaire Obstétrique')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('reflexologie')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Réflexologie Plantaire Obstétrique')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('reflexologie')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -1043,8 +1044,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Réflexologie plantaire Pédiatrique')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('reflexologie_pediatrique')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Réflexologie plantaire Pédiatrique')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('reflexologie_pediatrique')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -1082,8 +1083,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Massage bébé & enfant')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('massage_bebe_enfant')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Massage bébé & enfant')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('massage_bebe_enfant')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -1121,8 +1122,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Soin postnatal complet – Massage & Rebozo')">Offrir ou réserver ce soin</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('soin_postnatal_complet')">Description du soin</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Soin postnatal complet – Massage & Rebozo')">Offrir ou réserver ce soin</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('soin_postnatal_complet')">Description du soin</button>
                         </div>
                     </div>
                 </div>
@@ -1166,8 +1167,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Agenda: Ma première année de maman')">Offrir ou commander</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('agenda_maman')">Description complète</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Agenda: Ma première année de maman')">Offrir ou commander</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('agenda_maman')">Description complète</button>
                         </div>
                     </div>
                 </div>
@@ -1211,8 +1212,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                         
                         <div class="flex gap-2 mt-4">
-                            <button class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Atelier Motricité & Éveil sensoriel')">Offrir ou réserver</button>
-                            <button class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('atelier_motricite')">Description complète</button>
+                            <button type="button" class="btn-primary flex-1 hover:bg-[#8a7a6e]" onclick="openBookingModal('Atelier Motricité & Éveil sensoriel')">Offrir ou réserver</button>
+                            <button type="button" class="btn-primary flex-1 bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]" onclick="openServiceModal('atelier_motricite')">Description complète</button>
                         </div>
                     </div>
                 </div>
@@ -1236,7 +1237,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
             </div>
             
             <div class="text-center mt-12">
-                <button onclick="openGalleryModal(0)" class="btn-primary bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]">
+                <button type="button" onclick="openGalleryModal(0)" class="btn-primary bg-white text-gray-800 border-2 border-[#c4b6a5] hover:bg-[#f0e8dc]">
                     <i class="fas fa-images mr-2"></i>
                     Voir toutes les photos
                 </button>
@@ -1249,15 +1250,15 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
         <div class="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
             <div class="max-w-6xl w-full mx-4 relative">
                 <!-- Close button -->
-                <button onclick="closeModal('galleryModal')" class="absolute top-4 right-4 text-white hover:text-[#c4b6a5] transition-colors duration-300 z-10">
+                <button type="button" onclick="closeModal('galleryModal')" class="absolute top-4 right-4 text-white hover:text-[#c4b6a5] transition-colors duration-300 z-10">
                     <i class="fas fa-times text-3xl"></i>
                 </button>
                 
                 <!-- Navigation arrows -->
-                <button onclick="previousGalleryImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-[#c4b6a5] transition-colors duration-300 z-10">
+                <button type="button" onclick="previousGalleryImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-[#c4b6a5] transition-colors duration-300 z-10">
                     <i class="fas fa-chevron-left text-4xl"></i>
                 </button>
-                <button onclick="nextGalleryImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-[#c4b6a5] transition-colors duration-300 z-10">
+                <button type="button" onclick="nextGalleryImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-[#c4b6a5] transition-colors duration-300 z-10">
                     <i class="fas fa-chevron-right text-4xl"></i>
                 </button>
                 
@@ -1272,10 +1273,10 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         <div class="flex items-center justify-between mt-4">
                             <span id="galleryModalCounter" class="text-white/60 text-sm"></span>
                             <div class="flex space-x-2">
-                                <button onclick="toggleGalleryFullscreen()" class="text-white hover:text-[#c4b6a5] transition-colors duration-300">
+                                <button type="button" onclick="toggleGalleryFullscreen()" class="text-white hover:text-[#c4b6a5] transition-colors duration-300">
                                     <i class="fas fa-expand text-lg"></i>
                                 </button>
-                                <button onclick="shareGalleryImage()" class="text-white hover:text-[#c4b6a5] transition-colors duration-300">
+                                <button type="button" onclick="shareGalleryImage()" class="text-white hover:text-[#c4b6a5] transition-colors duration-300">
                                     <i class="fas fa-share text-lg"></i>
                                 </button>
                             </div>
@@ -1303,7 +1304,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 
                 <!-- Lien vers les avis Google -->
                 <div class="mt-8">
-                    <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                    <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
                         <i class="fab fa-google mr-2"></i>
                         Voir tous nos avis Google (5/5 ⭐)
                         <i class="fas fa-external-link-alt ml-2 text-sm"></i>
@@ -1340,7 +1341,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     </div>
                     <div class="bg-green-50 px-6 py-3 flex items-center justify-between">
                         <span class="text-sm text-green-700 font-medium">Massage Prénatal</span>
-                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="text-xs text-blue-600 hover:text-blue-800">
+                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 hover:text-blue-800">
                             Voir sur Google <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -1374,7 +1375,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     </div>
                     <div class="bg-blue-50 px-6 py-3 flex items-center justify-between">
                         <span class="text-sm text-blue-700 font-medium">Bain Enveloppé</span>
-                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="text-xs text-blue-600 hover:text-blue-800">
+                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 hover:text-blue-800">
                             Voir sur Google <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -1408,7 +1409,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     </div>
                     <div class="bg-purple-50 px-6 py-3 flex items-center justify-between">
                         <span class="text-sm text-purple-700 font-medium">Atelier Massage Bébé</span>
-                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="text-xs text-blue-600 hover:text-blue-800">
+                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 hover:text-blue-800">
                             Voir sur Google <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -1442,7 +1443,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     </div>
                     <div class="bg-pink-50 px-6 py-3 flex items-center justify-between">
                         <span class="text-sm text-pink-700 font-medium">Soin Rebozo</span>
-                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="text-xs text-blue-600 hover:text-blue-800">
+                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 hover:text-blue-800">
                             Voir sur Google <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -1476,7 +1477,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     </div>
                     <div class="bg-indigo-50 px-6 py-3 flex items-center justify-between">
                         <span class="text-sm text-indigo-700 font-medium">Réflexologie Plantaire</span>
-                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="text-xs text-blue-600 hover:text-blue-800">
+                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 hover:text-blue-800">
                             Voir sur Google <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -1510,7 +1511,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     </div>
                     <div class="bg-teal-50 px-6 py-3 flex items-center justify-between">
                         <span class="text-sm text-teal-700 font-medium">Atelier Motricité</span>
-                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="text-xs text-blue-600 hover:text-blue-800">
+                        <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="text-xs text-blue-600 hover:text-blue-800">
                             Voir sur Google <i class="fas fa-external-link-alt ml-1"></i>
                         </a>
                     </div>
@@ -1522,7 +1523,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 max-w-2xl mx-auto">
                     <h3 class="text-2xl font-bold mb-4">Vous avez bénéficié de nos services ?</h3>
                     <p class="text-gray-600 mb-6">Votre avis nous aide à améliorer nos services et aide d'autres parents à nous découvrir.</p>
-                    <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" class="btn-primary inline-flex items-center">
+                    <a href="https://www.google.com/search?q=Bulleo+Tarbes+avis" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center">
                         <i class="fab fa-google mr-2"></i>
                         Laisser un avis sur Google
                         <i class="fas fa-external-link-alt ml-2 text-sm"></i>
@@ -1543,7 +1544,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
             <div class="max-w-4xl mx-auto">
                 <!-- FAQ Item 1 -->
                 <div class="mb-4 bg-gray-50 rounded-lg">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                    <button type="button" class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold">À partir de quand puis-je bénéficier d'un massage prénatal ?</h3>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
@@ -1556,7 +1557,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 
                 <!-- FAQ Item 2 -->
                 <div class="mb-4 bg-gray-50 rounded-lg">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                    <button type="button" class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold">Les soins sont-ils remboursés par la sécurité sociale ?</h3>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
@@ -1569,7 +1570,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 
                 <!-- FAQ Item 3 -->
                 <div class="mb-4 bg-gray-50 rounded-lg">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                    <button type="button" class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold">Comment se déroule un bain enveloppé ?</h3>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
@@ -1582,7 +1583,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 
                 <!-- FAQ Item 4 -->
                 <div class="mb-4 bg-gray-50 rounded-lg">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                    <button type="button" class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold">Proposez-vous des bons cadeaux ?</h3>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
@@ -1595,7 +1596,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 
                 <!-- FAQ Item 5 -->
                 <div class="mb-4 bg-gray-50 rounded-lg">
-                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                    <button type="button" class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
                         <div class="flex justify-between items-center">
                             <h3 class="text-lg font-semibold">Où se situe votre institut et comment s'y rendre ?</h3>
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
@@ -1815,7 +1816,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
             <div class="p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold">Contactez-nous</h3>
-                    <button onclick="closeModal('contactModal')" class="text-gray-500 hover:text-gray-700">
+                    <button type="button" onclick="closeModal('contactModal')" class="text-gray-500 hover:text-gray-700">
                         <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
@@ -1858,7 +1859,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
             <div class="p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h3 id="bookingModalTitle" class="text-2xl font-bold">Service</h3>
-                    <button onclick="closeModal('bookingModal')" class="text-gray-500 hover:text-gray-700">
+                    <button type="button" onclick="closeModal('bookingModal')" class="text-gray-500 hover:text-gray-700">
                         <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
@@ -2061,6 +2062,35 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
         // Service booking/gift modal functions
         let currentSelectedService = '';
         
+        // Fonction centralisée pour créer le bouton Stripe uniforme
+        function createStripeButton(buyButtonId, price = '') {
+            const buttonId = `stripe-button-${Date.now()}`;
+            const priceText = price ? ` (${price})` : '';
+            return `
+                <stripe-buy-button
+                    id="${buttonId}"
+                    buy-button-id="${buyButtonId}"
+                    publishable-key="pk_live_51QGJOQCm8TYzw7cAluwFD2h4d9XPCRCRGBNaO9cJoSWdEz27B8POpF2kv10fKHGqrnOhgtFKOB5QGlJBxP9aUJjq00TJe0r7P5"
+                    customer-email="{{email}}"
+                    client-reference-id="{{referenceId}}"
+                    success-url="${window.location.origin}/success.html?payment=success&action={{actionType}}"
+                    cancel-url="${window.location.origin}?payment=cancelled"
+                    onclick="handleStripeButtonClick('${buttonId}')">
+                    💳 Finaliser le paiement${priceText}
+                </stripe-buy-button>
+            `;
+        }
+        
+        // Fonction pour gérer le clic sur le bouton Stripe
+        function handleStripeButtonClick(buttonId) {
+            // Sauvegarder les données du formulaire avant l'ouverture de Stripe
+            const form = document.getElementById('bookingForm');
+            if (form) {
+                window.bookingFormData = new FormData(form);
+                console.log('Données du formulaire sauvegardées avant paiement Stripe');
+            }
+        }
+        
         function openBookingModal(serviceName) {
             console.log('openBookingModal appelé avec:', serviceName);
             
@@ -2203,14 +2233,14 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
             if (service.hasVariants) {
                 // Pour les services avec variantes, bouton simple pour commencer
                 stripeButtonPlaceholder.innerHTML = `
-                    <button class="btn-primary w-full" onclick="handlePayment('booking')">
+                    <button type="button" class="btn-primary w-full" onclick="handlePayment('booking')">
                         💳 Finaliser le paiement
                     </button>
                 `;
             } else {
                 // Service simple
                 stripeButtonPlaceholder.innerHTML = `
-                    <button class="btn-primary w-full" onclick="handlePayment('booking')">
+                    <button type="button" class="btn-primary w-full" onclick="handlePayment('booking')">
                         💳 Finaliser le paiement
                     </button>
                 `;
@@ -2248,7 +2278,12 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
         
         function openServiceModalFromDescription() {
             if (currentSelectedService) {
-                openBookingModal(currentSelectedService);
+                // Fermer le modal de description avant d'ouvrir le modal de réservation
+                closeModal('serviceModal');
+                // Petit délai pour éviter les conflits d'animation
+                setTimeout(() => {
+                    openBookingModal(currentSelectedService);
+                }, 100);
             }
         }
         
@@ -2439,7 +2474,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                             // Mettre à jour le bouton Stripe simple
                             const stripeButtonPlaceholder = document.getElementById('stripeButtonPlaceholder');
                             stripeButtonPlaceholder.innerHTML = `
-                                <button class="btn-primary w-full" onclick="handlePayment('booking')">
+                                <button type="button" class="btn-primary w-full" onclick="handlePayment('booking')">
                                     💳 Finaliser le paiement (${price})
                                 </button>
                             `;
@@ -2461,83 +2496,160 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
         async function handlePayment(type) {
             console.log('Tentative de paiement:', type);
             
-            if (type === 'booking') {
-                console.log('Paiement pour réservation');
+            // Validation du formulaire avant paiement
+            const form = document.getElementById('bookingForm');
+            const actionType = document.getElementById('actionType').value;
+            
+            // Validation des champs requis selon le type d'action
+            if (actionType === 'booking') {
+                const bookingDate = document.getElementById('bookingDate');
+                const bookingTime = document.getElementById('bookingTime');
+                const phone = document.getElementById('bookingPhone');
+                const name = document.getElementById('bookingName');
+                const email = document.getElementById('bookingEmail');
                 
-                // Récupérer les informations du service
-                const serviceName = document.getElementById('selectedService')?.value;
-                const variant = document.getElementById('serviceVariant')?.value;
-                
-                console.log('Service sélectionné:', serviceName);
-                console.log('Variante sélectionnée:', variant);
-                
-                // Mapping des services vers vos vrais Price IDs
-                const serviceToPriceId = {
-                    'Massage Prénatal': {
-                        default: 'price_1RpP5LCm8TYzw7cATGuy5JqG', // 1h - 70€
-                        variants: {
-                            '1h': 'price_1RpP5LCm8TYzw7cATGuy5JqG',    // 70€
-                            '1h30': 'price_1RqYFiCm8TYzw7cAur850uJI'   // 100€
-                        }
-                    },
-                    'Massage Postnatal': 'price_1RpP6cCm8TYzw7cAdI3fNZqV',                    // 70€
-                    'Bain Enveloppé': 'price_1RpP4SCm8TYzw7cAXskpv9rL',                        // 60€
-                    'Atelier Massage Bébé': 'price_1RqWmeCm8TYzw7cA5xicF1NJ',                  // 75€
-                    'Soin Rebozo': 'price_1RpP7CCm8TYzw7cAAYOsezFG',                           // 80€
-                    'Réflexologie Plantaire Obstétrique': 'price_1RqWkwCm8TYzw7cAc1RYwLxa',   // 50€
-                    'Réflexologie plantaire Pédiatrique': 'price_1RqWlgCm8TYzw7cANnCeRBdq',   // 50€
-                    'Massage bébé & enfant': 'price_1RpP7zCm8TYzw7cAHLYZYxJY',                 // 50€
-                    'Soin postnatal complet – Massage & Rebozo': 'price_1RqVNfCm8TYzw7cAxmCMDEPb', // 145€
-                    'Agenda: Ma première année de maman': 'price_1RqVTxCm8TYzw7cA6e88Upbg',   // 31,80€
-                    'Atelier Motricité & Éveil sensoriel': 'price_1RqVWLCm8TYzw7cApIarJN5n'   // 15€
-                };
-                
-                // Déterminer le bon Price ID
-                let priceId;
-                const serviceConfig = serviceToPriceId[serviceName];
-                
-                if (typeof serviceConfig === 'object' && serviceConfig.variants) {
-                    priceId = serviceConfig.variants[variant] || serviceConfig.default;
-                } else {
-                    priceId = serviceConfig;
+                if (!bookingDate.value) {
+                    alert('Veuillez sélectionner une date de rendez-vous');
+                    bookingDate.focus();
+                    return false;
                 }
                 
-                console.log('Price ID à utiliser:', priceId);
+                if (!bookingTime.value) {
+                    alert('Veuillez sélectionner un créneau horaire');
+                    bookingTime.focus();
+                    return false;
+                }
                 
-                if (priceId) {
-                    // Attendre que Stripe soit chargé
-                    if (typeof Stripe === 'undefined') {
-                        console.log('Stripe non encore chargé, attente...');
-                        let attempts = 0;
-                        const waitForStripe = setInterval(() => {
-                            attempts++;
-                            if (typeof Stripe !== 'undefined') {
-                                clearInterval(waitForStripe);
-                                console.log('Stripe maintenant disponible');
-                                redirectToStripeCheckout(priceId);
-                            } else if (attempts > 50) { // 5 secondes max
-                                clearInterval(waitForStripe);
-                                console.error('Timeout: Stripe ne se charge pas');
-                                alert('Erreur de chargement Stripe. Veuillez recharger la page.');
-                            }
-                        }, 100);
-                    } else {
-                        console.log('Stripe déjà disponible');
-                        redirectToStripeCheckout(priceId);
+                if (!name.value) {
+                    alert('Veuillez saisir votre nom');
+                    name.focus();
+                    return false;
+                }
+                
+                if (!email.value) {
+                    alert('Veuillez saisir votre email');
+                    email.focus();
+                    return false;
+                }
+                
+                if (!phone.value) {
+                    alert('Veuillez saisir votre numéro de téléphone');
+                    phone.focus();
+                    return false;
+                }
+            } else if (actionType === 'gift') {
+                const recipientName = document.getElementById('recipientName');
+                const name = document.getElementById('bookingName');
+                const email = document.getElementById('bookingEmail');
+                
+                if (!recipientName.value) {
+                    alert('Veuillez saisir le nom du bénéficiaire');
+                    recipientName.focus();
+                    return false;
+                }
+                
+                if (!name.value) {
+                    alert('Veuillez saisir votre nom');
+                    name.focus();
+                    return false;
+                }
+                
+                if (!email.value) {
+                    alert('Veuillez saisir votre email');
+                    email.focus();
+                    return false;
+                }
+            }
+            
+            // Sauvegarder les données du formulaire AVANT le paiement
+            window.bookingFormData = new FormData(form);
+            window.formspreeActionType = actionType;
+            
+            // Sauvegarder aussi dans localStorage pour la page de succès
+            const formDataObj = {};
+            window.bookingFormData.forEach((value, key) => {
+                formDataObj[key] = value;
+            });
+            
+            // Vérifier si localStorage est disponible
+            try {
+                localStorage.setItem('pendingFormData', JSON.stringify(formDataObj));
+                localStorage.setItem('pendingActionType', actionType);
+                console.log('Données du formulaire sauvegardées dans localStorage');
+            } catch (e) {
+                console.warn('localStorage non disponible, utilisation de sessionStorage', e);
+                try {
+                    // Fallback vers sessionStorage si localStorage échoue
+                    sessionStorage.setItem('pendingFormData', JSON.stringify(formDataObj));
+                    sessionStorage.setItem('pendingActionType', actionType);
+                } catch (e2) {
+                    console.error('Impossible de sauvegarder les données localement', e2);
+                }
+            }
+            
+            // Récupérer les informations du service
+            const serviceName = document.getElementById('selectedService')?.value;
+            const variant = document.getElementById('serviceVariant')?.value;
+            
+            console.log('Service sélectionné:', serviceName);
+            console.log('Variante sélectionnée:', variant);
+            
+            // Mapping des services vers vos vrais Price IDs
+            const serviceToPriceId = {
+                'Massage Prénatal': {
+                    default: 'price_1RpP5LCm8TYzw7cATGuy5JqG', // 1h - 70€
+                    variants: {
+                        '1h': 'price_1RpP5LCm8TYzw7cATGuy5JqG',    // 70€
+                        '1h30': 'price_1RqYFiCm8TYzw7cAur850uJI'   // 100€
                     }
+                },
+                'Massage Postnatal': 'price_1RpP6cCm8TYzw7cAdI3fNZqV',                    // 70€
+                'Bain Enveloppé': 'price_1RpP4SCm8TYzw7cAXskpv9rL',                        // 60€
+                'Atelier Massage Bébé': 'price_1RqWmeCm8TYzw7cA5xicF1NJ',                  // 75€
+                'Soin Rebozo': 'price_1RpP7CCm8TYzw7cAAYOsezFG',                           // 80€
+                'Réflexologie Plantaire Obstétrique': 'price_1RqWkwCm8TYzw7cAc1RYwLxa',   // 50€
+                'Réflexologie plantaire Pédiatrique': 'price_1RqWlgCm8TYzw7cANnCeRBdq',   // 50€
+                'Massage bébé & enfant': 'price_1RpP7zCm8TYzw7cAHLYZYxJY',                 // 50€
+                'Soin postnatal complet – Massage & Rebozo': 'price_1RqVNfCm8TYzw7cAxmCMDEPb', // 145€
+                'Agenda: Ma première année de maman': 'price_1RqVTxCm8TYzw7cA6e88Upbg',   // 31,80€
+                'Atelier Motricité & Éveil sensoriel': 'price_1RqVWLCm8TYzw7cApIarJN5n'   // 15€
+            };
+            
+            // Déterminer le bon Price ID
+            let priceId;
+            const serviceConfig = serviceToPriceId[serviceName];
+            
+            if (typeof serviceConfig === 'object' && serviceConfig.variants) {
+                priceId = serviceConfig.variants[variant] || serviceConfig.default;
+            } else {
+                priceId = serviceConfig;
+            }
+            
+            console.log('Price ID à utiliser:', priceId);
+            
+            if (priceId) {
+                // Attendre que Stripe soit chargé
+                if (typeof Stripe === 'undefined') {
+                    console.log('Stripe non encore chargé, attente...');
+                    let attempts = 0;
+                    const waitForStripe = setInterval(() => {
+                        attempts++;
+                        if (typeof Stripe !== 'undefined') {
+                            clearInterval(waitForStripe);
+                            console.log('Stripe maintenant disponible');
+                            redirectToStripeCheckout(priceId);
+                        } else if (attempts > 50) { // 5 secondes max
+                            clearInterval(waitForStripe);
+                            console.error('Timeout: Stripe ne se charge pas');
+                            alert('Erreur de chargement Stripe. Veuillez recharger la page.');
+                        }
+                    }, 100);
                 } else {
-                    alert('Service non configuré pour les paiements. Contactez le support.');
+                    console.log('Stripe déjà disponible');
+                    redirectToStripeCheckout(priceId);
                 }
-                
-            } else if (type === 'gift') {
-                console.log('Paiement pour bon cadeau');
-                
-                // Pour les bons cadeaux, utiliser l'endpoint Formspree spécifique
-                const form = document.getElementById('bookingForm');
-                if (form) {
-                    form.action = 'https://formspree.io/f/meozaekb';
-                    console.log('Endpoint changé pour bon cadeau');
-                }
+            } else {
+                alert('Service non configuré pour les paiements. Contactez le support.');
             }
         }
         
@@ -2547,6 +2659,9 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 console.log('Initialisation de Stripe avec Price ID:', priceId);
                 const stripe = Stripe('pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn');
                 
+                // Obtenir le type d'action pour l'URL de succès
+                const actionType = window.formspreeActionType || document.getElementById('actionType').value;
+                
                 console.log('Stripe initialisé, redirection vers checkout...');
                 const result = await stripe.redirectToCheckout({
                     lineItems: [{
@@ -2554,8 +2669,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         quantity: 1,
                     }],
                     mode: 'payment',
-                    successUrl: 'https://bulleo-soins.com/success.html?session_id={CHECKOUT_SESSION_ID}',
-                    cancelUrl: window.location.href,
+                    successUrl: `${window.location.origin}/success.html?payment=success&action=${actionType}&session_id={CHECKOUT_SESSION_ID}`,
+                    cancelUrl: `${window.location.href}?payment=cancelled`,
                 });
                 
                 if (result.error) {
@@ -3132,13 +3247,6 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
             switchTab('description'); // Reset to description tab
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            // Toujours restaurer le scroll du body lors de la fermeture d'un modal
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-        }
-        
         function getServiceData(serviceId) {
             // This is sample data - replace with your actual service details
             const services = {
@@ -4291,14 +4399,14 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
     <div id="slideshowModal" class="modal">
         <div class="modal-content w-full h-full max-w-none max-h-none rounded-none bg-black/90">
             <div class="relative w-full h-full flex items-center justify-center">
-                <button onclick="closeModal('slideshowModal')" class="absolute top-4 right-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
+                <button type="button" onclick="closeModal('slideshowModal')" class="absolute top-4 right-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
                     <i class="fas fa-times text-xl"></i>
                 </button>
-                <button onclick="prevSlide()" class="absolute left-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
+                <button type="button" onclick="prevSlide()" class="absolute left-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
                     <i class="fas fa-chevron-left text-xl"></i>
                 </button>
                 <img id="slideshowImage" src="" alt="" class="max-h-full max-w-full object-contain">
-                <button onclick="nextSlide()" class="absolute right-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
+                <button type="button" onclick="nextSlide()" class="absolute right-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
                     <i class="fas fa-chevron-right text-xl"></i>
                 </button>
             </div>
@@ -4309,20 +4417,20 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
     <div id="galleryModal" class="modal">
         <div class="modal-content max-w-6xl w-[95%] max-h-[90vh] overflow-hidden" style="border-radius: 20px;">
             <div class="relative">
-                <button onclick="closeModal('galleryModal')" class="absolute top-4 right-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
+                <button type="button" onclick="closeModal('galleryModal')" class="absolute top-4 right-4 z-50 text-white bg-black/30 rounded-full p-2 hover:bg-black/50">
                     <i class="fas fa-times text-xl"></i>
                 </button>
                 <div class="flex items-center justify-center h-[80vh]">
                     <img id="galleryMainImage" src="" alt="" class="max-h-full max-w-full object-contain">
                 </div>
                 <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-                    <button onclick="prevGalleryImage()" class="bg-black/30 text-white rounded-full p-2 hover:bg-black/50">
+                    <button type="button" onclick="prevGalleryImage()" class="bg-black/30 text-white rounded-full p-2 hover:bg-black/50">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <div id="galleryThumbnails" class="flex gap-2 overflow-x-auto px-4 py-2 max-w-[80%]">
                         <!-- Thumbnails will be inserted here -->
                     </div>
-                    <button onclick="nextGalleryImage()" class="bg-black/30 text-white rounded-full p-2 hover:bg-black/50">
+                    <button type="button" onclick="nextGalleryImage()" class="bg-black/30 text-white rounded-full p-2 hover:bg-black/50">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -4490,7 +4598,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
             <div class="p-6">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-2xl font-bold" id="serviceModalTitle">Détails du service</h3>
-                    <button onclick="closeModal('serviceModal')" class="text-gray-500 hover:text-gray-700">
+                    <button type="button" onclick="closeModal('serviceModal')" class="text-gray-500 hover:text-gray-700">
                         <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
@@ -4535,7 +4643,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     </div>
                 </div>
                 
-                <button class="btn-primary w-full mt-6" onclick="openServiceModalFromDescription()">Offrir ce soin</button>
+                <button type="button" class="btn-primary w-full mt-6" onclick="openServiceModalFromDescription()">Offrir ce soin</button>
             </div>
         </div>
     </div>
