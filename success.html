@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement Réussi - Bulleo Soins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f8f4e9;
+            --secondary: #e8e0d5;
+            --accent: #c4b6a5;
+            --dark: #5a4a42;
+            --light: #faf8f5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: #333;
+        }
+        
+        .success-animation {
+            animation: successPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100">
+    <div class="max-w-2xl mx-auto p-8 text-center">
+        <div class="success-animation mb-8">
+            <div class="w-32 h-32 mx-auto bg-green-500 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-check text-white text-6xl"></i>
+            </div>
+        </div>
+        
+        <h1 class="text-4xl font-bold text-green-600 mb-4">Paiement Réussi ! 🎉</h1>
+        
+        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Merci pour votre confiance</h2>
+            <p class="text-gray-600 mb-6">
+                Votre paiement a été traité avec succès. Nous allons maintenant finaliser votre demande 
+                en envoyant vos informations via notre formulaire de contact.
+            </p>
+            
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-info-circle text-blue-400"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-blue-700">
+                            <strong>Prochaines étapes :</strong><br>
+                            1. Vos informations sont automatiquement envoyées à Bulleo<br>
+                            2. Vous recevrez un email de confirmation sous peu<br>
+                            3. Estelle vous contactera pour planifier votre rendez-vous
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="space-y-4">
+            <button onclick="submitToFormspree()" 
+                    class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
+                <i class="fas fa-paper-plane mr-2"></i>
+                Finaliser ma demande
+            </button>
+            
+            <div class="mt-4">
+                <a href="/" class="text-gray-600 hover:text-gray-800 underline">
+                    <i class="fas fa-home mr-2"></i>
+                    Retour à l'accueil
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour envoyer automatiquement à Formspree après paiement
+        function submitToFormspree() {
+            // Récupérer les informations de session depuis l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionId = urlParams.get('session_id');
+            
+            // Créer un formulaire temporaire pour envoyer à Formspree
+            const form = document.createElement('form');
+            form.action = 'https://formspree.io/f/xdkdeazw'; // Endpoint réservations
+            form.method = 'POST';
+            form.style.display = 'none';
+            
+            // Ajouter les champs nécessaires
+            const fields = [
+                { name: '_subject', value: 'Bulleo - Nouvelle réservation avec paiement confirmé' },
+                { name: 'stripe_session_id', value: sessionId || 'N/A' },
+                { name: 'paiement_statut', value: 'Confirmé via Stripe' },
+                { name: 'message', value: 'Paiement effectué avec succès. Merci de me contacter pour organiser le rendez-vous.' },
+                { name: '_next', value: window.location.origin + '/#contact' }
+            ];
+            
+            fields.forEach(field => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = field.name;
+                input.value = field.value;
+                form.appendChild(input);
+            });
+            
+            document.body.appendChild(form);
+            form.submit();
+        }
+        
+        // Soumettre automatiquement après 3 secondes
+        setTimeout(() => {
+            submitToFormspree();
+        }, 3000);
+        
+        // Afficher un compte à rebours
+        let countdown = 3;
+        const button = document.querySelector('button');
+        const originalText = button.innerHTML;
+        
+        const timer = setInterval(() => {
+            button.innerHTML = `<i class="fas fa-clock mr-2"></i>Envoi automatique dans ${countdown}s`;
+            countdown--;
+            
+            if (countdown < 0) {
+                clearInterval(timer);
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
