@@ -2368,7 +2368,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         
                         // Adapter les textes pour les cadeaux
                         paymentTitle.textContent = 'Bon cadeau avec paiement en ligne';
-                        paymentDescription.textContent = 'Pour finaliser votre commande de bon cadeau, vous devrez effectuer le paiement sécurisé via Stripe.';
+                        paymentDescription.innerHTML = 'Pour finaliser votre commande de bon cadeau, vous devrez effectuer le paiement sécurisé via Stripe.<br><br><strong>📧 Les cartes cadeaux vous seront envoyées par mail dans les 48 heures.</strong>';
                         
                         // Afficher le bouton Stripe (sauf si le service a des variantes et qu'aucune n'est sélectionnée)
                         if (hasVariants) {
