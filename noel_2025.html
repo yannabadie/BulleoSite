@@ -277,9 +277,88 @@
             text-align: center;
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
-            color: var(--christmas-dark-green);
+            color: #ffffff;
             margin-bottom: 2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Compte à rebours */
+        .countdown-container {
+            text-align: center;
+            margin: 2rem auto 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-title {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 1.5rem;
+            color: var(--christmas-red);
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--christmas-dark-green);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--christmas-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Désactivation des offres */
+        .offers-disabled .offer-card {
+            opacity: 0.5;
+            pointer-events: none;
+            filter: grayscale(50%);
+            position: relative;
+        }
+
+        .offers-disabled .offer-card::before {
+            content: '🔒 Disponible le 8 novembre';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(220, 38, 38, 0.95);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .offers-disabled .gallery-nav {
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         .offers-container {
@@ -1272,13 +1351,37 @@
     <!-- Offres principales en galerie -->
     <div class="offers-gallery-wrapper">
         <h2 class="offers-gallery-title">🎁 Nos Coffrets Bien-être de Noël 🎁</h2>
+        
+        <!-- Compte à rebours -->
+        <div class="countdown-container" id="countdownContainer">
+            <h3 class="countdown-title">✨ Disponibles dans ✨</h3>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Jours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Heures</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Secondes</span>
+                </div>
+            </div>
+        </div>
+
         <button class="gallery-nav prev" onclick="scrollGallery(-350)">
             <span>❮</span>
         </button>
         <button class="gallery-nav next" onclick="scrollGallery(350)">
             <span>❯</span>
         </button>
-        <div class="offers-container" id="offersGallery">
+        <div class="offers-container offers-disabled" id="offersGallery">
         <div class="offer-card">
             <div class="offer-header">
                 <h3>Bain + Massage</h3>
@@ -1292,8 +1395,8 @@
                     Durée totale : 2h de pure relaxation
                 </p>
                 <div class="offer-price">
-                    120<span class="currency">€</span>
-                    <span class="original-price">140€</span>
+                    135<span class="currency">€</span>
+                    <span class="original-price">155€</span>
                 </div>
                 <div class="stripe-button-container">
                     <button class="christmas-checkout-btn" onclick="handleCheckout('bain_massage')">
@@ -1316,8 +1419,8 @@
                     Un voyage sensoriel unique de 2h30
                 </p>
                 <div class="offer-price">
-                    140<span class="currency">€</span>
-                    <span class="original-price">165€</span>
+                    150<span class="currency">€</span>
+                    <span class="original-price">175€</span>
                 </div>
                 <div class="stripe-button-container">
                     <button class="christmas-checkout-btn" onclick="handleCheckout('bain_rebozo')">
@@ -1340,8 +1443,8 @@
                     2h30 pour retrouver son énergie
                 </p>
                 <div class="offer-price">
-                    140<span class="currency">€</span>
-                    <span class="original-price">165€</span>
+                    155<span class="currency">€</span>
+                    <span class="original-price">175€</span>
                 </div>
                 <div class="stripe-button-container">
                     <button class="christmas-checkout-btn" onclick="handleCheckout('rebozo_massage')">
@@ -1364,8 +1467,8 @@
                     À utiliser quand vous le souhaitez
                 </p>
                 <div class="offer-price">
-                    130<span class="currency">€</span>
-                    <span class="original-price">150€</span>
+                    150<span class="currency">€</span>
+                    <span class="original-price">170€</span>
                 </div>
                 <div class="stripe-button-container">
                     <button class="christmas-checkout-btn" onclick="handleCheckout('double_massage')">
@@ -1414,6 +1517,7 @@
                 <i class="fab fa-facebook"></i>
             </a>
         </div>
+        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 1.5rem;">Développé avec ❤️ par une IA & son partenaire humain</p>
     </div>
 
     <script>
@@ -1493,32 +1597,32 @@
             },
             'bain_massage': {
                 name: 'Offre de Noël: Bain + massage femme enceinte ou post partum',
-                priceId: 'price_1S7Kj8Cm8TYzw7cA0n46Pjx4',
-                buyButtonId: 'buy_btn_1S8k7sCm8TYzw7cAW3g4x9BD',
-                price: '120,00 €'
+                priceId: 'price_1SJrVaCm8TYzw7cAz6BiJsSG',
+                buyButtonId: 'buy_btn_1SJtCdCm8TYzw7cAF6T2dKkp',
+                price: '135,00 €'
             },
             'bain_rebozo': {
                 name: 'Offre de Noël : Bain + Soin rebozo',
-                priceId: 'price_1S7KkgCm8TYzw7cAC2CzThvm',
-                buyButtonId: 'buy_btn_1S8k75Cm8TYzw7cAxTD0nNvO',
-                price: '140,00 €'
+                priceId: 'price_1SJrWmCm8TYzw7cAi7TedF1f',
+                buyButtonId: 'buy_btn_1SJtAiCm8TYzw7cAwDrCkznF',
+                price: '150,00 €'
             },
             'rebozo_massage': {
                 name: 'Offre de Noël: Soin rebozo + massage post partum',
-                priceId: 'price_1S7KmBCm8TYzw7cAueSgmGjm',
-                buyButtonId: 'buy_btn_1S8k61Cm8TYzw7cAKc6BfDqK',
-                price: '140,00 €'
+                priceId: 'price_1SJra0Cm8TYzw7cA8Z3Cncxf',
+                buyButtonId: 'buy_btn_1SJt92Cm8TYzw7cACUIPM8xk',
+                price: '155,00 €'
             },
             'double_massage': {
                 name: 'Offre de Noël : Massage femme enceinte + massage post partum',
-                priceId: 'price_1S7KnNCm8TYzw7cAnZuVaaOc',
-                buyButtonId: 'buy_btn_1S8k55Cm8TYzw7cAahEEp3RI',
-                price: '130,00 €'
+                priceId: 'price_1SJrfgCm8TYzw7cAVeBMPvXh',
+                buyButtonId: 'buy_btn_1SJt5ZCm8TYzw7cADMTcEboB',
+                price: '150,00 €'
             },
             'massage_solo': {
                 name: 'Offre de Noël: Massage femme enceinte ou post accouchement',
                 priceId: 'price_1S7Ko3Cm8TYzw7cAK4WJPxTa',
-                buyButtonId: 'buy_btn_1S8k3UCm8TYzw7cAC6ij2XYZ',
+                buyButtonId: 'buy_btn_1SJtu8Cm8TYzw7cAeQlUmUB5',
                 price: '65,00 €'
             }
         };
@@ -1797,6 +1901,47 @@
         // Mettre à jour le compte à rebours toutes les minutes
         updateCountdown();
         setInterval(updateCountdown, 60000);
+
+        // Compte à rebours jusqu'au 8 novembre 2025 pour les coffrets
+        function updateOffersCountdown() {
+            const launchDate = new Date('November 8, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Mettre à jour l'affichage
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+            if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+            if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+            if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+
+            // Si la date est passée, activer les offres
+            if (distance < 0) {
+                const countdownContainer = document.getElementById('countdownContainer');
+                const offersGallery = document.getElementById('offersGallery');
+                
+                if (countdownContainer) {
+                    countdownContainer.style.display = 'none';
+                }
+                
+                if (offersGallery) {
+                    offersGallery.classList.remove('offers-disabled');
+                }
+            }
+        }
+
+        // Mettre à jour le compte à rebours des offres chaque seconde
+        updateOffersCountdown();
+        setInterval(updateOffersCountdown, 1000);
 
         // Fonction pour faire défiler la galerie
         function scrollGallery(direction) {
