@@ -259,6 +259,58 @@ let currentSlideshowImages = [];
 let currentSlideshowIndex = 0;
 
 // ============================================
+// VALIDATION HELPERS
+// ============================================
+const VALIDATION_PATTERNS = {
+    // Email standard
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+    // Telephone FR: 0675430257, 06 75 43 02 57, +33675430257, +33 6 75 43 02 57
+    phone: /^(?:(?:\+33|0033|0)\s*[1-9])(?:[\s.-]*[0-9]){8}$/
+};
+
+function showInlineError(element, message) {
+    clearInlineError(element);
+
+    element.classList.add('border-red-500', 'ring-2', 'ring-red-200');
+
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'inline-error text-red-500 text-xs mt-1 flex items-center';
+    errorDiv.innerHTML = '<i class="fas fa-exclamation-circle mr-1"></i>' + message;
+    element.parentNode.appendChild(errorDiv);
+
+    element.addEventListener('input', function handler() {
+        clearInlineError(element);
+    }, { once: true });
+}
+
+function clearInlineError(element) {
+    element.classList.remove('border-red-500', 'ring-2', 'ring-red-200');
+    const existingError = element.parentNode.querySelector('.inline-error');
+    if (existingError) existingError.remove();
+}
+
+function validateField(element, pattern, errorMessage) {
+    const value = element.value.replace(/\s/g, '');
+    if (!value || (pattern instanceof RegExp && !pattern.test(value))) {
+        showInlineError(element, errorMessage);
+        element.focus();
+        return false;
+    }
+    clearInlineError(element);
+    return true;
+}
+
+function validateMinLength(element, minLength, errorMessage) {
+    if (!element.value || element.value.trim().length < minLength) {
+        showInlineError(element, errorMessage);
+        element.focus();
+        return false;
+    }
+    clearInlineError(element);
+    return true;
+}
+
+// ============================================
 // LOADER
 // ============================================
 function hideLoader() {
@@ -402,32 +454,26 @@ async function handlePayment(type) {
         const email = document.getElementById('bookingEmail');
 
         if (!bookingDate.value) {
-            alert('Veuillez selectionner une date de rendez-vous');
+            showInlineError(bookingDate, 'Veuillez selectionner une date');
             bookingDate.focus();
             return false;
         }
 
         if (!bookingTime.value) {
-            alert('Veuillez selectionner un creneau horaire');
+            showInlineError(bookingTime, 'Veuillez selectionner un creneau');
             bookingTime.focus();
             return false;
         }
 
-        if (!name.value) {
-            alert('Veuillez saisir votre nom');
-            name.focus();
+        if (!validateMinLength(name, 2, 'Nom requis (min 2 caracteres)')) {
             return false;
         }
 
-        if (!email.value) {
-            alert('Veuillez saisir votre email');
-            email.focus();
+        if (!validateField(email, VALIDATION_PATTERNS.email, 'Email invalide (ex: nom@domaine.fr)')) {
             return false;
         }
 
-        if (!phone.value) {
-            alert('Veuillez saisir votre numero de telephone');
-            phone.focus();
+        if (!validateField(phone, VALIDATION_PATTERNS.phone, 'Telephone invalide (ex: 06 75 43 02 57)')) {
             return false;
         }
     } else if (actionType === 'gift') {
@@ -435,21 +481,15 @@ async function handlePayment(type) {
         const name = document.getElementById('bookingName');
         const email = document.getElementById('bookingEmail');
 
-        if (!recipientName.value) {
-            alert('Veuillez saisir le nom du beneficiaire');
-            recipientName.focus();
+        if (!validateMinLength(recipientName, 2, 'Nom du beneficiaire requis')) {
             return false;
         }
 
-        if (!name.value) {
-            alert('Veuillez saisir votre nom');
-            name.focus();
+        if (!validateMinLength(name, 2, 'Votre nom requis (min 2 caracteres)')) {
             return false;
         }
 
-        if (!email.value) {
-            alert('Veuillez saisir votre email');
-            email.focus();
+        if (!validateField(email, VALIDATION_PATTERNS.email, 'Email invalide (ex: nom@domaine.fr)')) {
             return false;
         }
     }
