@@ -311,6 +311,53 @@ function validateMinLength(element, minLength, errorMessage) {
 }
 
 // ============================================
+// GTM EVENTS TRACKING (Phase 2)
+// ============================================
+// GTM ID: GTM-MZT366F6 (verifie actif dans index.html)
+function trackGTMEvent(eventName, eventParams) {
+    try {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, eventParams);
+            console.log('GTM Event:', eventName, eventParams);
+        } else if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({
+                'event': eventName,
+                ...eventParams
+            });
+            console.log('DataLayer Event:', eventName, eventParams);
+        }
+    } catch (e) {
+        console.warn('GTM tracking non disponible:', e);
+    }
+}
+
+function trackCTAClick(serviceName, actionType) {
+    trackGTMEvent('cta_click', {
+        'service': serviceName,
+        'action_type': actionType || 'booking',
+        'page_location': window.location.pathname
+    });
+}
+
+function trackVariantSelect(serviceName, variantKey, price) {
+    trackGTMEvent('add_variant', {
+        'service': serviceName,
+        'variant': variantKey,
+        'price': price,
+        'currency': 'EUR'
+    });
+}
+
+function trackFormSubmit(serviceName, actionType, price) {
+    trackGTMEvent('form_submit', {
+        'service': serviceName,
+        'action_type': actionType,
+        'value': parseFloat(price.replace(',', '.').replace(/[^0-9.]/g, '')) || 0,
+        'currency': 'EUR'
+    });
+}
+
+// ============================================
 // LOADER
 // ============================================
 function hideLoader() {
@@ -519,9 +566,13 @@ async function handlePayment(type) {
 
     const serviceName = document.getElementById('selectedService')?.value;
     const variant = document.getElementById('variantSelect')?.value;
+    const servicePrice = document.getElementById('servicePrice')?.textContent || '0';
 
     console.log('Service selectionne:', serviceName);
     console.log('Variante selectionnee:', variant);
+
+    // GTM Event: Form Submit (Phase 2) - avant redirect Stripe
+    trackFormSubmit(serviceName, actionType, servicePrice);
 
     // Determiner le bon Price ID
     let priceId;
@@ -647,6 +698,9 @@ function openBookingModal(serviceName) {
     const service = serviceConfig[serviceName];
     if (!service) return;
 
+    // GTM Event: CTA Click (Phase 2)
+    trackCTAClick(serviceName, 'modal_open');
+
     currentSelectedService = serviceName;
 
     document.getElementById('bookingModalTitle').textContent = service.name;
@@ -691,6 +745,9 @@ function openBookingModal(serviceName) {
             if (selectedOffer) {
                 document.getElementById('servicePrice').textContent = selectedOffer.price;
                 document.getElementById('selectedVariantKey').value = selectedKey;
+
+                // GTM Event: Variant Selection (Phase 2)
+                trackVariantSelect(serviceName, selectedKey, selectedOffer.price);
 
                 const stripeButtonPlaceholder = document.getElementById('stripeButtonPlaceholder');
                 stripeButtonPlaceholder.innerHTML = `

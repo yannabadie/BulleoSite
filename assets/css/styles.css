@@ -685,3 +685,72 @@ stripe-buy-button::part(base):hover {
 .breadcrumb span {
     color: var(--accent);
 }
+
+/* ============================================
+   Sticky Mobile Footer (Phase 2)
+   z-50 to stay below modals (z-100)
+   ============================================ */
+.sticky-mobile-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 50; /* Below modals z-100 */
+    display: none; /* Hidden by default, shown via Tailwind md:hidden */
+}
+
+@media (max-width: 768px) {
+    .sticky-mobile-footer {
+        display: flex;
+    }
+
+    /* Add bottom padding to body to prevent content being hidden */
+    body {
+        padding-bottom: 70px;
+    }
+}
+
+.sticky-mobile-footer .footer-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.sticky-mobile-footer .footer-btn-call {
+    background-color: #f3f4f6;
+    color: var(--dark);
+}
+
+.sticky-mobile-footer .footer-btn-call:hover,
+.sticky-mobile-footer .footer-btn-call:active {
+    background-color: #e5e7eb;
+}
+
+.sticky-mobile-footer .footer-btn-book {
+    background-color: var(--dark);
+    color: white;
+    flex: 2;
+}
+
+.sticky-mobile-footer .footer-btn-book:hover,
+.sticky-mobile-footer .footer-btn-book:active {
+    background-color: #4a3a32;
+}
+
+.sticky-mobile-footer .footer-btn i {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.sticky-mobile-footer .footer-btn span {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
