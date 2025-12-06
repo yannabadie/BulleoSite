@@ -1,0 +1,755 @@
+{
+  "timestamp": "2025-12-06T20:04:39.026169",
+  "tests": [
+    {
+      "name": "index: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Internal links",
+      "status": "WARN",
+      "details": "Broken: ['assets/favicon/safari-pinned-tab.svg']..."
+    },
+    {
+      "name": "index: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Accessibility",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: JavaScript syntax",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "index: Service config",
+      "status": "FAIL",
+      "details": "serviceConfig not found"
+    },
+    {
+      "name": "noel: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "noel: Accessibility",
+      "status": "WARN",
+      "details": "Missing lang attribute on html tag"
+    },
+    {
+      "name": "noel: JavaScript syntax",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "contact: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "galerie: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "galerie: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "temoignages: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "temoignages: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "success: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "success: Accessibility",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_prenatal: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "massage_postnatal: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "massage_postnatal: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "bain_enveloppe: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "bain_enveloppe: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "soin_rebozo: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "soin_rebozo: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "atelier_massage_bebe: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Internal links",
+      "status": "WARN",
+      "details": "Broken: ['../contact.html?gift=massage-bebe']..."
+    },
+    {
+      "name": "atelier_massage_bebe: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_massage_bebe: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "atelier_motricite: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "atelier_motricite: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    },
+    {
+      "name": "reflexologie: File exists",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: DOCTYPE present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Charset meta position",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Title tag present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Meta description present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Canonical link present",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Unique IDs",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Internal links",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Image sources",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Button type attributes",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "name": "reflexologie: Accessibility",
+      "status": "WARN",
+      "details": "1 links without discernible text"
+    }
+  ],
+  "errors": [
+    "index: Service config: serviceConfig not found"
+  ],
+  "warnings": [
+    "index: Internal links: Broken: ['assets/favicon/safari-pinned-tab.svg']...",
+    "noel: Accessibility: Missing lang attribute on html tag",
+    "contact: Accessibility: 1 links without discernible text",
+    "galerie: Accessibility: 1 links without discernible text",
+    "temoignages: Accessibility: 1 links without discernible text",
+    "massage_prenatal: Accessibility: 1 links without discernible text",
+    "massage_postnatal: Accessibility: 1 links without discernible text",
+    "bain_enveloppe: Accessibility: 1 links without discernible text",
+    "soin_rebozo: Accessibility: 1 links without discernible text",
+    "atelier_massage_bebe: Internal links: Broken: ['../contact.html?gift=massage-bebe']...",
+    "atelier_massage_bebe: Accessibility: 1 links without discernible text",
+    "atelier_motricite: Accessibility: 1 links without discernible text",
+    "reflexologie: Accessibility: 1 links without discernible text"
+  ],
+  "passed": 132,
+  "failed": 1
+}

@@ -20,6 +20,7 @@
 -->
 <html lang="fr">
 <head>
+    <meta charset="UTF-8">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -27,14 +28,13 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MZT366F6');</script>
     <!-- End Google Tag Manager -->
-
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offres de Noël 2025 - Bulleo Soins | Cadeaux bien-être pour futures mamans</title>
     <meta name="description" content="Offrez le bien-être à Noël 2025 avec Bulleo Soins. Massages prénataux, soins rebozo, bains enveloppés et offres spéciales pour futures et jeunes mamans à Tarbes.">
     <meta name="keywords" content="offres noël 2025, cadeaux grossesse, massage prénatal noël, bulleo soins tarbes, cadeau future maman">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Estelle - Bulleo Soins">
+    <link rel="canonical" href="https://bulleo-soins.com/noel_2025.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -122,6 +122,7 @@
             top: -10px;
             z-index: 99;
             color: white;
+            -webkit-user-select: none;
             user-select: none;
             cursor: default;
             animation: snowfall linear infinite;
@@ -381,6 +382,7 @@
             top: 50%;
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.2);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             width: 50px;
@@ -419,8 +421,8 @@
             background: linear-gradient(135deg,
                 rgba(15, 81, 50, 0.7) 0%,
                 rgba(220, 38, 38, 0.7) 100%);
-            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
             overflow: hidden;
@@ -1307,7 +1309,7 @@
                         💳 Réservation de séance - Tarif final : 12€ à régler sur place
                     </p>
                     <div class="stripe-button-container">
-                        <button class="christmas-checkout-btn" onclick="handleCheckout('photo_1')">
+                        <button type="button" class="christmas-checkout-btn" onclick="handleCheckout('photo_1')">
                             🎁 Commander maintenant
                         </button>
                     </div>
@@ -1333,7 +1335,7 @@
                         💳 Réservation de séance - Tarif final : 25€ à régler sur place
                     </p>
                     <div class="stripe-button-container">
-                        <button class="christmas-checkout-btn" onclick="handleCheckout('photo_3')">
+                        <button type="button" class="christmas-checkout-btn" onclick="handleCheckout('photo_3')">
                             🎁 Commander maintenant
                         </button>
                     </div>
@@ -1369,10 +1371,10 @@
             </div>
         </div>
 
-        <button class="gallery-nav prev" onclick="scrollGallery(-350)">
+        <button type="button" class="gallery-nav prev" onclick="scrollGallery(-350)">
             <span>❮</span>
         </button>
-        <button class="gallery-nav next" onclick="scrollGallery(350)">
+        <button type="button" class="gallery-nav next" onclick="scrollGallery(350)">
             <span>❯</span>
         </button>
         <div class="offers-container offers-disabled" id="offersGallery">
@@ -1393,7 +1395,7 @@
                     <span class="original-price">155€</span>
                 </div>
                 <div class="stripe-button-container">
-                    <button class="christmas-checkout-btn" onclick="handleCheckout('bain_massage')">
+                    <button type="button" class="christmas-checkout-btn" onclick="handleCheckout('bain_massage')">
                         🎁 Commander maintenant
                     </button>
                 </div>
@@ -1417,7 +1419,7 @@
                     <span class="original-price">175€</span>
                 </div>
                 <div class="stripe-button-container">
-                    <button class="christmas-checkout-btn" onclick="handleCheckout('bain_rebozo')">
+                    <button type="button" class="christmas-checkout-btn" onclick="handleCheckout('bain_rebozo')">
                         🎁 Commander maintenant
                     </button>
                 </div>
@@ -1441,7 +1443,7 @@
                     <span class="original-price">175€</span>
                 </div>
                 <div class="stripe-button-container">
-                    <button class="christmas-checkout-btn" onclick="handleCheckout('rebozo_massage')">
+                    <button type="button" class="christmas-checkout-btn" onclick="handleCheckout('rebozo_massage')">
                         🎁 Commander maintenant
                     </button>
                 </div>
@@ -1465,7 +1467,7 @@
                     <span class="original-price">70€</span>
                 </div>
                 <div class="stripe-button-container">
-                    <button class="christmas-checkout-btn" onclick="handleCheckout('bain_enveloppe_noel')">
+                    <button type="button" class="christmas-checkout-btn" onclick="handleCheckout('bain_enveloppe_noel')">
                         🎁 Commander maintenant
                     </button>
                 </div>
@@ -1489,7 +1491,7 @@
                     <span class="original-price">75€</span>
                 </div>
                 <div class="stripe-button-container">
-                    <button class="christmas-checkout-btn" onclick="handleCheckout('massage_solo')">
+                    <button type="button" class="christmas-checkout-btn" onclick="handleCheckout('massage_solo')">
                         🎁 Commander maintenant
                     </button>
                 </div>
@@ -1504,11 +1506,9 @@
         <p>📞 06 75 43 02 57</p>
         <p>Offres valables jusqu'au 25 décembre 2025</p>
         <div class="footer-icons">
-            <a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener noreferrer" aria-label="Instagram Bulleo Soins"><i class="fab fa-instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-facebook"></i>
+            <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Bulleo Soins"><i class="fab fa-facebook" aria-hidden="true"></i>
             </a>
         </div>
         <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 1.5rem;">Développé avec ❤️ par une IA & son partenaire humain</p>
@@ -1697,11 +1697,9 @@
                                    <a href="tel:0675430257" class="phone-link">06 75 43 02 57</a>
                                 </p>
                                 <p>📧 <strong>Ou envoyez-nous un message via :</strong><br>
-                                   <a href="https://www.instagram.com/bulleo_" target="_blank" class="social-link">
-                                       <i class="fab fa-instagram"></i> Instagram
+                                   <a href="https://www.instagram.com/bulleo_" target="_blank" class="social-link" aria-label="Instagram Bulleo Soins"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram
                                    </a><br>
-                                   <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" class="social-link">
-                                       <i class="fab fa-facebook"></i> Facebook
+                                   <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" class="social-link" aria-label="Facebook Bulleo Soins"><i class="fab fa-facebook" aria-hidden="true"></i> Facebook
                                    </a>
                                 </p>
                                 <p class="mention-offer">💡 Mentionnez l'offre de Noël sélectionnée</p>
@@ -1712,7 +1710,7 @@
                             </div>
                         </div>
                         <div class="modal-footer-christmas">
-                            <button onclick="this.parentElement.parentElement.parentElement.remove()" class="close-btn-christmas">
+                            <button type="button" onclick="this.parentElement.parentElement.parentElement.remove()" class="close-btn-christmas">
                                 Fermer
                             </button>
                         </div>
@@ -1868,6 +1866,7 @@
                     font-size: 14px;
                     z-index: 100;
                     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    -webkit-backdrop-filter: blur(10px);
                     backdrop-filter: blur(10px);
                 `;
                 document.body.appendChild(countdown);
