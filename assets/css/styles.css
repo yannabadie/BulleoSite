@@ -21,6 +21,47 @@ body {
     scroll-behavior: smooth;
 }
 
+/* ============================================
+   Logo Header - Shrink on Scroll
+   ============================================ */
+#headerLogo {
+    transition: all 0.3s ease-in-out;
+    transform-origin: left center;
+}
+
+.logo-large {
+    height: 16rem; /* h-64 */
+    width: 16rem;
+    transform: translateY(35px);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+.logo-small {
+    height: 4rem; /* h-16 */
+    width: 4rem;
+    transform: translateY(0);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+.header-scrolled {
+    background-color: rgba(90, 74, 66, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Mobile: smaller logo sizes */
+@media (max-width: 768px) {
+    .logo-large {
+        height: 10rem;
+        width: 10rem;
+        transform: translateY(20px);
+    }
+    .logo-small {
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
 h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
     color: var(--dark);

@@ -410,14 +410,34 @@ function initMobileMenu() {
 function initHeaderScroll() {
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
+        const logo = document.getElementById('headerLogo');
+
         if (header) {
             if (window.scrollY > 50) {
-                header.classList.add('shadow-md');
+                header.classList.add('shadow-md', 'header-scrolled');
+                if (logo) {
+                    logo.classList.add('logo-small');
+                    logo.classList.remove('logo-large');
+                }
             } else {
-                header.classList.remove('shadow-md');
+                header.classList.remove('shadow-md', 'header-scrolled');
+                if (logo) {
+                    logo.classList.remove('logo-small');
+                    logo.classList.add('logo-large');
+                }
             }
         }
     });
+
+    // Initialize logo state on page load
+    const logo = document.getElementById('headerLogo');
+    if (logo) {
+        if (window.scrollY > 50) {
+            logo.classList.add('logo-small');
+        } else {
+            logo.classList.add('logo-large');
+        }
+    }
 }
 
 function initSmoothScroll() {
