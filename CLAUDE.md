@@ -18,6 +18,7 @@ Bulleo Soins is a French-language website for a perinatal care business in Tarbe
 ### File Structure
 - `index.html` - Main single-page application (260+ KB monolithic file)
 - `index_original.html` - Backup of original index
+- `noel_2025.html` - Dedicated Christmas offers page (valid until December 25, 2025)
 - `success.html` - Payment success page
 - `assets/favicon/` - Favicon and PWA assets
 - `memory-bank/` - Documentation templates (mostly empty)
@@ -207,7 +208,12 @@ relatedOffers: { 'bain_rebozo': 'price_xxx' }
    }
    ```
 
-### Removing Christmas Offers
+### Christmas Offers Management
+
+**Dedicated Christmas Page**: `noel_2025.html`
+- Separate page for seasonal promotions
+- **Validity Period**: Until December 25th, 2025 (NOT December 31st)
+- Contains special Christmas-themed offers with 🎄 emoji
 
 **Identifying Christmas Offers**:
 - Have `isChristmasOffer: true` flag
