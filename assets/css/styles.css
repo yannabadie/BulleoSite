@@ -1,0 +1,687 @@
+/* ============================================
+   BULLEO SOINS - Styles principaux
+   ============================================ */
+
+/* Variables CSS */
+:root {
+    --primary: #f8f4e9;
+    --secondary: #e8e0d5;
+    --accent: #c4b6a5;
+    --dark: #5a4a42;
+    --light: #faf8f5;
+    --gold: #D4AF37;
+}
+
+/* Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light);
+    color: #333;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark);
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.section {
+    padding: 6rem 0;
+}
+
+.hero {
+    background: linear-gradient(rgba(245, 240, 230, 0.7), rgba(245, 240, 230, 0.9)), url('https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=2070') center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.nav-link {
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--dark);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile menu */
+#mobileMenu {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobileMenu:not(.translate-x-full) {
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-primary {
+    background: var(--dark);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    background: #4a3d36;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* ============================================
+   Service Cards
+   ============================================ */
+.service-card {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.service-description {
+    line-height: 1.8;
+    color: #5a4a42;
+}
+
+.service-description p {
+    margin-bottom: 1.5rem;
+}
+
+.service-benefits li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.service-benefits li:before {
+    content: "•";
+    color: #c4b6a5;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -0.2rem;
+}
+
+/* ============================================
+   Gallery
+   ============================================ */
+.service-gallery {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 0;
+}
+
+.service-gallery img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.service-gallery img:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.service-gallery.active img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+    .service-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .service-gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Gallery Items */
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-item img {
+    filter: brightness(1) contrast(1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover img {
+    filter: brightness(1.1) contrast(1.1);
+}
+
+/* Gallery Main Image */
+.gallery-main-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.gallery-main-image.active {
+    opacity: 1;
+}
+
+/* Gallery Thumbnails */
+.gallery-thumbnails {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold) var(--primary);
+}
+
+.gallery-thumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gallery-thumbnails::-webkit-scrollbar-track {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.gallery-thumbnails::-webkit-scrollbar-thumb {
+    background-color: var(--gold);
+    border-radius: 3px;
+}
+
+.gallery-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.gallery-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.gallery-thumbnail.active {
+    border-color: var(--gold);
+}
+
+#galleryThumbnails {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+
+#galleryThumbnails::-webkit-scrollbar {
+    height: 6px;
+}
+
+#galleryThumbnails::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+#galleryThumbnails::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+#galleryThumbnails::-webkit-scrollbar-thumb:hover {
+    background: #8a7a6e;
+}
+
+/* ============================================
+   Modals
+   ============================================ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(196, 182, 165, 0.5) transparent;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 10px 0;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(196, 182, 165, 0.5);
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(196, 182, 165, 0.7);
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Gallery Modal */
+#galleryModal {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+#galleryModal img {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#galleryModalImage.changing {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+#galleryModalTitle, #galleryModalDescription, #galleryModalCounter {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-info.changing {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#galleryModal .absolute.bottom-0 {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+}
+
+/* Slideshow Modal */
+#slideshowModal .modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#slideshowImage {
+    max-height: 90vh;
+    max-width: 90vw;
+    object-fit: contain;
+}
+
+#slideshowModal button {
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slideshowModal button:hover {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    transform: scale(1.1);
+}
+
+/* ============================================
+   Tabs
+   ============================================ */
+.tab-container {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: #64748b;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab.active {
+    color: var(--dark);
+    border-bottom-color: var(--accent);
+}
+
+.tab-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   Testimonials
+   ============================================ */
+.testimonial-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: "\201C";
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 100px;
+    color: var(--accent);
+    font-family: serif;
+    opacity: 0.2;
+}
+
+/* ============================================
+   Social Icons
+   ============================================ */
+.social-icon {
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--dark);
+    margin: 0 10px;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    background: var(--accent);
+}
+
+/* ============================================
+   Stripe Integration
+   ============================================ */
+#stripeButtonContainer {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#stripeButtonContainer:hover {
+    box-shadow: 0 8px 25px rgba(196, 182, 165, 0.3);
+    transform: translateY(-2px);
+}
+
+stripe-buy-button {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+stripe-buy-button::part(base) {
+    background-color: var(--accent) !important;
+    border-radius: 8px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+}
+
+stripe-buy-button::part(base):hover {
+    background-color: #b5a596 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+/* ============================================
+   Loader
+   ============================================ */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: opacity 0.5s ease;
+}
+
+.loader-logo {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    animation: pulse 2s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--dark);
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 0;
+    }
+
+    #galleryModal .max-w-6xl {
+        max-width: 95%;
+    }
+
+    #galleryModal .absolute.left-4 {
+        left: 8px;
+    }
+
+    #galleryModal .absolute.right-4 {
+        right: 8px;
+    }
+
+    #galleryModal .text-4xl {
+        font-size: 2rem;
+    }
+}
+
+/* ============================================
+   Service Page Specific Styles
+   ============================================ */
+.service-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 8rem 0 4rem;
+}
+
+.service-content {
+    padding: 4rem 0;
+}
+
+.price-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 2px solid var(--accent);
+}
+
+.price-card .price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.benefits-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.benefits-list li:last-child {
+    border-bottom: none;
+}
+
+.benefits-list li i {
+    color: var(--accent);
+    font-size: 1.25rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--dark);
+    opacity: 0.8;
+}
+
+.breadcrumb a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.breadcrumb span {
+    color: var(--accent);
+}
