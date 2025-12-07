@@ -2053,13 +2053,53 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
     </div>
     <script src="assets/js/main.js"></script>
 
+    <!-- Service Selector Modal for Mobile Footer -->
+    <div id="serviceSelectModal" class="modal">
+        <div class="modal-content max-w-md">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold">Choisir un soin</h3>
+                    <button type="button" onclick="closeModal('serviceSelectModal')" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="space-y-3" id="serviceSelectList">
+                    <button type="button" onclick="selectServiceAndBook('Massage Prenatal')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-hands mr-3 text-[#8a7a6e]"></i>Massage Prénatal
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Massage Postnatal')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-spa mr-3 text-[#8a7a6e]"></i>Massage Postnatal
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Bain Enveloppe')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-bath mr-3 text-[#8a7a6e]"></i>Bain Enveloppé
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Atelier Massage Bebe')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-baby mr-3 text-[#8a7a6e]"></i>Atelier Massage Bébé
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Soin Rebozo')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-leaf mr-3 text-[#8a7a6e]"></i>Soin Rebozo
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Reflexologie Plantaire Obstetrique')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-hand-holding-heart mr-3 text-[#8a7a6e]"></i>Réflexologie Plantaire
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Soin postnatal complet')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-heart mr-3 text-[#8a7a6e]"></i>Soin postnatal complet
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Massage bebe enfant')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-child mr-3 text-[#8a7a6e]"></i>Massage bébé & enfant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Sticky Mobile Footer (Phase 2) - z-50 below modals z-100 -->
     <div class="sticky-mobile-footer md:hidden">
         <a href="tel:+33675430257" class="footer-btn footer-btn-call">
             <i class="fas fa-phone"></i>
             <span>Appeler</span>
         </a>
-        <button type="button" onclick="openBookingModal('Massage Prenatal')" class="footer-btn footer-btn-book">
+        <button type="button" onclick="openServiceSelector()" class="footer-btn footer-btn-book">
             <i class="fas fa-calendar-check"></i>
             <span>Reserver un soin</span>
         </button>

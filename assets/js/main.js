@@ -886,6 +886,23 @@ function openServiceModalFromDescription() {
     }
 }
 
+// Open service selector modal (for mobile footer)
+function openServiceSelector() {
+    const modal = document.getElementById('serviceSelectModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    }
+}
+
+// Select a service from the selector and open booking modal
+function selectServiceAndBook(serviceName) {
+    closeModal('serviceSelectModal');
+    setTimeout(() => {
+        openBookingModal(serviceName);
+    }, 100);
+}
+
 // Open booking modal with a specific variant pre-selected
 function openBookingModalWithVariant(serviceName, variantKey) {
     console.log('openBookingModalWithVariant:', serviceName, variantKey);
