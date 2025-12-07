@@ -11,25 +11,56 @@ Bulleo Soins is a French-language website for a perinatal care business in Tarbe
 ### Technology Stack
 - **Frontend**: Pure HTML with inline CSS and JavaScript
 - **Styling**: Tailwind CSS (CDN)
-- **Forms**: EmailJS for contact form handling
+- **Forms**: EmailJS for contact form handling, Formspree for reservations
 - **Payments**: Stripe integration for payment processing
 - **Analytics**: Google Tag Manager (GTM-MZT366F6)
+- **Images**: Hosted locally in `assets/images/` (migrated from Google Photos Dec 2025)
 
 ### File Structure
-- `index.html` - Main single-page application (260+ KB monolithic file)
-- `index_original.html` - Backup of original index
+- `index.html` - Main page (~123 KB)
+- `contact.html`, `galerie.html`, `temoignages.html` - Secondary pages
 - `noel_2025.html` - Dedicated Christmas offers page (valid until December 25, 2025)
 - `success.html` - Payment success page
+- `services/` - Individual service pages (7 pages)
+- `assets/js/main.js` - Main JavaScript file (~1900 lines)
+- `assets/css/styles.css` - External CSS styles
+- `assets/images/` - All images hosted locally (27 .webp files)
 - `assets/favicon/` - Favicon and PWA assets
-- `memory-bank/` - Documentation templates (mostly empty)
+- `includes/` - Reusable HTML components (header, footer)
+- `archives/` - Historical documentation and backups
 
 ## Development Notes
 
 ### Critical Considerations
 - **No build system**: This is a static HTML site with no build process, package.json, or dependency management
-- **Inline everything**: All CSS and JavaScript is embedded directly in HTML files
+- **Modular JS/CSS**: Main logic is in `assets/js/main.js` and `assets/css/styles.css`
 - **CDN dependencies**: Uses CDN links for Tailwind CSS, EmailJS, Stripe, and Font Awesome
-- **Large file size**: index.html exceeds 256KB - use offset/limit when reading
+- **Local images**: All images in `assets/images/` (logos, services, portraits, gallery, misc)
+
+### Service Name Convention (CRITICAL)
+
+**Service names in JavaScript must NOT contain accents.** This is because:
+1. `onclick` attributes in HTML use these names
+2. `serviceConfig` keys in `main.js` use these names
+3. Mismatched names cause booking buttons to fail silently
+
+| Correct (in code) | Incorrect |
+|-------------------|-----------|
+| `'Massage Prenatal'` | `'Massage Prénatal'` |
+| `'Massage Postnatal'` | `'Massage Post-natal'` |
+| `'Bain Enveloppe'` | `'Bain Enveloppé'` |
+| `'Soin Rebozo'` | `'Soin Rébozo'` |
+| `'Reflexologie Plantaire Obstetrique'` | `'Réflexologie Plantaire Obstétrique'` |
+| `'Atelier Massage Bebe'` | `'Atelier Massage Bébé'` |
+
+**Example onclick usage:**
+```html
+<!-- CORRECT -->
+<button onclick="openBookingModal('Massage Prenatal')">Reserver</button>
+
+<!-- WRONG - Will fail silently -->
+<button onclick="openBookingModal('Massage Prénatal')">Reserver</button>
+```
 
 ### SEO & Schema
 The site includes comprehensive SEO metadata:
@@ -385,3 +416,61 @@ Applied in 5 locations:
 3. **Test price changes** by selecting different options
 4. **Verify Stripe Price ID** in network tab during payment
 5. **Compare keys** between serviceConfig and serviceToPriceId objects
+
+### December 2025
+
+#### Image Migration to Local Hosting
+**Problem**: All images were hosted on Google Photos (lh3.googleusercontent.com), causing:
+- Slow loading times
+- Dependency on external service
+- Potential broken links
+
+**Solution**: Downloaded all 27 images and organized locally:
+```
+assets/images/
+├── logos/          # 2 files: logo-main.webp, logo-mobile.webp
+├── services/       # 11 files: massage-prenatal.webp, reflexologie.webp, etc.
+├── portraits/      # 6 files: estelle-*.webp
+├── gallery/        # 7 files: various gallery images
+└── misc/           # 1 file: decoration-murale.webp
+```
+
+**Path Convention**:
+- In root HTML files: `src="assets/images/..."`
+- In services/*.html: `src="../assets/images/..."` (relative path up one level)
+
+#### Reflexologie Image Fix
+**Problem**: No suitable foot reflexology image existed in the site.
+**Solution**: Downloaded royalty-free image from Pexels (photo 6628700 by KoolShooters).
+
+#### Button onclick Names Fix
+**Problem**: 9 booking buttons on index.html were broken.
+**Root Cause**: Buttons used accented characters but `serviceConfig` keys don't have accents.
+
+**Fixed buttons**:
+- `'Massage Prénatal'` → `'Massage Prenatal'`
+- `'Massage Post-natal'` → `'Massage Postnatal'`
+- `'Bain Enveloppé'` → `'Bain Enveloppe'`
+- `'Atelier Massage Bébé'` → `'Atelier Massage Bebe'`
+- `'Réflexologie Plantaire Obstétrique'` → `'Reflexologie Plantaire Obstetrique'`
+
+#### Google Business Integration (temoignages.html)
+**Added**:
+- Schema.org LocalBusiness structured data with aggregateRating
+- Clickable Google rating badge (5.0/5, 90+ reviews)
+- "Laisser un avis sur Google" button
+- Updated meta tags for SEO
+
+**Google Business URL**: `https://www.google.com/search?kgmid=/g/11nx6f3pjw`
+
+## Image Sources
+
+| Directory | Source | License |
+|-----------|--------|---------|
+| logos/ | Proprietary (Bulleo) | All rights reserved |
+| services/ | Google Photos + Pexels | Mixed (reflexologie.webp is CC0) |
+| portraits/ | Google Photos (Bulleo) | All rights reserved |
+| gallery/ | Google Photos (Bulleo) | All rights reserved |
+| misc/ | Google Photos (Bulleo) | All rights reserved |
+
+**Pexels Credit**: `reflexologie.webp` - Photo by KoolShooters (Pexels ID: 6628700)

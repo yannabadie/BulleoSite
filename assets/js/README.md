@@ -1,13 +1,13 @@
 # JavaScript - main.js
 
-Fichier JavaScript principal contenant toute la logique du site.
+Fichier JavaScript principal contenant toute la logique du site (~1900 lignes).
 
 ## Structure du Fichier
 
 ```
-main.js (~1800 lignes)
+main.js
 ├── CONFIGURATION DES SERVICES (lignes 1-200)
-│   ├── serviceConfig          # Config UI des services
+│   ├── serviceConfig          # Config UI des services (noms, prix, variantes)
 │   └── serviceToPriceId       # Mapping Stripe Price IDs
 │
 ├── STRIPE (lignes 200-600)
@@ -63,6 +63,43 @@ main.js (~1800 lignes)
 │
 └── FAQ (lignes 1770-1790)
     └── toggleFAQ()            # Accordeon FAQ
+```
+
+## Services Configures (11 services)
+
+### Services avec Variantes (hasRelatedOffers: true)
+
+| Service | Cles Variantes |
+|---------|----------------|
+| Massage Prenatal | `1h`, `1h30`, `prenatal_bain` |
+| Massage Postnatal | `1h`, `1h30`, `postnatal_bain`, `postnatal_rebozo` |
+| Bain Enveloppe | `solo`, `bain_prenatal`, `bain_postnatal`, `bain_rebozo` |
+| Soin Rebozo | `solo`, `rebozo_bain`, `rebozo_massage` |
+
+### Services Simples (prix unique)
+
+- Reflexologie Plantaire Obstetrique
+- Reflexologie plantaire Pediatrique
+- Massage bebe & enfant
+- Atelier Massage Bebe
+- Soin postnatal complet - Massage & Rebozo
+- Agenda: Ma premiere annee de maman
+- Atelier Motricite & Eveil sensoriel
+
+## Convention de Nommage (CRITIQUE)
+
+**Les noms de services ne doivent PAS contenir d'accents.**
+
+```javascript
+// CORRECT
+'Massage Prenatal': { ... }
+'Bain Enveloppe': { ... }
+'Atelier Massage Bebe': { ... }
+
+// INCORRECT - Provoquera des erreurs
+'Massage Prénatal': { ... }
+'Bain Enveloppé': { ... }
+'Atelier Massage Bébé': { ... }
 ```
 
 ## Fonctions Principales
@@ -146,7 +183,7 @@ Object contenant la configuration UI de chaque service :
     hasRelatedOffers: true,  // Service avec variantes
     relatedOffers: [
         {
-            key: '1h',           // Cle unique (utilisee dans URL et code)
+            key: '1h',               // Cle unique
             name: 'Massage Prenatal 1h seul',
             price: '75,00 EUR',
             priceId: 'price_xxx',    // Stripe Price ID
@@ -171,6 +208,8 @@ Mapping pour le paiement Stripe :
     }
 }
 ```
+
+**IMPORTANT**: Les cles dans `relatedOffers` doivent etre identiques entre `serviceConfig` et `serviceToPriceId`.
 
 ## Events
 
@@ -207,3 +246,11 @@ Initialise tous les modules :
 // Forcer envoi Formspree (console)
 window.forceSendFormspree();
 ```
+
+## Mise a Jour des Prix
+
+Pour mettre a jour les prix, modifier:
+1. `serviceConfig` - prix affiches et buyButtonId
+2. `serviceToPriceId` - mapping Price IDs Stripe
+
+Voir `CLAUDE.md` pour le protocole complet.
