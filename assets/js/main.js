@@ -365,6 +365,7 @@ function hideLoader() {
     if (loader) {
         console.log('Masquage du loader...');
         loader.style.opacity = '0';
+        loader.style.pointerEvents = 'none'; // Permet les clics immédiatement
         setTimeout(() => {
             loader.style.display = 'none';
             console.log('Loader masque avec succes');
