@@ -1,7 +1,5 @@
-# Force HTTPS
-RewriteEngine On
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# HTTPS: gere au niveau Gandi/Varnish (pas de RewriteRule ici,
+# le reverse proxy termine le SSL avant Apache)
 
 # Block access to WordPress files (installation disabled)
 <FilesMatch "^wp-config\.php$">
