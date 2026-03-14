@@ -144,6 +144,38 @@
             "@type": "Answer",
             "text": "Tous nos soins peuvent être offerts sous forme de bons cadeaux. Le paiement se fait en ligne de manière sécurisée via Stripe. Vous recevez votre bon cadeau personnalisé par email instantanément. Les bons cadeaux sont valables 6 mois."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont les contre-indications du massage prénatal ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le massage prénatal est contre-indiqué en cas de grossesse à risque, de menace d'accouchement prématuré, de pré-éclampsie, de placenta praevia, ou sur avis médical. En cas de doute, consultez votre sage-femme ou votre médecin avant de prendre rendez-vous."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jusqu'à quel âge peut-on faire un bain enveloppé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le bain enveloppé est idéalement réalisé dans les 21 premiers jours de vie, mais peut être pratiqué jusqu'à 2-3 mois. Plus le bébé est jeune, plus il retrouve facilement les sensations in-utero. Au-delà de 3 mois, un bain sensoriel adapté peut être proposé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le soin rebozo exactement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le soin rebozo est un rituel ancestral mexicain de 'fermeture' du corps après l'accouchement. À l'aide de longs tissus traditionnels, votre corps est délicatement bercé puis serré au niveau du bassin, des hanches et des épaules. Ce soin aide à refermer le bassin, à libérer les tensions émotionnelles et à marquer symboliquement la transition vers la maternité. Attention : en cas de césarienne, attendre 6 à 8 semaines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bulleo intervient-elle en dehors de Tarbes ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, Estelle se déplace dans un rayon de 30 km autour de Tarbes pour certains soins. Les villes couvertes incluent Lourdes, Pau, Bagnères-de-Bigorre, Lannemezan et les communes environnantes. Contactez-nous pour vérifier la disponibilité dans votre secteur."
+          }
         }
       ]
     }
@@ -218,6 +250,9 @@
 
     <!-- V2 CSS -->
     <link rel="stylesheet" href="assets/css/v2.css">
+
+    <!-- LLMs.txt -->
+    <link rel="llms-txt" href="/llms.txt" type="text/plain">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -950,6 +985,58 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <button class="faq-toggle" aria-expanded="false" onclick="toggleFAQ(this)">
+                        <span>Quelles sont les contre-indications du massage prénatal ?</span>
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 leading-relaxed">
+                            Le massage prénatal est contre-indiqué en cas de grossesse à risque, de menace d'accouchement prématuré, de pré-éclampsie, de placenta praevia, ou sur avis médical. En cas de doute, consultez votre sage-femme ou votre médecin avant de prendre rendez-vous.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <button class="faq-toggle" aria-expanded="false" onclick="toggleFAQ(this)">
+                        <span>Jusqu'à quel âge peut-on faire un bain enveloppé ?</span>
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 leading-relaxed">
+                            Le bain enveloppé est idéalement réalisé dans les 21 premiers jours de vie, mais peut être pratiqué jusqu'à 2-3 mois. Plus le bébé est jeune, plus il retrouve facilement les sensations in-utero. Au-delà de 3 mois, un bain sensoriel adapté peut être proposé.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <button class="faq-toggle" aria-expanded="false" onclick="toggleFAQ(this)">
+                        <span>Qu'est-ce que le soin rebozo exactement ?</span>
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 leading-relaxed">
+                            Le soin rebozo est un rituel ancestral mexicain de 'fermeture' du corps après l'accouchement. À l'aide de longs tissus traditionnels, votre corps est délicatement bercé puis serré au niveau du bassin, des hanches et des épaules. Ce soin aide à refermer le bassin, à libérer les tensions émotionnelles et à marquer symboliquement la transition vers la maternité. Attention : en cas de césarienne, attendre 6 à 8 semaines.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item">
+                    <button class="faq-toggle" aria-expanded="false" onclick="toggleFAQ(this)">
+                        <span>Bulleo intervient-elle en dehors de Tarbes ?</span>
+                        <i class="fas fa-chevron-down text-sm"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-600 leading-relaxed">
+                            Oui, Estelle se déplace dans un rayon de 30 km autour de Tarbes pour certains soins. Les villes couvertes incluent Lourdes, Pau, Bagnères-de-Bigorre, Lannemezan et les communes environnantes. Contactez-nous pour vérifier la disponibilité dans votre secteur.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1028,6 +1115,7 @@
                                 <p class="font-bold text-text">Adresse</p>
                                 <p class="text-gray-600 text-sm">108-6 rue du Magasin aux Tabacs<br>65000 Tarbes</p>
                                 <p class="text-gray-500 text-xs mt-1">3ème étage — Ascenseur disponible</p>
+                                <p class="text-gray-500 text-xs mt-1">Interventions : Tarbes, Lourdes, Pau, Bagnères-de-Bigorre, Lannemezan</p>
                             </div>
                         </li>
                         <li class="flex items-start">
@@ -1123,6 +1211,7 @@
                     <h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Informations</h4>
                     <ul class="space-y-3 text-sm" style="color: rgba(255,255,255,0.6)">
                         <li><i class="fas fa-map-marker-alt mr-2 text-primary"></i>108-6 rue du Magasin aux Tabacs, 65000 Tarbes</li>
+                        <li style="padding-left: 1.5rem; font-size: 0.75rem;">Interventions : Tarbes, Lourdes, Pau, Bagnères-de-Bigorre, Lannemezan</li>
                         <li><i class="fas fa-phone mr-2 text-primary"></i><a href="tel:+33675430257" class="hover:text-primary">06 75 43 02 57</a></li>
                         <li><i class="fas fa-clock mr-2 text-primary"></i>Lun — Ven : 09h00 - 17h00</li>
                         <li><i class="fas fa-envelope mr-2 text-primary"></i><a href="mailto:contact@bulleo-soins.com" class="hover:text-primary">contact@bulleo-soins.com</a></li>

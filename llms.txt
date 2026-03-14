@@ -1,52 +1,51 @@
 # Bulleo — Institut Perinatal
 
-> Accompagnement perinatal et bien-etre a Tarbes (65000), France
+> Institut de soins perinataux a Tarbes (65000), France. Accompagnement bien-etre pour femmes enceintes, jeunes mamans et nouveaux-nes par Estelle Cazajous, auxiliaire de puericulture diplomee d'Etat.
 
-Bulleo — Institut Perinatal est un cabinet de soins perinataux fonde par Estelle Cazajous, auxiliaire de puericulture diplomee. Le cabinet propose des soins de bien-etre pour les femmes enceintes, les jeunes mamans et les bebes a Tarbes et dans un rayon de 30 km.
+Bulleo propose des massages prenataux et postnataux, bains enveloppes pour nouveau-nes, soins rebozo, reflexologie plantaire obstetrique et pediatrique, et ateliers parents-bebes. Cabinet situe au 108-6 rue du Magasin aux Tabacs, 65000 Tarbes. Ouvert du lundi au vendredi, 9h-17h sur rendez-vous. Note : 5.0/5 (90 avis Google). SIRET : 899 951 990 00014.
 
-## Praticienne
+## Services
 
-Estelle Cazajous - Auxiliaire de puericulture diplomee (AP DE)
-Specialisee en accompagnement perinatal
-SIRET : 899 951 990 00014
-Nom commercial : Bulleo — Institut Perinatal
-
-## Services et tarifs (mars 2026)
-
-- Massage prenatal : 75 EUR (1h) / 110 EUR (1h30)
-- Massage postnatal : 75 EUR (1h) / 110 EUR (1h30)
-- Bain enveloppe (nouveau-ne) : 70 EUR
-- Soin rebozo (technique mexicaine) : 90 EUR
-- Reflexologie plantaire obstetrique : 50 EUR
-- Reflexologie plantaire pediatrique : 50 EUR
-- Atelier massage bebe : 80 EUR
-- Massage bebe et enfant : 55 EUR
-- Soin postnatal complet (massage + rebozo) : 160 EUR
-- Atelier motricite et eveil sensoriel : 16 EUR
-- Agenda "Ma premiere annee de maman" : 31,80 EUR
+- [Massage Prenatal](https://bulleo-soins.com/services/massage-prenatal.html): Massage adapte a la grossesse, des 16 SA. 75 EUR (1h) ou 110 EUR (1h30)
+- [Massage Postnatal](https://bulleo-soins.com/services/massage-postnatal.html): Massage de recuperation post-partum. 75 EUR (1h) ou 110 EUR (1h30)
+- [Bain Enveloppe](https://bulleo-soins.com/services/bain-enveloppe.html): Bain sensoriel pour nouveau-ne reproduisant les sensations in-utero. Ideal dans les 21 premiers jours. 70 EUR
+- [Soin Rebozo](https://bulleo-soins.com/services/soin-rebozo.html): Rituel mexicain de resserrage du bassin apres l'accouchement. 90 EUR
+- [Reflexologie Plantaire Obstetrique](https://bulleo-soins.com/services/reflexologie.html): Reflexologie adaptee a la femme enceinte. 50 EUR
+- [Reflexologie Plantaire Pediatrique](https://bulleo-soins.com/services/reflexologie.html): Reflexologie pour nourrissons et jeunes enfants. 50 EUR
+- [Atelier Massage Bebe](https://bulleo-soins.com/services/atelier-massage-bebe.html): Apprendre les gestes de massage pour votre bebe. 80 EUR
+- [Atelier Motricite et Eveil](https://bulleo-soins.com/services/atelier-motricite.html): Activites d'eveil sensoriel et motricite libre. 16 EUR
+- [Massage Bebe et Enfant](https://bulleo-soins.com/): Massage bien-etre individuel pour bebe ou enfant. 55 EUR
+- [Soin Postnatal Complet](https://bulleo-soins.com/): Massage postnatal + soin rebozo en une seance de 2h. 160 EUR
+- [Agenda Ma premiere annee de maman](https://bulleo-soins.com/): Agenda non date pour accompagner la maternite. 31,80 EUR
 
 ## Offres combinees
 
-- Massage + Bain enveloppe : 140 EUR
-- Massage postnatal + Soin rebozo : 160 EUR
-- Bain enveloppe + Soin rebozo : 155 EUR
+- Massage + Bain Enveloppe : 140 EUR
+- Massage Postnatal + Soin Rebozo : 160 EUR
+- Bain Enveloppe + Soin Rebozo : 155 EUR
+
+## Reservation
+
+- [Prendre rendez-vous](https://calendly.com/contact-bulleo-soins): Reservation en ligne via Calendly
+- Telephone : 06 75 43 02 57
+- Email : contact@bulleo-soins.com
+
+## Praticienne
+
+Estelle Cazajous — Auxiliaire de Puericulture Diplomee d'Etat. Plusieurs annees d'experience en maternite et en creche. Specialisee en accompagnement perinatal physiologique.
 
 ## Informations pratiques
 
-- Adresse : 108-6 rue aux Tabacs, 65000 Tarbes, France
-- Telephone : 06 75 43 02 57
-- Horaires : Du lundi au vendredi, 9h-17h
-- Paiement en ligne : Stripe (carte bancaire)
-- Bons cadeaux disponibles
-- Reservation en ligne : https://calendly.com/contact-bulleo-soins
+- Adresse : 108-6 rue du Magasin aux Tabacs, 65000 Tarbes (3e etage, ascenseur)
+- Horaires : Lundi-Vendredi, 9h-17h (sur rendez-vous)
+- Zone d'intervention : Tarbes et 30 km autour (Lourdes, Pau, Bagneres-de-Bigorre, Lannemezan)
+- Paiement : Carte bancaire (Stripe), especes
 
 ## Liens
 
-- Site web : https://bulleo-soins.com
-- Reservation Calendly : https://calendly.com/contact-bulleo-soins
-- Instagram : https://www.instagram.com/bulleo_
-- Facebook : https://www.facebook.com/bulleo
-
-## Avis clients
-
-Note moyenne : 5.0/5 (90 avis Google)
+- [Site web](https://bulleo-soins.com)
+- [Instagram @bulleo_](https://www.instagram.com/bulleo_)
+- [Facebook](https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/)
+- [Mentions legales](https://bulleo-soins.com/mentions-legales.html)
+- [Politique de confidentialite](https://bulleo-soins.com/politique-confidentialite.html)
+- [CGV](https://bulleo-soins.com/cgv.html)
