@@ -1,13 +1,15 @@
-# Bulleo Soins
+# Bulleo — Institut Perinatal
 
 > Accompagnement perinatal et bien-etre a Tarbes (65000), France
 
-Bulleo Soins est un cabinet de soins perinataux fonde par Estelle, auxiliaire de puericulture diplomee. Le cabinet propose des soins de bien-etre pour les femmes enceintes, les jeunes mamans et les bebes a Tarbes et dans un rayon de 30 km.
+Bulleo — Institut Perinatal est un cabinet de soins perinataux fonde par Estelle Cazajous, auxiliaire de puericulture diplomee. Le cabinet propose des soins de bien-etre pour les femmes enceintes, les jeunes mamans et les bebes a Tarbes et dans un rayon de 30 km.
 
 ## Praticienne
 
-Estelle - Auxiliaire de puericulture
+Estelle Cazajous - Auxiliaire de puericulture diplomee (AP DE)
 Specialisee en accompagnement perinatal
+SIRET : 899 951 990 00014
+Nom commercial : Bulleo — Institut Perinatal
 
 ## Services et tarifs (mars 2026)
 
@@ -36,10 +38,12 @@ Specialisee en accompagnement perinatal
 - Horaires : Du lundi au vendredi, 9h-17h
 - Paiement en ligne : Stripe (carte bancaire)
 - Bons cadeaux disponibles
+- Reservation en ligne : https://calendly.com/contact-bulleo-soins
 
 ## Liens
 
 - Site web : https://bulleo-soins.com
+- Reservation Calendly : https://calendly.com/contact-bulleo-soins
 - Instagram : https://www.instagram.com/bulleo_
 - Facebook : https://www.facebook.com/bulleo
 

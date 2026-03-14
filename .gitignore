@@ -34,3 +34,4 @@ desktop.ini
 # Env / secrets
 .env
 *.env
+*.png

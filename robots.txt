@@ -1,11 +1,12 @@
-# Robots.txt pour Bulleo Soins
+# Robots.txt pour Bulleo — Institut Perinatal
 # https://bulleo-soins.com/
-# Dernière mise à jour : 31/07/2025
+# Derniere mise a jour : 14/03/2026
 
 # Règles pour tous les robots
 User-agent: *
 Allow: /
 Allow: /index.html
+Allow: /llms.txt
 Allow: /assets/favicon/favicon.ico
 Allow: /assets/favicon/favicon-32x32.png
 Allow: /assets/favicon/favicon-16x16.png

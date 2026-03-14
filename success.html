@@ -3,31 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paiement Reussi - Bulleo Soins</title>
-    <meta name="description" content="Confirmation de paiement Bulleo Soins. Merci pour votre reservation de soins perinataux a Tarbes.">
+    <title>Paiement Reussi - Bulleo</title>
+    <meta name="description" content="Confirmation de paiement Bulleo. Merci pour votre reservation de soins perinataux a Tarbes.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="canonical" href="https://bulleo-soins.com/success.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/v2.css">
     <style>
         :root {
-            --primary: #f8f4e9;
-            --secondary: #e8e0d5;
-            --accent: #c4b6a5;
-            --dark: #5a4a42;
-            --light: #faf8f5;
+            --primary: #C4724E;
+            --primary-light: #D4896A;
+            --primary-dark: #A85D3B;
+            --cream: #FDF6EE;
+            --cream-dark: #F5EBE0;
+            --text-dark: #3D2B1F;
+            --text-muted: #7A6A5E;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
-            color: #333;
+            background-color: var(--cream);
+            color: var(--text-dark);
         }
-        
+
         .success-animation {
             animation: successPulse 2s ease-in-out infinite;
         }
-        
+
         @keyframes successPulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -35,32 +38,32 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100">
+<body class="min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);">
     <div class="max-w-2xl mx-auto p-8 text-center">
         <div class="success-animation mb-8">
-            <div class="w-32 h-32 mx-auto bg-green-500 rounded-full flex items-center justify-center mb-6">
+            <div class="w-32 h-32 mx-auto rounded-full flex items-center justify-center mb-6" style="background-color: var(--primary);">
                 <i class="fas fa-check text-white text-6xl"></i>
             </div>
         </div>
-        
-        <h1 class="text-4xl font-bold text-green-600 mb-4">Paiement Réussi ! 🎉</h1>
-        
-        <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Merci pour votre confiance</h2>
-            <p class="text-gray-600 mb-6">
-                Votre paiement a été traité avec succès. Nous allons maintenant finaliser votre demande 
+
+        <h1 class="text-4xl font-bold mb-4" style="color: var(--primary);">Paiement Reussi !</h1>
+
+        <div class="rounded-xl shadow-lg p-8 mb-8" style="background-color: white;">
+            <h2 class="text-2xl font-semibold mb-4" style="color: var(--text-dark);">Merci pour votre confiance</h2>
+            <p class="mb-6" style="color: var(--text-muted);">
+                Votre paiement a ete traite avec succes. Nous allons maintenant finaliser votre demande
                 en envoyant vos informations via notre formulaire de contact.
             </p>
-            
-            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+
+            <div class="border-l-4 p-4 mb-6 rounded-r-lg" style="background-color: var(--cream); border-color: var(--primary);">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <i class="fas fa-info-circle text-blue-400"></i>
+                        <i class="fas fa-info-circle" style="color: var(--primary);"></i>
                     </div>
                     <div class="ml-3">
-                        <p class="text-blue-700">
-                            <strong>Prochaines étapes :</strong><br>
-                            1. Vos informations sont automatiquement envoyées à Bulleo<br>
+                        <p style="color: var(--text-dark);">
+                            <strong>Prochaines etapes :</strong><br>
+                            1. Vos informations sont automatiquement envoyees a Bulleo<br>
                             2. Vous recevrez un email de confirmation sous peu<br>
                             3. Estelle vous contactera pour planifier votre rendez-vous
                         </p>
@@ -68,64 +71,72 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="space-y-4">
             <button type="button" id="submitBtn" onclick="submitToFormspree()"
-                    class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
+                    class="font-bold py-3 px-8 rounded-full transition-colors duration-300 text-white"
+                    style="background-color: var(--primary);"
+                    onmouseover="this.style.backgroundColor='var(--primary-dark)'"
+                    onmouseout="this.style.backgroundColor='var(--primary)'">
                 <i class="fas fa-paper-plane mr-2"></i>
                 Finaliser ma demande
             </button>
-            
+
             <div class="mt-4">
-                <a href="/" class="text-gray-600 hover:text-gray-800 underline">
+                <a href="/" class="underline" style="color: var(--text-muted);">
                     <i class="fas fa-home mr-2"></i>
-                    Retour à l'accueil
+                    Retour a l'accueil
                 </a>
             </div>
         </div>
+
+        <div class="mt-12 text-sm" style="color: var(--text-muted);">
+            &copy; 2026 Bulleo — Institut Perinatal. Tous droits reserves.
+        </div>
     </div>
 
+    <script src="assets/js/v2.js"></script>
     <script>
-        // Fonction pour envoyer automatiquement à Formspree après paiement
+        // Fonction pour envoyer automatiquement a Formspree apres paiement
         function submitToFormspree() {
             if (window._formspreeSubmitted) return;
             window._formspreeSubmitted = true;
-            // Récupérer les informations de session depuis l'URL
+            // Recuperer les informations de session depuis l'URL
             const urlParams = new URLSearchParams(window.location.search);
             const sessionId = urlParams.get('session_id');
             const actionType = urlParams.get('action') || localStorage.getItem('pendingActionType') || 'booking';
-            
-            // Récupérer les données du formulaire depuis localStorage ou sessionStorage
+
+            // Recuperer les donnees du formulaire depuis localStorage ou sessionStorage
             let savedFormData = localStorage.getItem('pendingFormData') || sessionStorage.getItem('pendingFormData');
             let formData = {};
             if (savedFormData) {
                 try {
                     formData = JSON.parse(savedFormData);
                 } catch (e) {
-                    console.error('Erreur lors de la récupération des données:', e);
+                    console.error('Erreur lors de la recuperation des donnees:', e);
                 }
             }
 
             if (!savedFormData || Object.keys(formData).length === 0) {
                 // Still submit with session_id so the business knows a payment occurred
                 // But add a warning field
-                formData['ATTENTION'] = 'Données client non disponibles - vérifier dans Stripe Dashboard avec le session_id';
+                formData['ATTENTION'] = 'Donnees client non disponibles - verifier dans Stripe Dashboard avec le session_id';
             }
 
-            // Déterminer l'endpoint Formspree selon le type d'action
-            const formspreeUrl = actionType === 'gift' 
+            // Determiner l'endpoint Formspree selon le type d'action
+            const formspreeUrl = actionType === 'gift'
                 ? 'https://formspree.io/f/meozaekb'  // Bons cadeaux
-                : 'https://formspree.io/f/xdkdeazw'; // Réservations normales
-            
-            // Créer un formulaire temporaire pour envoyer à Formspree
+                : 'https://formspree.io/f/xdkdeazw'; // Reservations normales
+
+            // Creer un formulaire temporaire pour envoyer a Formspree
             const form = document.createElement('form');
             form.action = formspreeUrl;
             form.method = 'POST';
             form.style.display = 'none';
-            
-            // Ajouter les données sauvegardées
+
+            // Ajouter les donnees sauvegardees
             Object.keys(formData).forEach(key => {
-                if (key !== '_subject') { // Ne pas écraser le sujet
+                if (key !== '_subject') { // Ne pas ecraser le sujet
                     const input = document.createElement('input');
                     input.type = 'hidden';
                     input.name = key;
@@ -133,15 +144,15 @@
                     form.appendChild(input);
                 }
             });
-            
-            // Ajouter les champs supplémentaires
+
+            // Ajouter les champs supplementaires
             const fields = [
-                { name: '_subject', value: actionType === 'gift' ? 'Bulleo - Bon cadeau avec paiement confirmé' : 'Bulleo - Nouvelle réservation avec paiement confirmé' },
+                { name: '_subject', value: actionType === 'gift' ? 'Bulleo - Bon cadeau avec paiement confirme' : 'Bulleo - Nouvelle reservation avec paiement confirme' },
                 { name: 'stripe_session_id', value: sessionId || 'N/A' },
-                { name: 'paiement_statut', value: 'Confirmé via Stripe' },
+                { name: 'paiement_statut', value: 'Confirme via Stripe' },
                 { name: '_next', value: window.location.origin + '/?confirmation=sent' }
             ];
-            
+
             fields.forEach(field => {
                 const input = document.createElement('input');
                 input.type = 'hidden';
@@ -149,11 +160,11 @@
                 input.value = field.value;
                 form.appendChild(input);
             });
-            
+
             // Mark as submitted to prevent resubmission on back button
             sessionStorage.setItem('formspreeAlreadySubmitted', 'true');
 
-            // Nettoyer localStorage et sessionStorage après utilisation
+            // Nettoyer localStorage et sessionStorage apres utilisation
             try {
                 localStorage.removeItem('pendingFormData');
                 localStorage.removeItem('pendingActionType');
@@ -162,17 +173,17 @@
             } catch (e) {
                 // Storage cleanup failed
             }
-            
+
             document.body.appendChild(form);
             form.submit();
         }
-        
+
         // Prevent resubmission on back button
         if (sessionStorage.getItem('formspreeAlreadySubmitted')) {
-            document.querySelector('.bg-white').innerHTML = '<div style="text-align:center;padding:40px;"><h2 style="color:#5a4a42;margin-bottom:10px;">Demande déjà envoyée</h2><p style="color:#666;">Votre demande a été transmise avec succès.</p><a href="/" style="color:#5a4a42;text-decoration:underline;">Retour à l\'accueil</a></div>';
+            document.querySelector('[style*="background-color: white"]').innerHTML = '<div style="text-align:center;padding:40px;"><h2 style="color:var(--text-dark);margin-bottom:10px;">Demande deja envoyee</h2><p style="color:var(--text-muted);">Votre demande a ete transmise avec succes.</p><a href="/" style="color:var(--primary);text-decoration:underline;">Retour a l\'accueil</a></div>';
             // Don't start any timers or auto-submit
         } else {
-            // Soumettre automatiquement avec compte à rebours
+            // Soumettre automatiquement avec compte a rebours
             let countdown = 3;
             const submitButton = document.getElementById('submitBtn');
             const timer = setInterval(() => {
