@@ -1,0 +1,48 @@
+# Bulleo Soins
+
+> Accompagnement perinatal et bien-etre a Tarbes (65000), France
+
+Bulleo Soins est un cabinet de soins perinataux fonde par Estelle, auxiliaire de puericulture diplomee. Le cabinet propose des soins de bien-etre pour les femmes enceintes, les jeunes mamans et les bebes a Tarbes et dans un rayon de 30 km.
+
+## Praticienne
+
+Estelle - Auxiliaire de puericulture
+Specialisee en accompagnement perinatal
+
+## Services et tarifs (mars 2026)
+
+- Massage prenatal : 75 EUR (1h) / 110 EUR (1h30)
+- Massage postnatal : 75 EUR (1h) / 110 EUR (1h30)
+- Bain enveloppe (nouveau-ne) : 70 EUR
+- Soin rebozo (technique mexicaine) : 90 EUR
+- Reflexologie plantaire obstetrique : 50 EUR
+- Reflexologie plantaire pediatrique : 50 EUR
+- Atelier massage bebe : 80 EUR
+- Massage bebe et enfant : 55 EUR
+- Soin postnatal complet (massage + rebozo) : 160 EUR
+- Atelier motricite et eveil sensoriel : 16 EUR
+- Agenda "Ma premiere annee de maman" : 31,80 EUR
+
+## Offres combinees
+
+- Massage + Bain enveloppe : 140 EUR
+- Massage postnatal + Soin rebozo : 160 EUR
+- Bain enveloppe + Soin rebozo : 155 EUR
+
+## Informations pratiques
+
+- Adresse : 108-6 rue aux Tabacs, 65000 Tarbes, France
+- Telephone : 06 75 43 02 57
+- Horaires : Du lundi au vendredi, 9h-17h
+- Paiement en ligne : Stripe (carte bancaire)
+- Bons cadeaux disponibles
+
+## Liens
+
+- Site web : https://bulleo-soins.com
+- Instagram : https://www.instagram.com/bulleo_
+- Facebook : https://www.facebook.com/bulleo
+
+## Avis clients
+
+Note moyenne : 5.0/5 (90 avis Google)

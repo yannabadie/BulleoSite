@@ -6,7 +6,6 @@
 User-agent: *
 Allow: /
 Allow: /index.html
-Allow: /success.html
 Allow: /assets/favicon/favicon.ico
 Allow: /assets/favicon/favicon-32x32.png
 Allow: /assets/favicon/favicon-16x16.png
@@ -37,6 +36,7 @@ Disallow: /noel_2025.html
 
 # Internal pages
 Disallow: /success.html
+Disallow: /index_v2.html
 Disallow: /includes/
 Disallow: /_old/
 Disallow: /archives/

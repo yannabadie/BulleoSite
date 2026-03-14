@@ -1,3 +1,8 @@
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
 # Block access to WordPress files (installation disabled)
 <FilesMatch "^wp-config\.php$">
     Require all denied
@@ -47,6 +52,7 @@ RedirectMatch 403 ^/wp-content/.*$
 
 # Security headers
 <IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
@@ -55,7 +61,26 @@ RedirectMatch 403 ^/wp-content/.*$
 
 # Enable GZIP compression
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+    AddOutputFilterByType DEFLATE application/json application/ld+json
+    AddOutputFilterByType DEFLATE application/xml application/xhtml+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject application/x-font-ttf font/opentype
+    # Force compression for proxies/Varnish
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary Accept-Encoding
+</IfModule>
+<IfModule mod_filter.c>
+    FilterDeclare COMPRESS
+    FilterProvider COMPRESS DEFLATE "%{CONTENT_TYPE} = 'text/html'"
+    FilterProvider COMPRESS DEFLATE "%{CONTENT_TYPE} = 'text/css'"
+    FilterProvider COMPRESS DEFLATE "%{CONTENT_TYPE} = 'application/javascript'"
+    FilterChain COMPRESS
+    FilterProtocol COMPRESS DEFLATE change=yes;byteranges=no
 </IfModule>
 
 # Cache static assets
