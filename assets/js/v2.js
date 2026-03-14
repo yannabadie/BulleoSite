@@ -369,6 +369,32 @@ function openGiftModal(serviceName) {
     });
 }
 
+function setGiftType(type) {
+    const modal = document.getElementById('giftModal');
+    if (!modal) return;
+
+    const btnSelf = modal.querySelector('[data-gift-type-self]');
+    const btnGift = modal.querySelector('[data-gift-type-gift]');
+    const recipientSection = modal.querySelector('[data-gift-recipient-section]');
+    const recipientInput = modal.querySelector('[data-gift-recipient]');
+
+    if (type === 'gift') {
+        // Activate gift button
+        if (btnGift) { btnGift.classList.add('bg-white', 'shadow-sm', 'text-primary'); btnGift.classList.remove('text-gray-500'); }
+        if (btnSelf) { btnSelf.classList.remove('bg-white', 'shadow-sm', 'text-primary'); btnSelf.classList.add('text-gray-500'); }
+        // Show recipient
+        if (recipientSection) recipientSection.style.display = '';
+        if (recipientInput) recipientInput.setAttribute('required', 'required');
+    } else {
+        // Activate self button
+        if (btnSelf) { btnSelf.classList.add('bg-white', 'shadow-sm', 'text-primary'); btnSelf.classList.remove('text-gray-500'); }
+        if (btnGift) { btnGift.classList.remove('bg-white', 'shadow-sm', 'text-primary'); btnGift.classList.add('text-gray-500'); }
+        // Hide recipient
+        if (recipientSection) recipientSection.style.display = 'none';
+        if (recipientInput) recipientInput.removeAttribute('required');
+    }
+}
+
 function closeGiftModal() {
     const modal = document.getElementById('giftModal');
     if (!modal) return;
@@ -413,13 +439,16 @@ function updateGiftService(serviceName) {
         if (variantSection) variantSection.style.display = '';
 
         if (variantSelect) {
-            variantSelect.innerHTML = '<option value="">-- Choisir une formule --</option>';
-            service.relatedOffers.forEach(function(offer) {
+            variantSelect.innerHTML = '';
+            service.relatedOffers.forEach(function(offer, index) {
                 const opt = document.createElement('option');
                 opt.value = offer.key;
                 opt.textContent = offer.name + ' — ' + offer.price;
+                if (index === 0) opt.selected = true;
                 variantSelect.appendChild(opt);
             });
+            // Pre-select first variant
+            currentGiftVariantKey = service.relatedOffers[0].key;
 
             // Clone to remove old listeners
             const newVariantSelect = variantSelect.cloneNode(true);
@@ -488,8 +517,12 @@ function handleGiftPayment() {
         return false;
     }
 
-    if (recipientEl && !validateMinLength(recipientEl, 2, 'Le nom du beneficiaire est requis')) {
-        return false;
+    // Only validate recipient if visible (gift mode)
+    const recipientSection = modal.querySelector('[data-gift-recipient-section]');
+    if (recipientEl && recipientSection && recipientSection.style.display !== 'none') {
+        if (!validateMinLength(recipientEl, 2, 'Le nom du beneficiaire est requis')) {
+            return false;
+        }
     }
 
     // Save form data to localStorage
@@ -626,7 +659,7 @@ function initCalendlyInline(containerId, serviceName) {
 let savedScrollPosition = 0;
 
 function openMobileMenu() {
-    const menu = document.getElementById('mobileMenuV2');
+    const menu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay');
     if (!menu) return;
 
@@ -647,7 +680,7 @@ function openMobileMenu() {
 }
 
 function closeMobileMenu() {
-    const menu = document.getElementById('mobileMenuV2');
+    const menu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay');
     if (!menu) return;
 
