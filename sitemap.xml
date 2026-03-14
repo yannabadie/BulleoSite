@@ -94,15 +94,6 @@
         <mobile:mobile/>
     </url>
 
-    <!-- Page saisonniere Noel 2025 -->
-    <url>
-        <loc>https://bulleo-soins.com/noel_2025.html</loc>
-        <lastmod>2025-12-06</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.8</priority>
-        <mobile:mobile/>
-    </url>
-
     <!-- Pages secondaires -->
     <url>
         <loc>https://bulleo-soins.com/contact.html</loc>
@@ -126,13 +117,5 @@
         <mobile:mobile/>
     </url>
 
-    <!-- Page de confirmation de paiement (faible priorite) -->
-    <url>
-        <loc>https://bulleo-soins.com/success.html</loc>
-        <lastmod>2025-12-06</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-        <mobile:mobile/>
-    </url>
 
 </urlset>

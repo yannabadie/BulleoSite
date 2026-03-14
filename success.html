@@ -70,7 +70,7 @@
         </div>
         
         <div class="space-y-4">
-            <button type="button" onclick="submitToFormspree()"
+            <button type="button" id="submitBtn" onclick="submitToFormspree()"
                     class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
                 <i class="fas fa-paper-plane mr-2"></i>
                 Finaliser ma demande
@@ -88,6 +88,8 @@
     <script>
         // Fonction pour envoyer automatiquement à Formspree après paiement
         function submitToFormspree() {
+            if (window._formspreeSubmitted) return;
+            window._formspreeSubmitted = true;
             // Récupérer les informations de session depuis l'URL
             const urlParams = new URLSearchParams(window.location.search);
             const sessionId = urlParams.get('session_id');
@@ -149,30 +151,23 @@
                 sessionStorage.removeItem('pendingFormData');
                 sessionStorage.removeItem('pendingActionType');
             } catch (e) {
-                console.warn('Erreur lors du nettoyage du stockage', e);
+                // Storage cleanup failed
             }
             
             document.body.appendChild(form);
             form.submit();
         }
         
-        // Soumettre automatiquement après 3 secondes
-        setTimeout(() => {
-            submitToFormspree();
-        }, 3000);
-        
-        // Afficher un compte à rebours
+        // Soumettre automatiquement avec compte à rebours
         let countdown = 3;
-        const button = document.querySelector('button');
-        const originalText = button.innerHTML;
-        
+        const submitButton = document.getElementById('submitBtn');
         const timer = setInterval(() => {
-            button.innerHTML = `<i class="fas fa-clock mr-2"></i>Envoi automatique dans ${countdown}s`;
             countdown--;
-            
-            if (countdown < 0) {
+            if (countdown <= 0) {
                 clearInterval(timer);
-                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+                submitToFormspree();
+            } else {
+                submitButton.textContent = 'Envoi automatique dans ' + countdown + 's...';
             }
         }, 1000);
     </script>

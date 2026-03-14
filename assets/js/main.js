@@ -318,16 +318,14 @@ function trackGTMEvent(eventName, eventParams) {
     try {
         if (typeof gtag === 'function') {
             gtag('event', eventName, eventParams);
-            console.log('GTM Event:', eventName, eventParams);
         } else if (typeof dataLayer !== 'undefined') {
             dataLayer.push({
                 'event': eventName,
                 ...eventParams
             });
-            console.log('DataLayer Event:', eventName, eventParams);
         }
     } catch (e) {
-        console.warn('GTM tracking non disponible:', e);
+        // GTM tracking unavailable
     }
 }
 
@@ -363,12 +361,10 @@ function trackFormSubmit(serviceName, actionType, price) {
 function hideLoader() {
     const loader = document.querySelector('.loader');
     if (loader) {
-        console.log('Masquage du loader...');
         loader.style.opacity = '0';
         loader.style.pointerEvents = 'none'; // Permet les clics immédiatement
         setTimeout(() => {
             loader.style.display = 'none';
-            console.log('Loader masque avec succes');
         }, 500);
     } else {
         console.error('Element loader non trouve !');
@@ -489,18 +485,23 @@ function initModalClose() {
 // STRIPE
 // ============================================
 function initializeStripe() {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         if (typeof Stripe !== 'undefined') {
             stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-            console.log('Stripe initialise avec succes');
             resolve(stripe);
         } else {
+            let stripeAttempts = 0;
             const checkStripe = setInterval(() => {
+                stripeAttempts++;
                 if (typeof Stripe !== 'undefined') {
                     clearInterval(checkStripe);
                     stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-                    console.log('Stripe initialise avec succes apres attente');
                     resolve(stripe);
+                }
+                if (stripeAttempts >= 100) {
+                    clearInterval(checkStripe);
+                    console.error('Stripe failed to load after 10 seconds');
+                    reject(new Error('Stripe failed to load'));
                 }
             }, 100);
         }
@@ -508,8 +509,6 @@ function initializeStripe() {
 }
 
 async function handlePayment(type) {
-    console.log('Tentative de paiement:', type);
-
     const form = document.getElementById('bookingForm');
     const actionType = document.getElementById('actionType').value;
 
@@ -574,9 +573,7 @@ async function handlePayment(type) {
     try {
         localStorage.setItem('pendingFormData', JSON.stringify(formDataObj));
         localStorage.setItem('pendingActionType', actionType);
-        console.log('Donnees du formulaire sauvegardees dans localStorage');
     } catch (e) {
-        console.warn('localStorage non disponible, utilisation de sessionStorage', e);
         try {
             sessionStorage.setItem('pendingFormData', JSON.stringify(formDataObj));
             sessionStorage.setItem('pendingActionType', actionType);
@@ -588,9 +585,6 @@ async function handlePayment(type) {
     const serviceName = document.getElementById('selectedService')?.value;
     const variant = document.getElementById('variantSelect')?.value;
     const servicePrice = document.getElementById('servicePrice')?.textContent || '0';
-
-    console.log('Service selectionne:', serviceName);
-    console.log('Variante selectionnee:', variant);
 
     // GTM Event: Form Submit (Phase 2) - avant redirect Stripe
     trackFormSubmit(serviceName, actionType, servicePrice);
@@ -607,17 +601,13 @@ async function handlePayment(type) {
         priceId = servicePriceConfig;
     }
 
-    console.log('Price ID a utiliser:', priceId);
-
     if (priceId) {
         if (typeof Stripe === 'undefined') {
-            console.log('Stripe non encore charge, attente...');
             let attempts = 0;
             const waitForStripe = setInterval(() => {
                 attempts++;
                 if (typeof Stripe !== 'undefined') {
                     clearInterval(waitForStripe);
-                    console.log('Stripe maintenant disponible');
                     redirectToStripeCheckout(priceId);
                 } else if (attempts > 50) {
                     clearInterval(waitForStripe);
@@ -626,7 +616,6 @@ async function handlePayment(type) {
                 }
             }, 100);
         } else {
-            console.log('Stripe deja disponible');
             redirectToStripeCheckout(priceId);
         }
     } else {
@@ -636,12 +625,10 @@ async function handlePayment(type) {
 
 async function redirectToStripeCheckout(priceId) {
     try {
-        console.log('Initialisation de Stripe avec Price ID:', priceId);
         const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
 
         const actionType = window.formspreeActionType || document.getElementById('actionType').value;
 
-        console.log('Stripe initialise, redirection vers checkout...');
         const result = await stripe.redirectToCheckout({
             lineItems: [{
                 price: priceId,
@@ -668,15 +655,10 @@ async function redirectToStripeCheckout(priceId) {
 function sendFormspreeData() {
     if (window.bookingFormData) {
         try {
-            console.log('Envoi des donnees a Formspree...');
-            console.log('Donnees du formulaire:', Array.from(window.bookingFormData.entries()));
-
             const actionType = window.formspreeActionType || document.getElementById('actionType').value;
             const formspreeUrl = actionType === 'gift'
                 ? 'https://formspree.io/f/meozaekb'
                 : 'https://formspree.io/f/xdkdeazw';
-
-            console.log('URL Formspree utilisee:', formspreeUrl, 'pour action:', actionType);
 
             fetch(formspreeUrl, {
                 method: 'POST',
@@ -685,8 +667,6 @@ function sendFormspreeData() {
                     'Accept': 'application/json'
                 }
             }).then(response => {
-                console.log('Reponse Formspree:', response.status, response.statusText);
-
                 if (response.ok) {
                     const actionText = actionType === 'gift' ? 'Commande de bon cadeau' : 'Reservation';
                     showMessage(`${actionText} confirmee ! Nous revenons vite vers vous.`);
@@ -705,8 +685,6 @@ function sendFormspreeData() {
             console.error('Erreur lors de l\'envoi du formulaire:', err);
             showMessage('Paiement valide mais erreur d\'envoi du formulaire.', 'error');
         }
-    } else {
-        console.warn('Aucune donnee de formulaire sauvegardee trouvee');
     }
 }
 
@@ -714,8 +692,6 @@ function sendFormspreeData() {
 // BOOKING MODAL
 // ============================================
 function openBookingModal(serviceName) {
-    console.log('openBookingModal appele avec:', serviceName);
-
     const service = serviceConfig[serviceName];
     if (!service) return;
 
@@ -866,12 +842,9 @@ function openBookingModal(serviceName) {
     const subjectInput = document.getElementById('bookingForm').querySelector('input[name="_subject"]');
     subjectInput.value = 'Bulleo - Nouvelle demande';
 
-    console.log('Tentative d\'ouverture du modal bookingModal');
     const modal = document.getElementById('bookingModal');
-    console.log('Modal trouve:', modal);
     if (modal) {
         modal.classList.add('active');
-        console.log('Classe active ajoutee au modal');
     } else {
         console.error('Modal bookingModal non trouve!');
     }
@@ -905,8 +878,6 @@ function selectServiceAndBook(serviceName) {
 
 // Open booking modal with a specific variant pre-selected
 function openBookingModalWithVariant(serviceName, variantKey) {
-    console.log('openBookingModalWithVariant:', serviceName, variantKey);
-
     // First open the modal normally
     openBookingModal(serviceName);
 
@@ -1094,9 +1065,7 @@ function toggleGalleryFullscreen() {
     if (document.fullscreenElement) {
         document.exitFullscreen();
     } else {
-        image.requestFullscreen().catch(err => {
-            console.log('Erreur fullscreen:', err);
-        });
+        image.requestFullscreen().catch(() => {});
     }
 }
 
@@ -1768,7 +1737,11 @@ function checkBookingParam() {
             'soin-rebozo': 'Soin Rebozo',
             'reflexologie': 'Reflexologie Plantaire Obstetrique',
             'atelier-massage-bebe': 'Atelier Massage Bebe',
-            'atelier-motricite': 'Atelier Motricite & Eveil sensoriel'
+            'atelier-motricite': 'Atelier Motricite & Eveil sensoriel',
+            'massage-bebe-enfant': 'Massage bebe & enfant',
+            'soin-postnatal-complet': 'Soin postnatal complet - Massage & Rebozo',
+            'reflexologie-pediatrique': 'Reflexologie plantaire Pediatrique',
+            'agenda': 'Agenda: Ma premiere annee de maman'
         };
 
         const serviceName = serviceMap[bookService] || bookService;
@@ -1787,7 +1760,11 @@ function checkBookingParam() {
             'soin-rebozo': 'Soin Rebozo',
             'reflexologie': 'Reflexologie Plantaire Obstetrique',
             'atelier-massage-bebe': 'Atelier Massage Bebe',
-            'atelier-motricite': 'Atelier Motricite & Eveil sensoriel'
+            'atelier-motricite': 'Atelier Motricite & Eveil sensoriel',
+            'massage-bebe-enfant': 'Massage bebe & enfant',
+            'soin-postnatal-complet': 'Soin postnatal complet - Massage & Rebozo',
+            'reflexologie-pediatrique': 'Reflexologie plantaire Pediatrique',
+            'agenda': 'Agenda: Ma premiere annee de maman'
         };
 
         const serviceName = serviceMap[giftService] || giftService;
@@ -1797,7 +1774,7 @@ function checkBookingParam() {
             setTimeout(() => {
                 const actionSelect = document.getElementById('actionSelect');
                 if (actionSelect) {
-                    actionSelect.value = 'gift_other';
+                    actionSelect.value = 'gift_' + serviceName;
                     actionSelect.dispatchEvent(new Event('change'));
                 }
             }, 100);
@@ -1814,22 +1791,16 @@ function checkStripeReturn() {
     const actionType = urlParams.get('action');
 
     if (paymentStatus === 'success' && actionType) {
-        console.log('Retour de Stripe - Paiement reussi pour action:', actionType);
-
         window.formspreeActionType = actionType;
 
         if (window.bookingFormData) {
-            console.log('Envoi automatique vers Formspree apres paiement...');
             sendFormspreeData();
-        } else {
-            console.warn('Aucune donnee sauvegardee trouvee apres le paiement');
         }
 
         const cleanUrl = window.location.origin + window.location.pathname;
         history.replaceState({}, document.title, cleanUrl);
 
-    } else if (paymentStatus === 'cancel') {
-        console.log('Retour de Stripe - Paiement annule');
+    } else if (paymentStatus === 'cancelled') {
 
         alert('Paiement annule. Vous pouvez reprendre votre reservation quand vous le souhaitez.');
 
@@ -1842,8 +1813,6 @@ function checkStripeReturn() {
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM charge, initialisation...');
-
     // Initialize all modules
     initMobileMenu();
     initHeaderScroll();
@@ -1855,9 +1824,7 @@ document.addEventListener('DOMContentLoaded', function() {
     generateGallery();
 
     // Initialize Stripe
-    initializeStripe().then(() => {
-        console.log('Stripe pret a etre utilise');
-    }).catch(error => {
+    initializeStripe().then(() => {}).catch(error => {
         console.error('Erreur lors de l\'initialisation de Stripe:', error);
     });
 
@@ -1883,31 +1850,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Loader events
 window.addEventListener('load', function() {
-    console.log('Evenement load declenche, demarrage du timer du loader...');
     setTimeout(hideLoader, 1500);
 });
 
 // Fallback for loader
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded declenche');
     setTimeout(function() {
         const loader = document.querySelector('.loader');
         if (loader && loader.style.display !== 'none') {
-            console.log('Fallback: masquage du loader apres 3 secondes');
             hideLoader();
         }
     }, 3000);
 });
-
-// Utility function for forced send (debug)
-window.forceSendFormspree = function() {
-    console.log('Envoi force du formulaire Formspree...');
-    if (window.bookingFormData) {
-        sendFormspreeData();
-    } else {
-        console.warn('Aucune donnee sauvegardee a envoyer');
-    }
-};
 
 // ============================================
 // FAQ TOGGLE

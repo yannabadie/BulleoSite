@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bain Enveloppe Bebe Tarbes | 70EUR - Bulleo Soins</title>
     <meta name="description" content="Bain enveloppe bebe a Tarbes des 70EUR. Thalasso nouveau-ne dans les 21 premiers jours. Apaise bebe, reproduit sensations in-utero. Bulleo Soins 65000.">
-    <meta name="keywords" content="bain enveloppe tarbes, bain bebe tarbes 65, thalasso bebe hautes-pyrenees, bain nouveau-ne 65000, cadeau naissance tarbes 2025, soin bebe tarbes">
+    <meta name="keywords" content="bain enveloppe tarbes, bain bebe tarbes 65, thalasso bebe hautes-pyrenees, bain nouveau-ne 65000, cadeau naissance tarbes 2026, soin bebe tarbes">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Estelle - Bulleo Soins">
     <link rel="canonical" href="https://bulleo-soins.com/services/bain-enveloppe.html">
@@ -41,7 +41,7 @@
         "provider": {
             "@type": "HealthAndBeautyBusiness",
             "name": "Bulleo Soins",
-            "priceRange": "EUR EUR",
+            "priceRange": "70-155 EUR",
             "telephone": "+33675430257",
             "address": {
                 "@type": "PostalAddress",
@@ -68,6 +68,8 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
     <meta name="theme-color" content="#f8f4e9">
+    <script async src="https://js.stripe.com/v3/"></script>
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZT366F6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -102,7 +104,6 @@
                                 <li><a href="../index.html" class="block text-lg text-white hover:text-yellow-400 py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300"><i class="fas fa-home w-6 mr-3"></i>Accueil</a></li>
                                 <li><a href="../index.html#apropos" class="block text-lg text-white hover:text-yellow-400 py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300"><i class="fas fa-user w-6 mr-3"></i>A propos</a></li>
                                 <li><a href="../index.html#prestations" class="block text-lg text-white hover:text-yellow-400 py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300"><i class="fas fa-spa w-6 mr-3"></i>Prestations</a></li>
-                                <li><a href="../noel_2025.html" class="block text-lg text-white hover:text-yellow-400 py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300"><i class="fas fa-gift w-6 mr-3"></i>Offres Noel</a></li>
                                 <li><a href="../galerie.html" class="block text-lg text-white hover:text-yellow-400 py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300"><i class="fas fa-images w-6 mr-3"></i>Galerie</a></li>
                                 <li><a href="../temoignages.html" class="block text-lg text-white hover:text-yellow-400 py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300"><i class="fas fa-star w-6 mr-3"></i>Temoignages</a></li>
                                 <li><a href="../contact.html" class="block text-lg text-white hover:text-yellow-400 py-3 px-4 rounded-lg hover:bg-white/5 transition-all duration-300"><i class="fas fa-envelope w-6 mr-3"></i>Contact</a></li>
@@ -241,7 +242,7 @@
                     <div class="mb-6 md:mb-0"><h4 class="text-lg font-bold mb-4">Contact</h4><address class="text-gray-300 not-italic"><p>108-6 rue aux Tabacs, 65000 Tarbes</p><p><a href="tel:+33675430257" class="hover:text-yellow-300">+33 6 75 43 02 57</a></p></address></div>
                     <div><h4 class="text-lg font-bold mb-4">Suivez-nous</h4><div class="flex"><a href="https://www.instagram.com/bulleo_" class="social-icon bg-[#5a4a42] hover:bg-[#8a7a6e]" target="_blank" aria-label="Instagram Bulleo Soins"><i class="fab fa-instagram" aria-hidden="true"></i></a><a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" class="social-icon bg-[#5a4a42] hover:bg-[#8a7a6e]" target="_blank" aria-label="Facebook Bulleo Soins"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></div></div>
                 </div>
-                <div class="mt-8 pt-8 border-t border-gray-700 text-center"><p class="text-gray-400">&copy; 2025 Bulleo Soins. Tous droits reserves.</p></div>
+                <div class="mt-8 pt-8 border-t border-gray-700 text-center"><p class="text-gray-400">&copy; 2026 Bulleo Soins. Tous droits reserves.</p></div>
             </div>
         </footer>
     
@@ -374,10 +375,21 @@
             <i class="fas fa-phone"></i>
             <span>Appeler</span>
         </a>
-        <button type="button" onclick="openBookingModal('Massage Prenatal')" class="footer-btn footer-btn-book">
+        <button type="button" onclick="openBookingModal('Bain Enveloppe')" class="footer-btn footer-btn-book">
             <i class="fas fa-calendar-check"></i>
             <span>Reserver un soin</span>
         </button>
     </div>
+
+<!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+<script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"fr","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Bulleo-soins"});
+});
+</script>
+<noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/">TermsFeed</a></noscript>
+<!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+
 </body>
 </html>

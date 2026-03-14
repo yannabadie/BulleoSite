@@ -120,490 +120,6 @@
     <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5a4a42">
     <meta name="msapplication-TileColor" content="#f8f4e9">
     <meta name="theme-color" content="#f8f4e9">
-    <style>
-        .service-description {
-            line-height: 1.8;
-            color: #5a4a42;
-        }
-        
-        .service-description p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-benefits li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        
-        .service-benefits li:before {
-            content: "•";
-            color: #c4b6a5;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -0.2rem;
-        }
-        
-        :root {
-            --primary: #f8f4e9;
-            --secondary: #e8e0d5;
-            --accent: #c4b6a5;
-            --dark: #5a4a42;
-            --light: #faf8f5;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
-            color: #333;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--dark);
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(245, 240, 230, 0.7), rgba(245, 240, 230, 0.9)), url('https://images.unsplash.com/photo-1516726817505-f5ed825624d8?q=80&w=2070') center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .section {
-            padding: 6rem 0;
-        }
-        
-        .service-card {
-            transition: all 0.3s ease;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-        
-        .service-gallery {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 0;
-        }
-        
-        .service-gallery img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.5s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.5s ease forwards;
-            animation-delay: calc(var(--delay) * 0.1s);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .service-gallery img:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        @media (min-width: 768px) {
-            .service-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .service-gallery img:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .service-gallery {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        
-        .testimonial-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: "\201C";
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 100px;
-            color: var(--accent);
-            font-family: serif;
-            opacity: 0.2;
-        }
-        
-        .social-icon {
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--dark);
-            margin: 0 10px;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-5px);
-            background: var(--accent);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 600px;
-            width: 90%;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(196, 182, 165, 0.5) transparent;
-        }
-
-        .modal-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .modal-content::-webkit-scrollbar-track {
-            background: transparent;
-            margin: 10px 0;
-        }
-
-        .modal-content::-webkit-scrollbar-thumb {
-            background-color: rgba(196, 182, 165, 0.5);
-            border-radius: 3px;
-            transition: background-color 0.3s ease;
-        }
-
-        .modal-content::-webkit-scrollbar-thumb:hover {
-            background-color: rgba(196, 182, 165, 0.7);
-        }
-
-        .modal-content:hover::-webkit-scrollbar-thumb {
-            background-color: rgba(196, 182, 165, 0.7);
-        }
-
-        #galleryThumbnails::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        #galleryThumbnails::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-
-        #galleryThumbnails::-webkit-scrollbar-thumb {
-            background: #c4b6a5;
-            border-radius: 3px;
-        }
-
-        #galleryThumbnails::-webkit-scrollbar-thumb:hover {
-            background: #8a7a6e;
-        }
-        
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-        
-        .btn-primary {
-            background: var(--dark);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-        
-        .btn-primary:hover {
-            background: #4a3d36;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-        
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--light);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            transition: opacity 0.5s ease;
-        }
-        
-        .loader-logo {
-            width: 250px;
-            height: 250px;
-            position: relative;
-            animation: pulse 2s infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .loader-text {
-            margin-top: 20px;
-            font-size: 18px;
-            color: var(--dark);
-            font-weight: 500;
-            letter-spacing: 2px;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.7; }
-            50% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.7; }
-        }
-        
-        .nav-link {
-            position: relative;
-            padding: 5px 0;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--dark);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Styles pour l'intégration Stripe */
-        #stripeButtonContainer {
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        #stripeButtonContainer:hover {
-            box-shadow: 0 8px 25px rgba(196, 182, 165, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        stripe-buy-button {
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-        
-        /* Personnalisation du bouton Stripe */
-        stripe-buy-button::part(base) {
-            background-color: #c4b6a5 !important;
-            border-radius: 8px !important;
-            font-family: 'Poppins', sans-serif !important;
-            font-weight: 600 !important;
-            padding: 12px 24px !important;
-            font-size: 16px !important;
-            transition: all 0.3s ease !important;
-        }
-        
-        stripe-buy-button::part(base):hover {
-            background-color: #b5a596 !important;
-            transform: translateY(-1px) !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
-        }
-
-        /* Enhanced Gallery Styles */
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-        }
-
-        #galleryModal {
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        #galleryModal img {
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        #galleryModalImage.changing {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-
-        #galleryModalTitle, #galleryModalDescription, #galleryModalCounter {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .gallery-info.changing {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        #galleryModal .absolute.bottom-0 {
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
-        }
-
-        #galleryThumbnails {
-            scrollbar-width: thin;
-            scrollbar-color: #c4b6a5 transparent;
-        }
-
-        #galleryThumbnails::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        #galleryThumbnails::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-        }
-
-        #galleryThumbnails::-webkit-scrollbar-thumb {
-            background: #c4b6a5;
-            border-radius: 3px;
-            transition: background 0.3s ease;
-        }
-
-        #galleryThumbnails::-webkit-scrollbar-thumb:hover {
-            background: #8a7a6e;
-        }
-
-        /* Mobile responsiveness for gallery modal */
-        @media (max-width: 768px) {
-            #galleryModal .max-w-6xl {
-                max-width: 95%;
-            }
-            
-            #galleryModal .absolute.left-4 {
-                left: 8px;
-            }
-            
-            #galleryModal .absolute.right-4 {
-                right: 8px;
-            }
-            
-            #galleryModal .text-4xl {
-                font-size: 2rem;
-            }
-        }
-
-        /* Smooth transitions for gallery grid */
-        .gallery-item img {
-            filter: brightness(1) contrast(1);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .gallery-item:hover img {
-            filter: brightness(1.1) contrast(1.1);
-        }
-
-        /* Mobile menu animation styles */
-        #mobileMenu {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        #mobileMenu:not(.translate-x-full) {
-            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Prevent body scroll when mobile menu is open */
-        body.mobile-menu-open {
-            overflow: hidden;
-        }
-    </style>
-
 <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
 <script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
 <script type="text/javascript" charset="UTF-8">
@@ -630,7 +146,9 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZT366F6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
+    <a href="#prestations" class="skip-nav">Aller au contenu principal</a>
+
     <main>
     <!-- Loader -->
     <div class="loader">
@@ -1622,7 +1140,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                 <h2 class="text-3xl font-bold mb-4">Restez informée de nos actualités</h2>
                 <p class="text-lg text-gray-700 mb-8">Recevez nos conseils bien-être, nos nouveautés et offres exclusives directement dans votre boîte mail</p>
                 
-                <form action="https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID" method="POST" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                <form action="#" onsubmit="alert('Newsletter bientôt disponible !'); return false;" class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
                     <input type="email" name="email" required placeholder="Votre adresse email" 
                            class="flex-1 px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
                     <button type="submit" class="px-8 py-3 bg-[#5a4a42] text-white rounded-full hover:bg-[#4a3d36] transition-colors duration-300 font-semibold">
@@ -1741,6 +1259,8 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
         </div>
     </section>
 
+    </main>
+
     <!-- Footer -->
     <footer class="bg-[#5a4a42] text-white py-12">
         <div class="container mx-auto px-4">
@@ -1791,7 +1311,7 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                         </div>
                     </div>
                     <div class="text-center md:text-right">
-                        <p class="text-gray-400">&copy; 2025 Bulleo Soins. Tous droits réservés.</p>
+                        <p class="text-gray-400">&copy; 2026 Bulleo Soins. Tous droits réservés.</p>
                         <p class="text-gray-500 text-sm mt-1">Siège social : 108-6 rue aux Tabacs, 65000 Tarbes</p>
                         <p class="text-sm mt-2">
                             <a href="#" id="open_preferences_center" class="text-gray-300 hover:text-yellow-300 transition-colors underline">
@@ -2076,11 +1596,20 @@ cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palet
                     <button type="button" onclick="selectServiceAndBook('Reflexologie Plantaire Obstetrique')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
                         <i class="fas fa-hand-holding-heart mr-3 text-[#8a7a6e]"></i>Réflexologie Plantaire
                     </button>
-                    <button type="button" onclick="selectServiceAndBook('Soin postnatal complet')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                    <button type="button" onclick="selectServiceAndBook('Soin postnatal complet - Massage & Rebozo')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
                         <i class="fas fa-heart mr-3 text-[#8a7a6e]"></i>Soin postnatal complet
                     </button>
-                    <button type="button" onclick="selectServiceAndBook('Massage bebe enfant')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                    <button type="button" onclick="selectServiceAndBook('Massage bebe & enfant')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
                         <i class="fas fa-child mr-3 text-[#8a7a6e]"></i>Massage bébé & enfant
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Reflexologie plantaire Pediatrique')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-foot mr-3 text-[#8a7a6e]"></i>Réflexologie plantaire Pédiatrique
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Agenda: Ma premiere annee de maman')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-book mr-3 text-[#8a7a6e]"></i>Agenda: Ma première année de maman
+                    </button>
+                    <button type="button" onclick="selectServiceAndBook('Atelier Motricite & Eveil sensoriel')" class="w-full text-left p-4 bg-[#f8f4e9] rounded-lg hover:bg-[#f0e8dc] transition-colors">
+                        <i class="fas fa-puzzle-piece mr-3 text-[#8a7a6e]"></i>Atelier Motricité & Éveil sensoriel
                     </button>
                 </div>
             </div>
