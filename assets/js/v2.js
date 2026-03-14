@@ -436,7 +436,7 @@ function updateGiftService(serviceName) {
 
     if (service.hasRelatedOffers && service.relatedOffers.length > 0) {
         // Show variant selector
-        if (variantSection) variantSection.style.display = '';
+        if (variantSection) { variantSection.classList.remove('hidden'); variantSection.style.display = ''; }
 
         if (variantSelect) {
             variantSelect.innerHTML = '';
@@ -473,7 +473,7 @@ function updateGiftService(serviceName) {
         }
     } else {
         // Hide variant selector
-        if (variantSection) variantSection.style.display = 'none';
+        if (variantSection) { variantSection.classList.add('hidden'); variantSection.style.display = 'none'; }
         if (priceEl) priceEl.textContent = service.price || '--';
     }
 }
@@ -570,6 +570,13 @@ function handleGiftPayment() {
     if (!priceId) {
         alert('Service non configure pour les paiements. Veuillez nous contacter.');
         return false;
+    }
+
+    // Show loading state on payment button
+    const payBtn = modal.querySelector('[onclick="handleGiftPayment()"]');
+    if (payBtn) {
+        payBtn.disabled = true;
+        payBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Redirection vers le paiement...';
     }
 
     // Redirect to Stripe
