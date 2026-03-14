@@ -519,17 +519,31 @@ async function handlePayment(type) {
         const phone = document.getElementById('bookingPhone');
         const name = document.getElementById('bookingName');
         const email = document.getElementById('bookingEmail');
+        const currentService = document.getElementById('selectedService')?.value;
+        const currentServiceData = serviceConfig[currentService];
+        const needsShipping = currentServiceData && currentServiceData.requiresShipping;
 
-        if (!bookingDate.value) {
-            showInlineError(bookingDate, 'Veuillez selectionner une date');
-            bookingDate.focus();
-            return false;
-        }
+        // Date et creneau requis SAUF pour les services avec livraison (Agenda)
+        if (!needsShipping) {
+            if (!bookingDate.value) {
+                showInlineError(bookingDate, 'Veuillez selectionner une date');
+                bookingDate.focus();
+                return false;
+            }
 
-        if (!bookingTime.value) {
-            showInlineError(bookingTime, 'Veuillez selectionner un creneau');
-            bookingTime.focus();
-            return false;
+            if (!bookingTime.value) {
+                showInlineError(bookingTime, 'Veuillez selectionner un creneau');
+                bookingTime.focus();
+                return false;
+            }
+        } else {
+            // Pour les services avec livraison, valider l'adresse
+            const shippingAddress = document.getElementById('shippingAddress');
+            if (!shippingAddress || !shippingAddress.value.trim()) {
+                showInlineError(shippingAddress, 'Veuillez indiquer une adresse de livraison');
+                if (shippingAddress) shippingAddress.focus();
+                return false;
+            }
         }
 
         if (!validateMinLength(name, 2, 'Nom requis (min 2 caracteres)')) {
