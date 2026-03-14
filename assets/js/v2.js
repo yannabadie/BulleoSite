@@ -629,23 +629,42 @@ async function performStripeRedirect(priceId) {
 // ============================================
 // Calendly URL base et mapping des slugs par service
 const CALENDLY_BASE = 'https://calendly.com/contact-bulleo-soins';
+// Slugs verifies sur Calendly le 14/03/2026
 const CALENDLY_SLUGS = {
-    'Massage Prenatal': 'massage-prenatal',
-    'Massage Postnatal': 'massage-postnatal',
-    'Bain Enveloppe': 'bain-enveloppe',
+    'Massage Prenatal': 'massage-pre-post-natal',
+    'Massage Postnatal': 'massage-pre-post-natal',
+    'Bain Enveloppe': null,  // Pas de slug direct — fallback page generale
     'Soin Rebozo': 'soin-rebozo',
-    'Reflexologie Plantaire Obstetrique': 'reflexologie-plantaire',
+    'Reflexologie Plantaire Obstetrique': 'reflexologie-obstetrique',
     'Reflexologie plantaire Pediatrique': 'reflexologie-pediatrique',
-    'Atelier Massage Bebe': 'atelier-massage-bebe',
-    'Massage bebe & enfant': 'massage-bebe-enfant',
-    'Soin postnatal complet - Massage & Rebozo': 'soin-postnatal-complet',
-    'Atelier Motricite & Eveil sensoriel': 'atelier-motricite',
-    'Agenda: Ma premiere annee de maman': 'agenda'
+    'Atelier Massage Bebe': 'apprendre-a-masser-son-bebe',
+    'Massage bebe & enfant': 'massage-bebe',
+    'Soin postnatal complet - Massage & Rebozo': null,  // Pas de slug direct
+    'Atelier Motricite & Eveil sensoriel': null,  // Pas de slug direct
+    'Agenda: Ma premiere annee de maman': null  // Produit physique, pas de RDV
 };
 
-function getCalendlyUrl(serviceName) {
+// Slugs pour le mode "J'ai une carte cadeau"
+const CALENDLY_GIFT_SLUGS = {
+    'Massage Prenatal': 'j-ai-une-carte-cadeau-massage-pre-ou-post-natal',
+    'Massage Postnatal': 'j-ai-une-carte-cadeau-massage-pre-ou-post-natal',
+    'Bain Enveloppe': 'j-ai-un-carte-cadeau-bain-enveloppe',
+    'Soin Rebozo': 'j-ai-une-carte-cadeau-soin-rebozo',
+    'Reflexologie Plantaire Obstetrique': null,
+    'Reflexologie plantaire Pediatrique': 'j-ai-une-carte-cadeau-reflexologie-pediatrique',
+    'Atelier Massage Bebe': 'j-ai-une-carte-cadeau-apprendre-a-masser-bebe',
+    'Massage bebe & enfant': 'j-ai-une-carte-cadeau-massage-bebe',
+    'Soin postnatal complet - Massage & Rebozo': null,
+    'Atelier Motricite & Eveil sensoriel': null,
+    'Agenda: Ma premiere annee de maman': null
+};
+
+function getCalendlyUrl(serviceName, isGiftRedemption) {
+    if (isGiftRedemption) {
+        const giftSlug = CALENDLY_GIFT_SLUGS[serviceName];
+        if (giftSlug) return CALENDLY_BASE + '/' + giftSlug;
+    }
     const slug = CALENDLY_SLUGS[serviceName];
-    // Try service-specific URL first, fallback to base
     return slug ? CALENDLY_BASE + '/' + slug : CALENDLY_BASE;
 }
 
