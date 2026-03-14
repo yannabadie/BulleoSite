@@ -105,7 +105,13 @@
                     console.error('Erreur lors de la récupération des données:', e);
                 }
             }
-            
+
+            if (!savedFormData || Object.keys(formData).length === 0) {
+                // Still submit with session_id so the business knows a payment occurred
+                // But add a warning field
+                formData['ATTENTION'] = 'Données client non disponibles - vérifier dans Stripe Dashboard avec le session_id';
+            }
+
             // Déterminer l'endpoint Formspree selon le type d'action
             const formspreeUrl = actionType === 'gift' 
                 ? 'https://formspree.io/f/meozaekb'  // Bons cadeaux
@@ -144,6 +150,9 @@
                 form.appendChild(input);
             });
             
+            // Mark as submitted to prevent resubmission on back button
+            sessionStorage.setItem('formspreeAlreadySubmitted', 'true');
+
             // Nettoyer localStorage et sessionStorage après utilisation
             try {
                 localStorage.removeItem('pendingFormData');
@@ -158,18 +167,24 @@
             form.submit();
         }
         
-        // Soumettre automatiquement avec compte à rebours
-        let countdown = 3;
-        const submitButton = document.getElementById('submitBtn');
-        const timer = setInterval(() => {
-            countdown--;
-            if (countdown <= 0) {
-                clearInterval(timer);
-                submitToFormspree();
-            } else {
-                submitButton.textContent = 'Envoi automatique dans ' + countdown + 's...';
-            }
-        }, 1000);
+        // Prevent resubmission on back button
+        if (sessionStorage.getItem('formspreeAlreadySubmitted')) {
+            document.querySelector('.bg-white').innerHTML = '<div style="text-align:center;padding:40px;"><h2 style="color:#5a4a42;margin-bottom:10px;">Demande déjà envoyée</h2><p style="color:#666;">Votre demande a été transmise avec succès.</p><a href="/" style="color:#5a4a42;text-decoration:underline;">Retour à l\'accueil</a></div>';
+            // Don't start any timers or auto-submit
+        } else {
+            // Soumettre automatiquement avec compte à rebours
+            let countdown = 3;
+            const submitButton = document.getElementById('submitBtn');
+            const timer = setInterval(() => {
+                countdown--;
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    submitToFormspree();
+                } else {
+                    submitButton.textContent = 'Envoi automatique dans ' + countdown + 's...';
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>

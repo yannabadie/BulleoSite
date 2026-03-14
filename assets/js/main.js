@@ -561,6 +561,18 @@ async function handlePayment(type) {
         }
     }
 
+    // Validate variant selection for services with related offers
+    const serviceName = document.getElementById('selectedService')?.value;
+    const serviceData = serviceConfig[serviceName];
+    if (serviceData && serviceData.hasRelatedOffers) {
+        const variantSelect = document.getElementById('variantSelect');
+        if (!variantSelect || !variantSelect.value) {
+            alert('Veuillez sélectionner une formule.');
+            if (variantSelect) variantSelect.focus();
+            return false;
+        }
+    }
+
     // Sauvegarder les donnees du formulaire
     window.bookingFormData = new FormData(form);
     window.formspreeActionType = actionType;
@@ -582,7 +594,6 @@ async function handlePayment(type) {
         }
     }
 
-    const serviceName = document.getElementById('selectedService')?.value;
     const variant = document.getElementById('variantSelect')?.value;
     const servicePrice = document.getElementById('servicePrice')?.textContent || '0';
 
@@ -636,7 +647,7 @@ async function redirectToStripeCheckout(priceId) {
             }],
             mode: 'payment',
             successUrl: `${window.location.origin}/success.html?payment=success&action=${actionType}&session_id={CHECKOUT_SESSION_ID}`,
-            cancelUrl: `${window.location.href}?payment=cancelled`,
+            cancelUrl: `${window.location.origin}${window.location.pathname}?payment=cancelled`,
         });
 
         if (result.error) {
@@ -1842,7 +1853,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Formspree confirmation message
+    // Handle confirmation after Formspree submission
+    const confirmationParam = new URLSearchParams(window.location.search).get('confirmation');
+    if (confirmationParam === 'sent') {
+        // Show confirmation message
+        setTimeout(() => {
+            const msg = document.createElement('div');
+            msg.style.cssText = 'position:fixed;top:0;left:0;width:100%;background:linear-gradient(135deg,#5a4a42,#7a6a62);color:white;text-align:center;padding:20px;z-index:10000;font-family:Poppins,sans-serif;box-shadow:0 4px 15px rgba(0,0,0,0.3);';
+            msg.innerHTML = '<div style="max-width:600px;margin:0 auto;"><p style="font-size:1.2rem;margin:0 0 5px;">\u2713 Votre demande a bien \u00e9t\u00e9 enregistr\u00e9e !</p><p style="font-size:0.9rem;margin:0;opacity:0.9;">Vous recevrez un email de confirmation sous peu.</p></div><button onclick="this.parentElement.remove()" style="position:absolute;top:10px;right:15px;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">\u00d7</button>';
+            document.body.prepend(msg);
+            // Auto-dismiss after 8 seconds
+            setTimeout(() => { if (msg.parentElement) msg.remove(); }, 8000);
+        }, 500);
+        // Clean URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // Formspree confirmation message (legacy: referrer-based check)
     if (window.location.hash === '#contact' && document.referrer.includes('formspree.io')) {
         showMessage('Votre message a ete envoye avec succes ! Nous vous contacterons tres rapidement.', 'success');
     }
