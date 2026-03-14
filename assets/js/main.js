@@ -381,6 +381,8 @@ function initMobileMenu() {
 
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', function() {
+            document.body.dataset.scrollY = window.scrollY;
+            document.body.style.top = `-${window.scrollY}px`;
             mobileMenu.classList.remove('translate-x-full');
             document.body.classList.add('mobile-menu-open');
         });
@@ -390,6 +392,9 @@ function initMobileMenu() {
         closeMobileMenu.addEventListener('click', function() {
             mobileMenu.classList.add('translate-x-full');
             document.body.classList.remove('mobile-menu-open');
+            const scrollY = document.body.dataset.scrollY;
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollY || '0'));
         });
     }
 
@@ -399,6 +404,9 @@ function initMobileMenu() {
             if (mobileMenu) {
                 mobileMenu.classList.add('translate-x-full');
                 document.body.classList.remove('mobile-menu-open');
+                const scrollY = document.body.dataset.scrollY;
+                document.body.style.top = '';
+                window.scrollTo(0, parseInt(scrollY || '0'));
             }
         });
     });
@@ -424,7 +432,7 @@ function initHeaderScroll() {
                 }
             }
         }
-    });
+    }, { passive: true });
 
     // Initialize logo state on page load
     const logo = document.getElementById('headerLogo');
@@ -1163,6 +1171,24 @@ function initGalleryKeyboard() {
             }
         }
     });
+
+    // Touch swipe for gallery
+    let galleryTouchStartX = 0;
+    document.addEventListener('touchstart', function(e) {
+        if (document.getElementById('galleryModal')?.classList.contains('active')) {
+            galleryTouchStartX = e.changedTouches[0].screenX;
+        }
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+        if (document.getElementById('galleryModal')?.classList.contains('active')) {
+            const diff = galleryTouchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextGalleryImage();
+                else previousGalleryImage();
+            }
+        }
+    }, { passive: true });
 }
 
 // ============================================
@@ -1620,13 +1646,14 @@ function switchTab(tabName) {
 // PARALLAX
 // ============================================
 function initParallax() {
+    if (window.innerWidth <= 768 || 'ontouchstart' in window) return;
     window.addEventListener('scroll', function() {
         const parallaxElements = document.querySelectorAll('.parallax');
         parallaxElements.forEach(element => {
             const scrollPosition = window.pageYOffset;
             element.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
         });
-    });
+    }, { passive: true });
 }
 
 // ============================================
