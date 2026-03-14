@@ -627,15 +627,48 @@ async function performStripeRedirect(priceId) {
 // ============================================
 // CALENDLY
 // ============================================
+// Calendly URL base et mapping des slugs par service
+const CALENDLY_BASE = 'https://calendly.com/contact-bulleo-soins';
+const CALENDLY_SLUGS = {
+    'Massage Prenatal': 'massage-prenatal',
+    'Massage Postnatal': 'massage-postnatal',
+    'Bain Enveloppe': 'bain-enveloppe',
+    'Soin Rebozo': 'soin-rebozo',
+    'Reflexologie Plantaire Obstetrique': 'reflexologie-plantaire',
+    'Reflexologie plantaire Pediatrique': 'reflexologie-pediatrique',
+    'Atelier Massage Bebe': 'atelier-massage-bebe',
+    'Massage bebe & enfant': 'massage-bebe-enfant',
+    'Soin postnatal complet - Massage & Rebozo': 'soin-postnatal-complet',
+    'Atelier Motricite & Eveil sensoriel': 'atelier-motricite',
+    'Agenda: Ma premiere annee de maman': 'agenda'
+};
+
+function getCalendlyUrl(serviceName) {
+    const slug = CALENDLY_SLUGS[serviceName];
+    // Try service-specific URL first, fallback to base
+    return slug ? CALENDLY_BASE + '/' + slug : CALENDLY_BASE;
+}
+
 function openCalendlyPopup(serviceName) {
+    const url = getCalendlyUrl(serviceName);
+
     if (typeof Calendly === 'undefined') {
-        window.open('https://calendly.com/contact-bulleo-soins', '_blank');
+        window.open(url, '_blank');
         return;
     }
+
     Calendly.initPopupWidget({
-        url: 'https://calendly.com/contact-bulleo-soins',
+        url: url,
         prefill: {
-            customAnswers: { a1: serviceName || '' }
+            customAnswers: {
+                a1: serviceName || '',
+                a2: serviceConfig[serviceName] ? serviceConfig[serviceName].price || '' : ''
+            }
+        },
+        utm: {
+            utmSource: 'website',
+            utmMedium: 'bouton_reserver',
+            utmContent: serviceName || 'general'
         }
     });
 }
@@ -644,11 +677,22 @@ function initCalendlyInline(containerId, serviceName) {
     if (typeof Calendly === 'undefined') return;
     const container = document.getElementById(containerId);
     if (!container) return;
+
+    const url = getCalendlyUrl(serviceName);
+
     Calendly.initInlineWidget({
-        url: 'https://calendly.com/contact-bulleo-soins',
+        url: url,
         parentElement: container,
         prefill: {
-            customAnswers: { a1: serviceName || '' }
+            customAnswers: {
+                a1: serviceName || '',
+                a2: serviceConfig[serviceName] ? serviceConfig[serviceName].price || '' : ''
+            }
+        },
+        utm: {
+            utmSource: 'website',
+            utmMedium: 'page_service',
+            utmContent: serviceName || 'general'
         }
     });
 }
