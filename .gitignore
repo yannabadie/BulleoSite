@@ -24,6 +24,7 @@ license.txt
 .claude/
 .github/
 .playwright-mcp/
+.superpowers/
 
 # OS files
 .DS_Store

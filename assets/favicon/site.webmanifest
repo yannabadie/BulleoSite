@@ -1,9 +1,9 @@
 {
-  "name": "Bulleo Soins",
+  "name": "Bulleo — Institut Périnatal",
   "short_name": "Bulleo",
   "start_url": "/",
   "lang": "fr",
-  "description": "Accompagnement perinatal a Tarbes - Massage prenatal, bain enveloppe, soin rebozo",
+  "description": "Institut périnatal à Tarbes — Massage prénatal, bain enveloppé, soin rebozo",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
