@@ -1,0 +1,154 @@
+Produit,Prix,IDprix,Bouton
+Offre de No‰l : Massage femme enceinte + massage post partum,"150,00 ?",price_1SJrfgCm8TYzw7cAVeBMPvXh,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJt5ZCm8TYzw7cADMTcEboB"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Offre de No‰l: Soin rebozo + massage post partum,"155,00 ?",price_1SJra0Cm8TYzw7cA8Z3Cncxf,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJt92Cm8TYzw7cACUIPM8xk"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Offre de No‰l : Bain + Soin rebozo,"150,00 ?",price_1SJrWmCm8TYzw7cAi7TedF1f,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtAiCm8TYzw7cAwDrCkznF"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Offre de No‰l: Bain + massage femme enceinte ou post partum,"135,00 ?",price_1SJrVaCm8TYzw7cAz6BiJsSG,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtCdCm8TYzw7cAF6T2dKkp"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage b‚b‚ / enfant,"55,00 ?",price_1SIyYXCm8TYzw7cA3eAcDt0z,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtExCm8TYzw7cAeMS6sTrU"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Atelier massage b‚b‚,"80,00 ?",price_1SIyYACm8TYzw7cAcgWKZUDU,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtGGCm8TYzw7cADMJv955k"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage post accouchement + soin Rebozo,"160,00 ?",price_1SIyXlCm8TYzw7cAzFfc2qyB,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtHpCm8TYzw7cAcOxQmRrL"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Soin Rebozo + bain envelopp‚,"155,00 ?",price_1SIyWNCm8TYzw7cAFlJgRQpZ,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtK5Cm8TYzw7cAx8WYvhKq"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Soin Rebozo,"90,00 ?",price_1SIyVlCm8TYzw7cAPEPWMeLr,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtNJCm8TYzw7cApeGQMlvs"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage post accouchement 1h30,"110,00 ?",price_1SIyTWCm8TYzw7cASFpVxPvS,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtP0Cm8TYzw7cAr1XEfiq9"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage femme enceinte 1h30,"110,00 ?",price_1SIyT1Cm8TYzw7cAo9urSwWp,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtbSCm8TYzw7cAEDslgN2B"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage post accouchement,"75,00 ?",price_1SIyQxCm8TYzw7cADEHgfZ75,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtciCm8TYzw7cAi4BDm4De"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage femme enceinte,"75,00 ?",price_1SIyPgCm8TYzw7cAgJTspWxo,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJteVCm8TYzw7cAtmL056bN"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage post accouchement + bain envelopp‚,"140,00 ?",price_1SIyNqCm8TYzw7cAcgbBwTpa,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtgFCm8TYzw7cAdEGzcY5m"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Massage femme enceinte + bain envelopp‚,"140,00 ?",price_1SIyNOCm8TYzw7cAxuJCLweM,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJthmCm8TYzw7cAEtki54MD"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Bain envelopp‚,"70,00 ?",price_1SIyM2Cm8TYzw7cAVrkQJ2FH,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtjxCm8TYzw7cAiapizAVM"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>
+Offre de No‰l: Massage femme enceinte ou post accouchement,"65,00 ?",price_1S7Ko3Cm8TYzw7cAK4WJPxTa,<script async
+,,,"  src=""https://js.stripe.com/v3/buy-button.js"">"
+,,,</script>
+,,,
+,,,<stripe-buy-button
+,,,"  buy-button-id=""buy_btn_1SJtu8Cm8TYzw7cAeQlUmUB5"""
+,,,"  publishable-key=""pk_live_51RngTlCm8TYzw7cAg4DHZDf8Ekwjip4lNtC4vd2xaNBxYa5ayMJJmXlSN90FQN1RsITW0OCftaRgy3fsIZ8zzWRr00lM3lDBnn"""
+,,,>
+,,,</stripe-buy-button>

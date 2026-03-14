@@ -1,0 +1,35 @@
+# WordPress core (disabled but present on server)
+wp-admin/
+wp-includes/
+wp-content/
+wp-config.php
+wp-config-sample.php
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+index.php_off
+index.php_off2
+license.txt
+
+# IDE / tools
+.claude/
+.github/
+.playwright-mcp/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Env / secrets
+.env
+*.env

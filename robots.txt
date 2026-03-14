@@ -1,0 +1,131 @@
+# Robots.txt pour Bulleo Soins
+# https://bulleo-soins.com/
+# Dernière mise à jour : 31/07/2025
+
+# Règles pour tous les robots
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /success.html
+Allow: /assets/favicon/favicon.ico
+Allow: /assets/favicon/favicon-32x32.png
+Allow: /assets/favicon/favicon-16x16.png
+Allow: /assets/favicon/apple-touch-icon.png
+Disallow: /dev/
+Disallow: /latest_stable/
+Disallow: /memory-bank/
+Disallow: /site/
+Disallow: /working/
+Disallow: /.github/
+Disallow: /GUIDE_VERIFICATION_GOOGLE.txt
+Disallow: /ID.txt
+Disallow: /*.bak$
+Disallow: /*.backup$
+Disallow: /*.tmp$
+
+# Sitemap
+Sitemap: https://bulleo-soins.com/sitemap.xml
+
+# Crawl-delay pour être respectueux des serveurs
+Crawl-delay: 1
+
+# Bots des moteurs de recherche principaux
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Bots pour les réseaux sociaux (important pour le partage)
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 0
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 0
+
+User-agent: Pinterestbot
+Allow: /
+Crawl-delay: 1
+
+# Bloque les mauvais bots connus
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: Majestic-12
+Disallow: /
+
+User-agent: MegaIndex.ru
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: Ezooms
+Disallow: /
+
+User-agent: MSIECrawler
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Microsoft.URL.Control
+Disallow: /
+
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: penthesilea
+Disallow: /
