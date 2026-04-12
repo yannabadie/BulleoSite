@@ -108,6 +108,13 @@ const serviceConfig = {
                 price: '155,00 EUR',
                 priceId: 'price_1SIyWNCm8TYzw7cAFlJgRQpZ',
                 buyButtonId: 'buy_btn_1SJtK5Cm8TYzw7cAx8WYvhKq'
+            },
+            {
+                key: 'bain_jumeaux',
+                name: 'Bain Enveloppe Jumeaux',
+                price: '120,00 EUR',
+                priceId: 'price_1TLKf3Cm8TYzw7cAe1I5TdYN',
+                buyButtonId: ''
             }
         ]
     },
@@ -225,7 +232,8 @@ const serviceToPriceId = {
             'solo': 'price_1SIyM2Cm8TYzw7cAVrkQJ2FH',
             'bain_prenatal': 'price_1SIyNOCm8TYzw7cAxuJCLweM',
             'bain_postnatal': 'price_1SIyNqCm8TYzw7cAcgbBwTpa',
-            'bain_rebozo': 'price_1SIyWNCm8TYzw7cAFlJgRQpZ'
+            'bain_rebozo': 'price_1SIyWNCm8TYzw7cAFlJgRQpZ',
+            'bain_jumeaux': 'price_1TLKf3Cm8TYzw7cAe1I5TdYN'
         }
     },
     'Atelier Massage Bebe': 'price_1SIyYACm8TYzw7cAcgWKZUDU',
