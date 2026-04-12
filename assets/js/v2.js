@@ -669,8 +669,8 @@ const CALENDLY_SLUGS = {
     'Reflexologie plantaire Pediatrique': 'reflexologie-pediatrique',
     'Atelier Massage Bebe': 'apprendre-a-masser-son-bebe',
     'Massage bebe & enfant': 'massage-bebe',
-    'Soin postnatal complet - Massage & Rebozo': null,
-    'Bain Enveloppe Jumeaux': null,  // Pas de slug direct
+    'Soin postnatal complet - Massage & Rebozo': 'soin-postnatal-complet',
+    'Bain Enveloppe Jumeaux': 'bain-jumeaux',
     'Agenda: Ma premiere annee de maman': null
 };
 
@@ -685,7 +685,7 @@ const CALENDLY_GIFT_SLUGS = {
     'Atelier Massage Bebe': 'j-ai-une-carte-cadeau-apprendre-a-masser-bebe',
     'Massage bebe & enfant': 'j-ai-une-carte-cadeau-massage-bebe',
     'Soin postnatal complet - Massage & Rebozo': null,
-    'Bain Enveloppe Jumeaux': null,
+    'Bain Enveloppe Jumeaux': 'j-ai-une-carte-cadeau-bain-jumeaux',
     'Agenda: Ma premiere annee de maman': null
 };
 
