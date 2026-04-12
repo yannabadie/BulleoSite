@@ -310,6 +310,9 @@ function openGiftModal(serviceName) {
     currentGiftService = serviceName;
     currentGiftVariantKey = '';
 
+    // Pre-load Stripe script when modal opens (user will likely pay)
+    loadStripeScript();
+
     // Set modal title
     const titleEl = modal.querySelector('[data-gift-title]');
     if (titleEl) {
@@ -584,10 +587,22 @@ function handleGiftPayment() {
 }
 
 // ============================================
-// STRIPE
+// STRIPE (lazy load — charge uniquement au premier paiement)
 // ============================================
+let stripeScriptLoaded = false;
+
+function loadStripeScript() {
+    if (stripeScriptLoaded) return;
+    stripeScriptLoaded = true;
+    const s = document.createElement('script');
+    s.src = 'https://js.stripe.com/v3/';
+    s.async = true;
+    document.head.appendChild(s);
+}
+
 async function redirectToStripeCheckout(priceId) {
     try {
+        loadStripeScript();
         if (typeof Stripe === 'undefined') {
             let attempts = 0;
             const waitForStripe = setInterval(function() {
@@ -595,7 +610,7 @@ async function redirectToStripeCheckout(priceId) {
                 if (typeof Stripe !== 'undefined') {
                     clearInterval(waitForStripe);
                     performStripeRedirect(priceId);
-                } else if (attempts > 50) {
+                } else if (attempts > 100) {
                     clearInterval(waitForStripe);
                     alert('Erreur de chargement du systeme de paiement. Veuillez recharger la page.');
                 }
