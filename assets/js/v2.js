@@ -663,7 +663,7 @@ const CALENDLY_BASE = 'https://calendly.com/contact-bulleo-soins';
 const CALENDLY_SLUGS = {
     'Massage Prenatal': 'massage-pre-post-natal',
     'Massage Postnatal': 'massage-pre-post-natal',
-    'Bain Enveloppe': null,  // Pas de slug direct — fallback page generale
+    'Bain Enveloppe': '30min',
     'Soin Rebozo': 'soin-rebozo',
     'Reflexologie Plantaire Obstetrique': 'reflexologie-obstetrique',
     'Reflexologie plantaire Pediatrique': 'reflexologie-pediatrique',
