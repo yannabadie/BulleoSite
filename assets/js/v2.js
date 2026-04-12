@@ -196,14 +196,6 @@ const serviceConfig = {
         price: '31,80 EUR',
         buyButtonId: 'buy_btn_1RqWYKCm8TYzw7cAWcMEeir5',
         requiresShipping: true
-    },
-    'Atelier Motricite & Eveil sensoriel': {
-        name: 'Atelier Motricite & Eveil sensoriel',
-        article: 'un',
-        giftText: 'Offrir un bon cadeau Atelier Motricite',
-        bookText: 'Reserver un Atelier Motricite',
-        price: '16,00 EUR',
-        buyButtonId: 'buy_btn_1RqWVWCm8TYzw7cAFHxH5XlR'
     }
 };
 
@@ -249,8 +241,7 @@ const serviceToPriceId = {
     'Reflexologie plantaire Pediatrique': 'price_1RqWlgCm8TYzw7cANnCeRBdq',
     'Massage bebe & enfant': 'price_1SIyYXCm8TYzw7cA3eAcDt0z',
     'Soin postnatal complet - Massage & Rebozo': 'price_1SIyXlCm8TYzw7cAzFfc2qyB',
-    'Agenda: Ma premiere annee de maman': 'price_1RqVTxCm8TYzw7cA6e88Upbg',
-    'Atelier Motricite & Eveil sensoriel': 'price_1RzzLGCm8TYzw7cAFej7gEph'
+    'Agenda: Ma premiere annee de maman': 'price_1RqVTxCm8TYzw7cA6e88Upbg'
 };
 
 // Stripe publishable key
@@ -655,7 +646,6 @@ const CALENDLY_SLUGS = {
     'Atelier Massage Bebe': 'apprendre-a-masser-son-bebe',
     'Massage bebe & enfant': 'massage-bebe',
     'Soin postnatal complet - Massage & Rebozo': null,  // Pas de slug direct
-    'Atelier Motricite & Eveil sensoriel': null,  // Pas de slug direct
     'Agenda: Ma premiere annee de maman': null  // Produit physique, pas de RDV
 };
 
@@ -670,7 +660,6 @@ const CALENDLY_GIFT_SLUGS = {
     'Atelier Massage Bebe': 'j-ai-une-carte-cadeau-apprendre-a-masser-bebe',
     'Massage bebe & enfant': 'j-ai-une-carte-cadeau-massage-bebe',
     'Soin postnatal complet - Massage & Rebozo': null,
-    'Atelier Motricite & Eveil sensoriel': null,
     'Agenda: Ma premiere annee de maman': null
 };
 
