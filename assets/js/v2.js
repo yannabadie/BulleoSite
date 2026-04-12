@@ -126,6 +126,14 @@ const serviceConfig = {
         price: '80,00 EUR',
         buyButtonId: 'buy_btn_1SJtGGCm8TYzw7cADMJv955k'
     },
+    'Bain Enveloppe Jumeaux': {
+        name: 'Bain Enveloppe Jumeaux',
+        article: 'un',
+        giftText: 'Offrir un bon cadeau Bain Enveloppe Jumeaux',
+        bookText: 'Reserver un Bain Enveloppe Jumeaux',
+        price: '120,00 EUR',
+        buyButtonId: ''
+    },
     'Soin Rebozo': {
         name: 'Soin Rebozo',
         article: 'un',
@@ -229,6 +237,7 @@ const serviceToPriceId = {
         }
     },
     'Atelier Massage Bebe': 'price_1SIyYACm8TYzw7cAcgWKZUDU',
+    'Bain Enveloppe Jumeaux': 'price_1TLKf3Cm8TYzw7cAe1I5TdYN',
     'Soin Rebozo': {
         default: 'price_1SIyVlCm8TYzw7cAPEPWMeLr',
         relatedOffers: {
@@ -660,8 +669,9 @@ const CALENDLY_SLUGS = {
     'Reflexologie plantaire Pediatrique': 'reflexologie-pediatrique',
     'Atelier Massage Bebe': 'apprendre-a-masser-son-bebe',
     'Massage bebe & enfant': 'massage-bebe',
-    'Soin postnatal complet - Massage & Rebozo': null,  // Pas de slug direct
-    'Agenda: Ma premiere annee de maman': null  // Produit physique, pas de RDV
+    'Soin postnatal complet - Massage & Rebozo': null,
+    'Bain Enveloppe Jumeaux': null,  // Pas de slug direct
+    'Agenda: Ma premiere annee de maman': null
 };
 
 // Slugs pour le mode "J'ai une carte cadeau"
@@ -675,6 +685,7 @@ const CALENDLY_GIFT_SLUGS = {
     'Atelier Massage Bebe': 'j-ai-une-carte-cadeau-apprendre-a-masser-bebe',
     'Massage bebe & enfant': 'j-ai-une-carte-cadeau-massage-bebe',
     'Soin postnatal complet - Massage & Rebozo': null,
+    'Bain Enveloppe Jumeaux': null,
     'Agenda: Ma premiere annee de maman': null
 };
 
