@@ -25,7 +25,7 @@
     <script>tailwind.config={theme:{extend:{colors:{primary:'#C48A69',secondary:'#F9F7F2',accent:'#8A9A5B',text:'#2C2C2C',gold:'#D4AF37'},fontFamily:{serif:['"Playfair Display"','serif'],sans:['"Lato"','sans-serif']}}}}</script>
     <script async src="https://js.stripe.com/v3/"></script><script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"><script async src="https://assets.calendly.com/assets/external/widget.js"></script>
-    <link rel="stylesheet" href="../assets/css/v2.css">
+    <link rel="stylesheet" href="../assets/css/v2.css?v=20260314b">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png"><meta name="msapplication-TileColor" content="#F9F7F2"><meta name="theme-color" content="#F9F7F2">
     <script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
     <script type="text/javascript" charset="UTF-8">document.addEventListener('DOMContentLoaded',function(){cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"fr","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Bulleo"});});</script>
@@ -114,6 +114,21 @@
             </div>
         </div>
 
+        <!-- Bain Jumeaux -->
+        <div class="bg-accent/10 border border-accent/20 rounded-2xl p-6 mb-12">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div>
+                    <h3 class="font-serif text-xl text-accent"><i class="fas fa-baby mr-2"></i>Bain Enveloppe Jumeaux</h3>
+                    <p class="text-gray-600 text-sm mt-1">Le meme soin adapte pour deux bebes — un moment unique.</p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="font-serif font-bold text-2xl text-accent">120&#8239;&#8364;</span>
+                    <button onclick="openCalendlyPopup('Bain Enveloppe Jumeaux')" class="btn-v2 btn-primary-v2 !bg-accent hover:!bg-accent/90 text-sm">Reserver</button>
+                    <button onclick="openGiftModal('Bain Enveloppe Jumeaux')" class="btn-v2 btn-secondary-v2 !border-accent !text-accent text-sm"><i class="fas fa-gift mr-1"></i>Offrir</button>
+                </div>
+            </div>
+        </div>
+
         <section class="bg-[#F3F0EB] rounded-2xl p-8 mb-12"><h2 class="font-serif text-2xl text-center mb-6">Choisir un creneau</h2><div id="calendly-bain-enveloppe" class="calendly-inline-widget" style="min-width:320px;height:630px;" data-auto-load="false"></div></section>
 
         <section class="mb-12"><h2 class="font-serif text-2xl mb-6">Questions frequentes</h2><div class="space-y-4">
@@ -135,7 +150,7 @@
 
     <div class="sticky-footer-v2 md:hidden flex"><a href="tel:+33675430257" class="flex-none w-[30%] bg-gray-50 text-text flex flex-col items-center justify-center py-3 active:bg-gray-200"><i class="fas fa-phone text-lg mb-1"></i><span class="text-xs font-bold">Appeler</span></a><button onclick="openCalendlyPopup('Bain Enveloppe')" class="flex-auto w-[70%] bg-primary text-white flex flex-col items-center justify-center py-3 active:bg-primary/90"><span class="text-sm font-bold uppercase tracking-wide">Reserver un soin</span><span class="text-[10px] opacity-90">Creneaux disponibles</span></button></div>
 
-    <script src="../assets/js/v2.js"></script>
+    <script src="../assets/js/v2.js?v=20260314b"></script>
     <script>document.addEventListener('DOMContentLoaded', function() { initCalendlyInline('calendly-bain-enveloppe', 'Bain Enveloppe'); });</script>
 </body>
 </html>
