@@ -249,7 +249,7 @@
     <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
 
     <!-- V2 CSS -->
-    <link rel="stylesheet" href="assets/css/v2.css?v=20260425e">
+    <link rel="stylesheet" href="assets/css/v2.css?v=20260425f">
 
     <!-- LLMs.txt -->
     <link rel="llms-txt" href="/llms.txt" type="text/plain">
@@ -296,32 +296,35 @@
     <nav class="nav-v2 fixed w-full z-40" id="mainNav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <a href="#accueil" class="flex-shrink-0">
-                    <img src="assets/images/logos/logo-main.webp" alt="Bulleo — Institut Périnatal" class="h-14 w-auto object-contain">
+                <!-- Logo + nom -->
+                <a href="#accueil" class="flex items-center gap-3 flex-shrink-0 nav-logo-link">
+                    <img src="assets/images/logos/logo-main.webp" alt="Bulleo — Institut Périnatal" class="h-12 w-auto object-contain">
+                    <span class="font-serif text-2xl font-medium text-text tracking-wide">Bulleo</span>
                 </a>
 
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden lg:flex items-center space-x-7">
                     <a href="#grossesse" class="nav-link-v2">Grossesse</a>
-                    <a href="#post-partum" class="nav-link-v2">Post-Partum</a>
-                    <a href="#cadeaux" class="nav-link-v2">Offrir</a>
-                    <a href="#apropos" class="nav-link-v2">L'Institut</a>
-                    <button onclick="openCalendlyPopup()" class="btn-v2 btn-primary-v2 text-sm px-6 py-2.5">
-                        Réserver
+                    <a href="#post-partum" class="nav-link-v2">Post-partum</a>
+                    <a href="#drainage" class="nav-link-v2">Drainage <span class="nav-link-dot">●</span></a>
+                    <a href="#bebe" class="nav-link-v2">Bébé</a>
+                    <a href="#apropos" class="nav-link-v2">L'institut</a>
+                    <a href="#contact" class="nav-link-v2">Contact</a>
+                    <button onclick="openCalendlyPopup()" class="btn-v2 btn-dark-v2 text-sm px-6 py-2.5">
+                        Réserver <i class="fas fa-arrow-right ml-1.5 text-xs"></i>
                     </button>
-                    <div class="flex items-center space-x-3 ml-2">
-                        <a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener" class="text-text/50 hover:text-primary transition-colors" aria-label="Instagram Bulleo">
-                            <i class="fab fa-instagram text-lg"></i>
+                    <div class="flex items-center space-x-2 ml-1">
+                        <a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener" class="text-text/40 hover:text-primary transition-colors" aria-label="Instagram Bulleo">
+                            <i class="fab fa-instagram text-base"></i>
                         </a>
-                        <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" rel="noopener" class="text-text/50 hover:text-primary transition-colors" aria-label="Facebook Bulleo">
-                            <i class="fab fa-facebook-f text-lg"></i>
+                        <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" rel="noopener" class="text-text/40 hover:text-primary transition-colors" aria-label="Facebook Bulleo">
+                            <i class="fab fa-facebook-f text-base"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Hamburger Mobile -->
-                <button class="md:hidden flex items-center justify-center w-11 h-11" onclick="openMobileMenu()" aria-label="Ouvrir le menu">
+                <button class="lg:hidden flex items-center justify-center w-11 h-11" onclick="openMobileMenu()" aria-label="Ouvrir le menu">
                     <i class="fas fa-bars text-2xl text-text"></i>
                 </button>
             </div>
@@ -348,13 +351,19 @@
                     <i class="fas fa-female w-8 text-primary"></i> Grossesse
                 </a>
                 <a href="#post-partum" onclick="closeMobileMenu()" class="flex items-center px-4 py-4 text-text hover:text-primary hover:bg-primary/5 rounded-xl transition-all font-medium text-lg">
-                    <i class="fas fa-baby w-8 text-accent"></i> Post-Partum
+                    <i class="fas fa-baby w-8 text-accent"></i> Post-partum
+                </a>
+                <a href="#drainage" onclick="closeMobileMenu()" class="flex items-center px-4 py-4 text-text hover:text-primary hover:bg-primary/5 rounded-xl transition-all font-medium text-lg">
+                    <i class="fas fa-leaf w-8 text-accent"></i> Drainage <span class="ml-1 text-accent text-xs">● nouveau</span>
+                </a>
+                <a href="#bebe" onclick="closeMobileMenu()" class="flex items-center px-4 py-4 text-text hover:text-primary hover:bg-primary/5 rounded-xl transition-all font-medium text-lg">
+                    <i class="fas fa-baby-carriage w-8 text-accent"></i> Bébé
                 </a>
                 <a href="#cadeaux" onclick="closeMobileMenu()" class="flex items-center px-4 py-4 text-text hover:text-primary hover:bg-primary/5 rounded-xl transition-all font-medium text-lg">
                     <i class="fas fa-gift w-8 text-gold"></i> Offrir
                 </a>
                 <a href="#apropos" onclick="closeMobileMenu()" class="flex items-center px-4 py-4 text-text hover:text-primary hover:bg-primary/5 rounded-xl transition-all font-medium text-lg">
-                    <i class="fas fa-heart w-8 text-primary"></i> L'Institut
+                    <i class="fas fa-heart w-8 text-primary"></i> L'institut
                 </a>
                 <a href="#contact" onclick="closeMobileMenu()" class="flex items-center px-4 py-4 text-text hover:text-primary hover:bg-primary/5 rounded-xl transition-all font-medium text-lg">
                     <i class="fas fa-envelope w-8 text-primary"></i> Contact
@@ -405,10 +414,10 @@
                     par une Auxiliaire de Puériculture Diplômée d'État.
                 </p>
                 <div class="flex flex-wrap gap-4 mb-10">
-                    <button onclick="openCalendlyPopup()" class="btn-v2 btn-primary-v2 text-base px-7 py-3.5">
+                    <button onclick="openCalendlyPopup()" class="btn-v2 btn-dark-v2 text-base px-7 py-3.5">
                         Réserver un soin <i class="fas fa-arrow-right ml-2 text-sm"></i>
                     </button>
-                    <a href="#prestations" class="btn-v2 btn-secondary-v2 text-base px-7 py-3.5">
+                    <a href="#prestations" class="btn-v2 btn-ghost-v2 text-base px-7 py-3.5">
                         Découvrir l'institut
                     </a>
                 </div>
@@ -1642,6 +1651,6 @@
     </div>
 
     <!-- V2 JavaScript -->
-    <script src="assets/js/v2.js?v=20260425e"></script>
+    <script src="assets/js/v2.js?v=20260425f"></script>
 </body>
 </html>
