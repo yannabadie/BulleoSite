@@ -1351,7 +1351,10 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     width: calc(100% - 32px);
     border-radius: 20px !important;
     padding: 0 !important;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     background: var(--white);
 }
 
