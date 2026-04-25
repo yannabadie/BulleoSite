@@ -249,7 +249,7 @@
     <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
 
     <!-- V2 CSS -->
-    <link rel="stylesheet" href="assets/css/v2.css?v=20260425c">
+    <link rel="stylesheet" href="assets/css/v2.css?v=20260425d">
 
     <!-- LLMs.txt -->
     <link rel="llms-txt" href="/llms.txt" type="text/plain">
@@ -384,32 +384,64 @@
     </div>
 
     <!-- ============================================
-         HERO
+         HERO ASYMÉTRIQUE
          ============================================ -->
-    <header id="accueil" class="hero-v2">
-        <div class="hero-v2-bg" style="background-image: url('assets/images/services/massage-prenatal.webp')"></div>
-        <div class="hero-v2-content mx-4">
-            <span class="badge-v2 badge-accent mb-6 inline-block border border-accent/20">
-                &#11088; 5/5 sur Google &bull; +90 familles accompagnées
-            </span>
-            <h1 class="font-serif text-4xl md:text-6xl text-text mb-6 leading-tight">
-                L'expertise périnatale,<br>
-                <span class="text-primary italic">la douceur en plus.</span>
-            </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-8 font-light max-w-2xl mx-auto">
-                Votre cocon à Tarbes pour la grossesse et le post-partum.<br class="hidden md:block">
-                Accompagnement physiologique par une Auxiliaire de Puériculture D.E.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#grossesse" class="btn-v2 btn-primary-v2 text-lg px-8 py-4">
-                    Je suis Enceinte
-                </a>
-                <a href="#post-partum" class="btn-v2 btn-secondary-v2 text-lg px-8 py-4">
-                    Pour mon Bébé &amp; Moi
-                </a>
-                <a href="#cadeaux" class="btn-v2 btn-gold-v2 text-lg px-8 py-4">
-                    Offrir &#127873;
-                </a>
+    <header id="accueil" class="hero-asym">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hero-asym-grid">
+            <!-- Colonne gauche : titre + CTAs + stats -->
+            <div class="hero-asym-text">
+                <div class="hero-eyebrow-row mb-6">
+                    <span class="hero-divider"></span>
+                    <span class="eyebrow-v2">Institut Périnatal · Tarbes</span>
+                </div>
+                <h1 class="hero-asym-title">
+                    L'expertise<br>
+                    périnatale,<br>
+                    <em>la douceur en plus.</em>
+                </h1>
+                <p class="hero-asym-lede">
+                    Un cocon à Tarbes pour la grossesse et le post-partum.
+                    Massage prénatal, bain enveloppé, soin Rebozo et ateliers bébé,
+                    par une Auxiliaire de Puériculture Diplômée d'État.
+                </p>
+                <div class="flex flex-wrap gap-4 mb-10">
+                    <button onclick="openCalendlyPopup()" class="btn-v2 btn-primary-v2 text-base px-7 py-3.5">
+                        Réserver un soin <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </button>
+                    <a href="#prestations" class="btn-v2 btn-secondary-v2 text-base px-7 py-3.5">
+                        Découvrir l'institut
+                    </a>
+                </div>
+                <!-- Stats -->
+                <div class="hero-asym-stats">
+                    <div class="hero-stat">
+                        <div class="num">5,0<span class="star">★</span></div>
+                        <div class="label">90 avis Google</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">+90</div>
+                        <div class="label">Familles accompagnées</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">D.E.</div>
+                        <div class="label">Auxiliaire puériculture</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonne droite : portrait + tampon -->
+            <div class="hero-asym-visual">
+                <div class="hero-asym-img-wrap">
+                    <img src="assets/images/portraits/estelle-portrait.webp" alt="Estelle Cazajous, fondatrice de Bulleo — Auxiliaire de Puériculture D.E. à Tarbes" loading="eager">
+                </div>
+                <div class="hero-asym-stamp">
+                    <div class="stamp-name">Estelle Cazajous</div>
+                    <div class="stamp-credential">Auxiliaire de Puériculture D.E.</div>
+                </div>
+                <div class="hero-asym-quote">
+                    <p>« Le corps se détend, l'esprit respire, le cœur s'apaise. »</p>
+                    <span class="quote-author">— Philosophie Bulleo</span>
+                </div>
             </div>
         </div>
     </header>
@@ -522,124 +554,301 @@
     </section>
 
     <!-- ============================================
-         SERVICES GROSSESSE
+         TOUS NOS SOINS — grille filtrable
          ============================================ -->
-    <section id="grossesse" class="py-20 bg-secondary relative">
+    <span id="grossesse" class="anchor-offset" aria-hidden="true"></span>
+    <section id="prestations" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="flex items-center mb-12 animate-on-scroll">
-                <div class="bg-primary/10 p-3 rounded-full mr-4">
-                    <i class="fas fa-female text-3xl text-primary"></i>
-                </div>
-                <div>
-                    <h2 class="section-title-v2 mb-0">En Attendant Bébé</h2>
-                    <p class="text-gray-500 text-sm mt-1">Soins spécialisés pour la femme enceinte</p>
-                </div>
+            <!-- Header -->
+            <div class="max-w-2xl mb-10 animate-on-scroll">
+                <span class="eyebrow-v2">Nos soins</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-text mt-3 mb-4 leading-tight">
+                    Un soin pour chaque
+                    <em class="text-primary italic">moment.</em>
+                </h2>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Du quatrième mois de grossesse jusqu'aux premiers mois de votre bébé,
+                    nous accompagnons chaque étape avec des protocoles pensés pour votre confort et votre sécurité.
+                </p>
             </div>
 
-            <!-- Massage Prenatal — Hero Layout -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 animate-on-scroll">
-                <div class="order-2 lg:order-1">
-                    <h3 class="font-serif text-2xl md:text-3xl text-primary mb-4">Massage Prénatal</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Un instant de bien-être conçu spécifiquement pour la future maman.
-                        Pratiqué en position latérale sécurisée avec des huiles 100% bio compatibles grossesse.
-                        Il soulage les tensions du dos, la lourdeur des jambes, améliore le sommeil et favorise la connexion avec bébé.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-accent mr-3"></i>Dès le 4ème mois (16 SA) jusqu'au terme</li>
-                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-accent mr-3"></i>Soulage sciatique et douleurs ligamentaires</li>
-                        <li class="flex items-center text-gray-700"><i class="fas fa-check text-accent mr-3"></i>Drainage doux pour la circulation</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-4">
-                        <button onclick="openCalendlyPopup('Massage Prenatal')" class="btn-v2 btn-primary-v2">
-                            Réserver (Dès 75&#8239;&#8364;)
-                        </button>
-                        <button onclick="openGiftModal('Massage Prenatal')" class="btn-v2 btn-secondary-v2">
-                            <i class="fas fa-gift mr-2"></i>Offrir
-                        </button>
-                    </div>
-                    <p class="mt-3 text-sm text-primary font-medium"><i class="fas fa-heart mr-1"></i>Aussi disponible en <strong>Rituel Douceur Bulleo</strong> avec drainage lymphatique (1h30) — 115&#8239;&#8364; · <button onclick="openCalendlyPopup('Rituel Douceur Bulleo')" class="underline hover:no-underline">Réserver</button> · <button onclick="openGiftModal('Massage Prenatal', 'prenatal_drainage')" class="underline hover:no-underline">Offrir</button></p>
-                    <a href="services/massage-prenatal.html" class="inline-block mt-4 text-primary font-medium hover:underline text-sm">
-                        En savoir plus <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                    </a>
-                </div>
-                <div class="order-1 lg:order-2 relative">
-                    <div class="absolute -inset-4 bg-primary/10 rounded-full transform rotate-2"></div>
-                    <img src="assets/images/services/massage-prenatal.webp" alt="Massage prénatal à Tarbes — position latérale sécurisée" class="relative rounded-2xl shadow-xl w-full h-auto object-cover" loading="lazy">
-                </div>
+            <!-- Filter chips -->
+            <div class="chips-row" role="tablist" aria-label="Filtre par catégorie de soin">
+                <button class="chip active" data-filter="all" onclick="filterServices('all', this)" role="tab" aria-selected="true">Tous les soins</button>
+                <button class="chip" data-filter="grossesse" onclick="filterServices('grossesse', this)" role="tab">Grossesse</button>
+                <button class="chip" data-filter="postpartum" onclick="filterServices('postpartum', this)" role="tab">Post-partum</button>
+                <button class="chip" data-filter="soin" onclick="filterServices('soin', this)" role="tab">Drainage <span class="chip-new" aria-label="Nouveau">●</span></button>
+                <button class="chip" data-filter="bebe" onclick="filterServices('bebe', this)" role="tab">Bébé</button>
+                <button class="chip" data-filter="boutique" onclick="filterServices('boutique', this)" role="tab">Boutique</button>
             </div>
 
-            <!-- Réflexologie — Compact Card -->
-            <div class="bg-white p-8 rounded-2xl shadow-md border-l-4 border-accent animate-on-scroll">
-                <div class="flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-1/3">
-                        <img src="assets/images/services/reflexologie.webp" alt="Réflexologie plantaire obstétrique" class="rounded-xl w-full h-48 object-cover shadow-sm" loading="lazy">
+            <!-- Grid -->
+            <div class="services-grid" id="servicesGrid">
+
+                <!-- Massage Prénatal -->
+                <article class="service-card" data-cat="grossesse">
+                    <div class="card-media">
+                        <span class="card-tag tag-grossesse">Grossesse</span>
+                        <img src="assets/images/services/massage-prenatal.webp" alt="Massage prénatal — position latérale sécurisée" loading="lazy">
                     </div>
-                    <div class="w-full md:w-2/3">
-                        <h3 class="font-serif text-2xl text-primary mb-3">Réflexologie Plantaire Obstétrique</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Une approche thérapeutique naturelle pour accompagner les changements physiologiques de la grossesse.
-                            Par des pressions ciblées sur les zones réflexes des pieds, nous soulageons les maux courants :
-                            nausées, remontées acides, maux de dos, troubles du sommeil et anxiété.
-                        </p>
-                        <div class="flex items-center justify-between flex-wrap gap-4">
-                            <span class="font-serif font-bold text-lg text-text">Séance 45 min — 50&#8239;&#8364;</span>
-                            <div class="flex gap-3">
-                                <button onclick="openCalendlyPopup('Reflexologie Plantaire Obstetrique')" class="text-primary font-bold hover:underline">Réserver &rarr;</button>
-                                <button onclick="openGiftModal('Reflexologie Plantaire Obstetrique')" class="text-gold font-bold hover:underline"><i class="fas fa-gift mr-1"></i>Offrir</button>
-                                <a href="services/reflexologie.html" class="text-gray-500 hover:text-primary text-sm">En savoir plus</a>
+                    <div class="card-body">
+                        <h3>Massage Prénatal</h3>
+                        <div class="duration">1h ou 1h30 · dès 16 SA</div>
+                        <p class="desc">Position latérale sécurisée, huiles 100% bio. Soulage le dos, la sciatique et la lourdeur des jambes.</p>
+                        <div class="card-formulas"><span class="dot"></span>4 formules disponibles</div>
+                        <div class="card-foot">
+                            <div class="price">Dès 75&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Massage Prenatal')" aria-label="Offrir un Massage Prénatal"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Massage Prenatal')" aria-label="Réserver un Massage Prénatal"><i class="fas fa-calendar-alt"></i></button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </article>
 
-            <!-- Drainage Lymphatique Balinais — Compact Card (NOUVEAU) -->
-            <div class="bg-white p-8 rounded-2xl shadow-md border-l-4 border-primary animate-on-scroll mt-8">
-                <div class="flex flex-col md:flex-row gap-8 items-start">
-                    <div class="w-full md:w-1/3">
-                        <img src="assets/images/services/drainage-lymphatique.jpg" alt="Drainage lymphatique balinais — palper-rouler doux" class="rounded-xl w-full h-48 object-cover shadow-sm" loading="lazy">
+                <!-- Réflexologie obstétrique -->
+                <article class="service-card" data-cat="grossesse">
+                    <div class="card-media">
+                        <span class="card-tag tag-grossesse">Grossesse</span>
+                        <img src="assets/images/services/reflexologie.webp" alt="Réflexologie plantaire obstétrique" loading="lazy">
                     </div>
-                    <div class="w-full md:w-2/3">
-                        <span class="badge-v2 badge-primary mb-3 inline-block">Nouveau</span>
-                        <h3 class="font-serif text-2xl text-primary mb-3">Drainage Lymphatique Balinais</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Soin doux et profond qui stimule la circulation lymphatique, réduit la rétention d'eau
-                            et procure une sensation immédiate de légèreté. Idéal pendant la grossesse pour soulager
-                            les jambes lourdes, et en post-partum pour relancer les circulations et favoriser la récupération.
-                        </p>
-                        <!-- Tarifs séances -->
-                        <div class="mb-4">
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-2">Séance individuelle</p>
-                            <div class="flex flex-wrap gap-2">
-                                <button onclick="openCalendlyPopup('Drainage Lymphatique Balinais 30min')" class="px-4 py-2 bg-secondary border border-primary/20 rounded-lg hover:bg-primary hover:text-white transition text-sm font-medium">30 min — 50&#8239;&#8364;</button>
-                                <button onclick="openCalendlyPopup('Drainage Lymphatique Balinais 45min')" class="px-4 py-2 bg-secondary border border-primary/20 rounded-lg hover:bg-primary hover:text-white transition text-sm font-medium">45 min — 65&#8239;&#8364;</button>
-                                <button onclick="openCalendlyPopup('Drainage Lymphatique Balinais 1h')" class="px-4 py-2 bg-secondary border border-primary/20 rounded-lg hover:bg-primary hover:text-white transition text-sm font-medium">1 h — 80&#8239;&#8364;</button>
+                    <div class="card-body">
+                        <h3>Réflexologie Plantaire</h3>
+                        <div class="duration">45 min · obstétrique</div>
+                        <p class="desc">Approche thérapeutique pour nausées, sommeil, dos. Adaptée à tous les trimestres.</p>
+                        <div class="card-foot">
+                            <div class="price">50&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Reflexologie Plantaire Obstetrique')" aria-label="Offrir une Réflexologie Plantaire Obstétrique"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Reflexologie Plantaire Obstetrique')" aria-label="Réserver une Réflexologie Plantaire Obstétrique"><i class="fas fa-calendar-alt"></i></button>
                             </div>
                         </div>
-                        <!-- Cures -->
-                        <p class="text-sm text-gray-600 mb-3">
-                            <i class="fas fa-leaf text-accent mr-1"></i>
-                            <strong>Cures 6 séances</strong> (5 payantes + 1 offerte) : 250&#8239;&#8364; · 325&#8239;&#8364; · 400&#8239;&#8364;
-                        </p>
-                        <!-- Rituel Douceur Bulleo -->
-                        <p class="text-sm text-primary font-medium mb-4">
-                            <i class="fas fa-heart mr-1"></i>
-                            <strong>Soin signature « Rituel Douceur Bulleo »</strong> — Massage femme enceinte ou post-partum + Drainage (1h30) à 115&#8239;&#8364; ·
-                            <button onclick="openCalendlyPopup('Rituel Douceur Bulleo')" class="underline hover:no-underline">Réserver</button> ·
-                            <button onclick="openGiftModal('Drainage Lymphatique Balinais', 'drainage_massage')" class="underline hover:no-underline">Offrir</button>
-                        </p>
-                        <div class="flex gap-3 flex-wrap items-center">
-                            <button onclick="openGiftModal('Drainage Lymphatique Balinais')" class="btn-v2 btn-secondary-v2 text-sm">
-                                <i class="fas fa-gift mr-2"></i>Offrir / Acheter une cure
-                            </button>
-                            <a href="services/drainage-lymphatique-balinais.html" class="text-primary font-medium hover:underline text-sm">
-                                En savoir plus <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                            </a>
+                    </div>
+                </article>
+
+                <!-- Massage Postnatal -->
+                <article class="service-card" data-cat="postpartum">
+                    <div class="card-media">
+                        <span class="card-tag tag-postpartum">Post-partum</span>
+                        <img src="assets/images/services/massage-postnatal.webp" alt="Massage postnatal" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Massage Postnatal</h3>
+                        <div class="duration">1h ou 1h30 · à votre rythme</div>
+                        <p class="desc">Drainage doux, soulage le dos sollicité par allaitement et portage. Une parenthèse pour soi.</p>
+                        <div class="card-formulas"><span class="dot"></span>5 formules disponibles</div>
+                        <div class="card-foot">
+                            <div class="price">Dès 75&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Massage Postnatal')" aria-label="Offrir un Massage Postnatal"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Massage Postnatal')" aria-label="Réserver un Massage Postnatal"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </article>
+
+                <!-- Soin Rebozo -->
+                <article class="service-card" data-cat="postpartum">
+                    <div class="card-media">
+                        <span class="card-tag tag-postpartum">Post-partum</span>
+                        <img src="assets/images/services/soin-rebozo-alt.webp" alt="Soin Rebozo — resserrage du bassin" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Soin Rebozo</h3>
+                        <div class="duration">1h · post-accouchement</div>
+                        <p class="desc">Rituel ancestral mexicain de fermeture du corps. Bercement, serrage du bassin, libération émotionnelle.</p>
+                        <div class="card-formulas"><span class="dot"></span>3 formules disponibles</div>
+                        <div class="card-foot">
+                            <div class="price">Dès 90&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Soin Rebozo')" aria-label="Offrir un Soin Rebozo"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Soin Rebozo')" aria-label="Réserver un Soin Rebozo"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Soin Postnatal Complet -->
+                <article class="service-card" data-cat="postpartum">
+                    <div class="card-media">
+                        <span class="card-tag tag-postpartum">Post-partum</span>
+                        <img src="assets/images/services/soin-postnatal-complet.webp" alt="Soin postnatal complet — massage + Rebozo" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Soin Postnatal Complet</h3>
+                        <div class="duration">2h · massage + Rebozo</div>
+                        <p class="desc">Le rituel complet : un massage postnatal suivi du soin Rebozo. Notre signature post-partum.</p>
+                        <div class="card-foot">
+                            <div class="price">160&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Soin postnatal complet - Massage &amp; Rebozo')" aria-label="Offrir un Soin Postnatal Complet"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Soin postnatal complet - Massage &amp; Rebozo')" aria-label="Réserver un Soin Postnatal Complet"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Drainage Lymphatique Balinais — NEW -->
+                <article class="service-card" data-cat="soin">
+                    <div class="card-media">
+                        <span class="card-tag tag-nouveau">Nouveau</span>
+                        <img src="assets/images/services/drainage-lymphatique.jpg" alt="Drainage Lymphatique Balinais" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Drainage Lymphatique Balinais</h3>
+                        <div class="duration">30 min · 45 min · 1h</div>
+                        <p class="desc">Technique manuelle douce héritée de Bali. Stimule la circulation lymphatique, allège les jambes lourdes, détoxifie en profondeur.</p>
+                        <div class="card-formulas"><span class="dot"></span>7 formules disponibles · Cures 6 séances</div>
+                        <div class="card-foot">
+                            <div class="price">Dès 50&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Drainage Lymphatique Balinais')" aria-label="Offrir un Drainage Lymphatique"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Drainage Lymphatique Balinais')" aria-label="Réserver un Drainage Lymphatique"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Rituel Douceur Bulleo -->
+                <article class="service-card service-card-signature" data-cat="soin">
+                    <div class="card-media">
+                        <span class="card-tag tag-rituel">Signature</span>
+                        <img src="assets/images/services/drainage-lymphatique-3.jpg" alt="Rituel Douceur Bulleo — massage + drainage" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Rituel Douceur Bulleo</h3>
+                        <div class="duration">1h30 · massage + drainage</div>
+                        <p class="desc">Notre signature : combinaison massage femme enceinte/post-partum + drainage lymphatique. Détente et légèreté.</p>
+                        <div class="card-foot">
+                            <div class="price">115&#8239;€<small>au lieu de 125&#8239;€</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Rituel Douceur Bulleo')" aria-label="Offrir un Rituel Douceur Bulleo"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Rituel Douceur Bulleo')" aria-label="Réserver un Rituel Douceur Bulleo"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Bain Enveloppé -->
+                <article class="service-card" data-cat="bebe">
+                    <div class="card-media">
+                        <span class="card-tag tag-bebe">Bébé</span>
+                        <img src="assets/images/services/bain-enveloppe-alt.webp" alt="Bain enveloppé pour nouveau-né" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Bain Enveloppé</h3>
+                        <div class="duration">45 min - 1h · 0-21 jours</div>
+                        <p class="desc">Sensations in-utero retrouvées. Apaise les coliques, le sommeil agité et les pleurs intenses.</p>
+                        <div class="card-formulas"><span class="dot"></span>5 formules · jumeaux disponible</div>
+                        <div class="card-foot">
+                            <div class="price">Dès 70&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Bain Enveloppe')" aria-label="Offrir un Bain Enveloppé"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Bain Enveloppe')" aria-label="Réserver un Bain Enveloppé"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Atelier Massage Bébé -->
+                <article class="service-card" data-cat="bebe">
+                    <div class="card-media">
+                        <span class="card-tag tag-bebe">Bébé</span>
+                        <img src="assets/images/services/atelier-massage-bebe.webp" alt="Atelier massage bébé" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Atelier Massage Bébé</h3>
+                        <div class="duration">1h · dès 1 mois</div>
+                        <p class="desc">Apprenez à masser votre bébé. Coliques, sommeil, lien d'attachement.</p>
+                        <div class="card-foot">
+                            <div class="price">80&#8239;€<small>par atelier</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Atelier Massage Bebe')" aria-label="Offrir un Atelier Massage Bébé"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Atelier Massage Bebe')" aria-label="Réserver un Atelier Massage Bébé"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Massage bébé & enfant -->
+                <article class="service-card" data-cat="bebe">
+                    <div class="card-media">
+                        <span class="card-tag tag-bebe">Bébé</span>
+                        <img src="assets/images/services/bain-enveloppe.webp" alt="Massage bébé et enfant" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Massage Bébé &amp; Enfant</h3>
+                        <div class="duration">45 min · individuel</div>
+                        <p class="desc">Massage individuel adapté à l'âge de votre enfant pour son bien-être quotidien.</p>
+                        <div class="card-foot">
+                            <div class="price">55&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Massage bebe &amp; enfant')" aria-label="Offrir un Massage Bébé"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Massage bebe &amp; enfant')" aria-label="Réserver un Massage Bébé"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Réflexologie pédiatrique -->
+                <article class="service-card" data-cat="bebe">
+                    <div class="card-media">
+                        <span class="card-tag tag-bebe">Bébé</span>
+                        <img src="assets/images/services/reflexologie.webp" alt="Réflexologie pédiatrique" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Réflexologie Pédiatrique</h3>
+                        <div class="duration">30 min · nourrissons</div>
+                        <p class="desc">Réflexologie adaptée aux nourrissons et jeunes enfants pour apaiser les petits maux.</p>
+                        <div class="card-foot">
+                            <div class="price">50&#8239;€<small>par séance</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Reflexologie plantaire Pediatrique')" aria-label="Offrir une Réflexologie Pédiatrique"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Reflexologie plantaire Pediatrique')" aria-label="Réserver une Réflexologie Pédiatrique"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Atelier Motricité -->
+                <article class="service-card" data-cat="bebe">
+                    <div class="card-media">
+                        <span class="card-tag tag-bebe">Bébé</span>
+                        <img src="assets/images/services/atelier-motricite.webp" alt="Atelier motricité libre et éveil sensoriel" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Atelier Motricité &amp; Éveil</h3>
+                        <div class="duration">1h · éveil sensoriel</div>
+                        <p class="desc">Atelier de motricité libre et d'éveil sensoriel. Place de l'enfant, accompagné d'un parent.</p>
+                        <div class="card-foot">
+                            <div class="price">16&#8239;€<small>par atelier</small></div>
+                            <div class="card-actions">
+                                <button title="Offrir" class="card-action gift" onclick="openGiftModal('Atelier Motricite &amp; Eveil sensoriel')" aria-label="Offrir un Atelier Motricité"><i class="fas fa-gift"></i></button>
+                                <button title="Réserver" class="card-action book" onclick="openCalendlyPopup('Atelier Motricite &amp; Eveil sensoriel')" aria-label="Réserver un Atelier Motricité"><i class="fas fa-calendar-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Agenda Boutique -->
+                <article class="service-card" data-cat="boutique">
+                    <div class="card-media">
+                        <span class="card-tag tag-boutique">Boutique</span>
+                        <img src="assets/images/services/agenda-maman.webp" alt="Agenda Ma première année de maman" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3>Agenda · Ma première année</h3>
+                        <div class="duration">Livraison incluse</div>
+                        <p class="desc">Agenda souvenir « Ma première année de maman » — un beau livre pour ne rien oublier des premiers mois.</p>
+                        <div class="card-foot">
+                            <div class="price">31,80&#8239;€<small>TTC</small></div>
+                            <div class="card-actions">
+                                <button title="Acheter" class="card-action gift" onclick="openGiftModal('Agenda: Ma premiere annee de maman')" aria-label="Acheter l'Agenda Ma première année"><i class="fas fa-shopping-bag"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
@@ -708,183 +917,51 @@
     </section>
 
     <!-- ============================================
-         SERVICES POST-PARTUM
+         FEATURE BAIN ENVELOPPÉ — signature historique
          ============================================ -->
-    <section id="post-partum" class="py-20 bg-white relative">
+    <section id="post-partum" class="py-20 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="flex items-center mb-12 animate-on-scroll">
-                <div class="bg-accent/10 p-3 rounded-full mr-4">
-                    <i class="fas fa-baby text-3xl text-accent"></i>
-                </div>
-                <div>
-                    <h2 class="section-title-v2 mb-0">Bienvenue Bébé &amp; Post-Partum</h2>
-                    <p class="text-gray-500 text-sm mt-1">Prendre soin de vous et de votre nouveau-né</p>
-                </div>
-            </div>
-
-            <!-- Bain Enveloppé — Hero Layout -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 animate-on-scroll">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-on-scroll">
                 <div class="relative">
-                    <div class="absolute -inset-4 bg-accent/10 rounded-full transform -rotate-2"></div>
-                    <img src="assets/images/services/bain-enveloppe-alt.webp" alt="Bain enveloppé pour nouveau-né à Tarbes" class="relative rounded-2xl shadow-xl w-full h-auto object-cover" loading="lazy">
+                    <div class="absolute -inset-4 bg-accent/10 rounded-3xl transform -rotate-2"></div>
+                    <img src="assets/images/services/bain-enveloppe-alt.webp" alt="Bain enveloppé pour nouveau-né à Tarbes" class="relative rounded-2xl shadow-2xl w-full h-auto object-cover" loading="lazy">
+                    <div class="absolute -bottom-4 left-4 bg-accent text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                        <i class="fas fa-bookmark mr-1"></i>Signature historique
+                    </div>
                 </div>
                 <div>
-                    <span class="badge-v2 badge-accent mb-4 inline-block">Signature Bulleo</span>
-                    <h3 class="font-serif text-2xl md:text-3xl text-accent mb-4">Le Bain Enveloppé</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Bien plus qu'un bain, c'est une renaissance émotionnelle. Votre bébé retrouve les sensations in-utero :
-                        chaleur, bercement et contention rassurante dans un lange. Ce soin permet de libérer les tensions liées à la naissance
-                        et apaise profondément le système nerveux du nouveau-né.
+                    <span class="eyebrow-v2">Notre signature</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-text mt-4 mb-5 leading-tight">
+                        Le Bain
+                        <em class="text-accent italic">enveloppé.</em>
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Bien plus qu'un bain : une renaissance émotionnelle. Votre bébé retrouve les sensations in-utero —
+                        chaleur, bercement, contention rassurante. Un soin qui apaise profondément le système nerveux
+                        du nouveau-né et libère les tensions de la naissance.
                     </p>
                     <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-gray-700"><i class="fas fa-heart text-primary mr-3"></i>Idéal dans les 21 premiers jours de vie</li>
-                        <li class="flex items-center text-gray-700"><i class="fas fa-heart text-primary mr-3"></i>Apaise coliques, pleurs intenses et sommeil agité</li>
-                        <li class="flex items-center text-gray-700"><i class="fas fa-heart text-primary mr-3"></i>Moment de lien parent-bébé intense</li>
+                        <li class="flex items-start text-gray-700"><i class="fas fa-check-circle text-accent mt-1 mr-3"></i><span><strong>Idéal dans les 21 premiers jours.</strong> Possible jusqu'à 3 mois selon le bébé.</span></li>
+                        <li class="flex items-start text-gray-700"><i class="fas fa-check-circle text-accent mt-1 mr-3"></i><span><strong>Apaise coliques, pleurs intenses, sommeil agité.</strong></span></li>
+                        <li class="flex items-start text-gray-700"><i class="fas fa-check-circle text-accent mt-1 mr-3"></i><span><strong>Moment de lien parent-bébé</strong> intense et marquant.</span></li>
                     </ul>
                     <div class="flex flex-wrap gap-4 items-center">
+                        <span class="font-serif text-3xl font-bold text-accent">70&#8239;€</span>
                         <button onclick="openCalendlyPopup('Bain Enveloppe')" class="btn-v2 btn-primary-v2 !bg-accent hover:!bg-accent/90">
-                            Réserver (70&#8239;&#8364;)
+                            Réserver <i class="fas fa-arrow-right ml-2 text-sm"></i>
                         </button>
                         <button onclick="openGiftModal('Bain Enveloppe')" class="btn-v2 btn-secondary-v2 !border-accent !text-accent hover:!bg-accent hover:!text-white">
                             <i class="fas fa-gift mr-2"></i>Offrir
                         </button>
                     </div>
-                    <p class="mt-3 text-sm text-accent font-medium"><i class="fas fa-baby mr-1"></i>Bain Jumeaux disponible — 120&#8239;&#8364; <button onclick="openCalendlyPopup('Bain Enveloppe Jumeaux')" class="underline hover:no-underline">Reserver</button> · <button onclick="openGiftModal('Bain Enveloppe Jumeaux')" class="underline hover:no-underline">Offrir</button></p>
+                    <p class="mt-5 text-sm text-gray-500">
+                        <strong>Bain Jumeaux disponible</strong> · 120&#8239;€ ·
+                        <button onclick="openCalendlyPopup('Bain Enveloppe Jumeaux')" class="underline hover:no-underline text-accent">Réserver</button> ·
+                        <strong class="ml-2">Combinés massage + bain</strong> · 140&#8239;€
+                    </p>
                     <a href="services/bain-enveloppe.html" class="inline-block mt-4 text-accent font-medium hover:underline text-sm">
                         En savoir plus <i class="fas fa-arrow-right ml-1 text-xs"></i>
                     </a>
-                </div>
-            </div>
-
-            <!-- Grid 3 cols: Rebozo, Massage Postnatal, Atelier Bébé -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <!-- Soin Rebozo -->
-                <div class="card-v2 flex flex-col animate-on-scroll">
-                    <div class="h-48 overflow-hidden">
-                        <img src="assets/images/services/soin-rebozo-alt.webp" alt="Soin Rebozo — resserrage du bassin" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-serif text-xl text-text mb-3">Soin Rebozo</h3>
-                        <p class="text-gray-600 text-sm mb-4 flex-grow">
-                            Rituel ancestral mexicain pour "refermer" le corps après l'accouchement.
-                            Par un bercement et un serrage précis du bassin avec le tissu Rebozo, nous aidons le corps à se remettre en place.
-                        </p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                            <span class="font-serif font-bold text-primary">90&#8239;&#8364;</span>
-                            <div class="flex gap-3">
-                                <button onclick="openCalendlyPopup('Soin Rebozo')" class="text-text font-bold hover:text-primary text-sm">Réserver &rarr;</button>
-                                <button onclick="openGiftModal('Soin Rebozo')" class="text-gold font-bold hover:text-primary text-sm"><i class="fas fa-gift mr-1"></i>Offrir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Massage Postnatal -->
-                <div class="card-v2 flex flex-col animate-on-scroll">
-                    <div class="h-48 overflow-hidden">
-                        <img src="assets/images/services/massage-postnatal.webp" alt="Massage postnatal" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-serif text-xl text-text mb-3">Massage Postnatal</h3>
-                        <p class="text-gray-600 text-sm mb-4 flex-grow">
-                            Pour se réapproprier son corps, drainer les tissus, soulager le dos sollicité par l'allaitement ou le portage,
-                            et s'offrir une parenthèse de douceur. Un temps pour soi essentiel.
-                        </p>
-                        <p class="text-xs text-primary font-medium mb-3"><i class="fas fa-heart mr-1"></i>En Rituel Douceur Bulleo (+ drainage 1h30) : 115&#8239;&#8364;</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                            <span class="font-serif font-bold text-primary">Dès 75&#8239;&#8364;</span>
-                            <div class="flex gap-3">
-                                <button onclick="openCalendlyPopup('Massage Postnatal')" class="text-text font-bold hover:text-primary text-sm">Réserver &rarr;</button>
-                                <button onclick="openGiftModal('Massage Postnatal')" class="text-gold font-bold hover:text-primary text-sm"><i class="fas fa-gift mr-1"></i>Offrir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Atelier Massage Bébé -->
-                <div class="card-v2 flex flex-col animate-on-scroll">
-                    <div class="h-48 overflow-hidden">
-                        <img src="assets/images/services/atelier-massage-bebe.webp" alt="Atelier massage bébé" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="font-serif text-xl text-text mb-3">Atelier Massage Bébé</h3>
-                        <p class="text-gray-600 text-sm mb-4 flex-grow">
-                            Apprenez les gestes pour masser votre bébé en toute sécurité.
-                            Soulagez ses coliques, favorisez son sommeil et renforcez votre lien d'attachement.
-                        </p>
-                        <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-                            <span class="font-serif font-bold text-primary">80&#8239;&#8364;</span>
-                            <div class="flex gap-3">
-                                <button onclick="openCalendlyPopup('Atelier Massage Bebe')" class="text-text font-bold hover:text-primary text-sm">Réserver &rarr;</button>
-                                <button onclick="openGiftModal('Atelier Massage Bebe')" class="text-gold font-bold hover:text-primary text-sm"><i class="fas fa-gift mr-1"></i>Offrir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Services Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Soin postnatal complet -->
-                <div class="bg-secondary p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all animate-on-scroll">
-                    <div class="mb-4 h-40 overflow-hidden rounded-lg">
-                        <img src="assets/images/services/soin-postnatal-complet.webp" alt="Soin postnatal complet" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <h3 class="font-serif text-lg text-text mb-2">Soin Postnatal Complet</h3>
-                    <p class="text-gray-500 text-sm mb-3">Massage postnatal + Soin Rebozo en une séance complète de 2h.</p>
-                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
-                        <span class="font-serif font-bold text-primary">160&#8239;&#8364;</span>
-                        <div class="flex gap-3">
-                            <button onclick="openCalendlyPopup('Soin postnatal complet - Massage &amp; Rebozo')" class="text-text font-bold hover:text-primary text-sm">Réserver &rarr;</button>
-                            <button onclick="openGiftModal('Soin postnatal complet - Massage &amp; Rebozo')" class="text-gold font-bold hover:text-primary text-sm"><i class="fas fa-gift mr-1"></i>Offrir</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Massage bébé & enfant -->
-                <div class="bg-secondary p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all animate-on-scroll">
-                    <div class="mb-4 h-40 overflow-hidden rounded-lg">
-                        <img src="assets/images/services/bain-enveloppe.webp" alt="Massage bébé et enfant" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <h3 class="font-serif text-lg text-text mb-2">Massage Bébé &amp; Enfant</h3>
-                    <p class="text-gray-500 text-sm mb-3">Massage individuel adapté à l'âge de votre enfant pour son bien-être quotidien.</p>
-                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
-                        <span class="font-serif font-bold text-primary">55&#8239;&#8364;</span>
-                        <div class="flex gap-3">
-                            <button onclick="openCalendlyPopup('Massage bebe &amp; enfant')" class="text-text font-bold hover:text-primary text-sm">Réserver &rarr;</button>
-                            <button onclick="openGiftModal('Massage bebe &amp; enfant')" class="text-gold font-bold hover:text-primary text-sm"><i class="fas fa-gift mr-1"></i>Offrir</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Réflexologie Pédiatrique -->
-                <div class="bg-secondary p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all animate-on-scroll">
-                    <div class="mb-4 h-40 overflow-hidden rounded-lg">
-                        <img src="assets/images/services/reflexologie.webp" alt="Réflexologie plantaire pédiatrique" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <h3 class="font-serif text-lg text-text mb-2">Réflexologie Pédiatrique</h3>
-                    <p class="text-gray-500 text-sm mb-3">Réflexologie plantaire adaptée aux nourrissons et jeunes enfants pour apaiser les petits maux.</p>
-                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
-                        <span class="font-serif font-bold text-primary">50&#8239;&#8364;</span>
-                        <div class="flex gap-3">
-                            <button onclick="openCalendlyPopup('Reflexologie plantaire Pediatrique')" class="text-text font-bold hover:text-primary text-sm">Réserver &rarr;</button>
-                            <button onclick="openGiftModal('Reflexologie plantaire Pediatrique')" class="text-gold font-bold hover:text-primary text-sm"><i class="fas fa-gift mr-1"></i>Offrir</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Agenda Maman -->
-                <div class="bg-secondary p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition-all animate-on-scroll">
-                    <div class="mb-4 h-40 overflow-hidden rounded-lg">
-                        <img src="assets/images/services/agenda-maman.webp" alt="Agenda Ma première année de maman" class="w-full h-full object-cover" loading="lazy">
-                    </div>
-                    <h3 class="font-serif text-lg text-text mb-2">Agenda : Ma 1ère Année de Maman</h3>
-                    <p class="text-gray-500 text-sm mb-3">Un agenda pensé pour les jeunes mamans. Organisez votre quotidien et gardez une trace de ces précieux moments.</p>
-                    <div class="flex justify-between items-center pt-3 border-t border-gray-100">
-                        <span class="font-serif font-bold text-primary">31,80&#8239;&#8364;</span>
-                        <button onclick="openGiftModal('Agenda: Ma premiere annee de maman')" class="text-text font-bold hover:text-primary text-sm">Commander &rarr;</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1311,98 +1388,99 @@
     </section>
 
     <!-- ============================================
-         CONTACT
+         CTA FINAL + CONTACT (form préservé)
          ============================================ -->
-    <section id="contact" class="py-20 bg-secondary">
+    <section id="contact" class="cta-final-section">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 animate-on-scroll">
-                <h2 class="section-title-v2">Nous contacter</h2>
-                <div class="section-divider mx-auto"></div>
+            <!-- Hero CTA -->
+            <div class="cta-final-hero animate-on-scroll">
+                <div class="cta-final-grid">
+                    <div class="cta-final-text">
+                        <span class="eyebrow-v2" style="color: var(--gold);">Prendre rendez-vous</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-text mt-4 mb-5 leading-tight">
+                            Votre cocon
+                            <em class="italic" style="color: var(--primary);">vous attend.</em>
+                        </h2>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Une question, un soin à offrir, ou simplement envie d'en savoir plus ?
+                            Estelle vous répond sous 24h.
+                        </p>
+                        <div class="flex flex-wrap gap-4 items-center mb-8">
+                            <button onclick="openCalendlyPopup()" class="btn-v2 btn-primary-v2 text-base px-7 py-3.5">
+                                Réserver un créneau <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                            </button>
+                            <a href="tel:+33675430257" class="btn-v2 btn-secondary-v2 text-base px-7 py-3.5">
+                                <i class="fas fa-phone mr-2"></i>06 75 43 02 57
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Aside : adresse / horaires / email -->
+                    <aside class="cta-final-aside">
+                        <div class="cta-row">
+                            <div class="cta-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <div class="cta-label">Adresse</div>
+                                <div class="cta-value">108-6 rue du Magasin aux Tabacs<br>65000 Tarbes</div>
+                                <div class="cta-meta">3ème étage · Ascenseur · Parking gratuit</div>
+                            </div>
+                        </div>
+                        <div class="cta-row">
+                            <div class="cta-icon"><i class="far fa-calendar-alt"></i></div>
+                            <div>
+                                <div class="cta-label">Horaires</div>
+                                <div class="cta-value">Lundi — Vendredi · 9h00 — 17h00</div>
+                                <div class="cta-meta">Sur rendez-vous uniquement</div>
+                            </div>
+                        </div>
+                        <div class="cta-row">
+                            <div class="cta-icon"><i class="far fa-envelope"></i></div>
+                            <div>
+                                <div class="cta-label">Email</div>
+                                <a href="mailto:contact@bulleo-soins.com" class="cta-value cta-link">contact@bulleo-soins.com</a>
+                            </div>
+                        </div>
+                        <div class="cta-row">
+                            <div class="cta-icon"><i class="fas fa-route"></i></div>
+                            <div>
+                                <div class="cta-label">Interventions à domicile</div>
+                                <div class="cta-meta">Tarbes · Lourdes · Pau · Bagnères-de-Bigorre · Lannemezan</div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <!-- Contact Info -->
-                <div class="bg-white rounded-2xl p-8 shadow-md animate-on-scroll">
-                    <h3 class="font-serif text-xl text-text mb-6">Informations pratiques</h3>
-                    <ul class="space-y-5">
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-map-marker-alt text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-text">Adresse</p>
-                                <p class="text-gray-600 text-sm">108-6 rue du Magasin aux Tabacs<br>65000 Tarbes</p>
-                                <p class="text-gray-500 text-xs mt-1">3ème étage — Ascenseur disponible</p>
-                                <p class="text-gray-500 text-xs mt-1">Interventions : Tarbes, Lourdes, Pau, Bagnères-de-Bigorre, Lannemezan</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-phone text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-text">Téléphone</p>
-                                <a href="tel:+33675430257" class="text-primary font-medium hover:underline">06 75 43 02 57</a>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-clock text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-text">Horaires</p>
-                                <p class="text-gray-600 text-sm">Lundi — Vendredi : 09h00 - 17h00</p>
-                                <p class="text-gray-500 text-xs mt-1">Sur rendez-vous uniquement</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-envelope text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-text">Email</p>
-                                <a href="mailto:contact@bulleo-soins.com" class="text-primary font-medium hover:underline text-sm">contact@bulleo-soins.com</a>
-                            </div>
-                        </li>
-                        <li class="flex items-start">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-0.5 flex-shrink-0">
-                                <i class="fas fa-parking text-primary"></i>
-                            </div>
-                            <div>
-                                <p class="font-bold text-text">Accès</p>
-                                <p class="text-gray-600 text-sm">Parking gratuit à proximité<br>Arrêt de bus à 2 min à pied</p>
-                            </div>
-                        </li>
-                    </ul>
+            <!-- Formulaire compact -->
+            <div class="cta-final-form animate-on-scroll">
+                <div class="text-center mb-8">
+                    <h3 class="font-serif text-2xl md:text-3xl text-text mb-3">Une question ? Un message ?</h3>
+                    <p class="text-gray-500 text-sm">Réponse sous 24h ouvrées.</p>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="bg-white rounded-2xl p-8 shadow-md animate-on-scroll">
-                    <h3 class="font-serif text-xl text-text mb-6">Envoyer un message</h3>
-                    <form action="https://formspree.io/f/xdkdeazw" method="POST" class="space-y-4">
-                        <div>
-                            <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet</label>
-                            <input type="text" id="contact-name" name="name" required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
-                        </div>
-                        <div>
-                            <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="contact-email" name="email" required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
-                        </div>
-                        <div>
-                            <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
-                            <input type="tel" id="contact-phone" name="phone" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
-                        </div>
-                        <div>
-                            <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                            <textarea id="contact-message" name="message" rows="4" required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none"></textarea>
-                        </div>
-                        <input type="hidden" name="_subject" value="Bulleo — Nouveau message depuis le site">
-                        <input type="hidden" name="_next" value="https://bulleo-soins.com/?confirmation=sent">
-                        <button type="submit" class="btn-v2 btn-primary-v2 w-full py-3">
-                            Envoyer <i class="fas fa-paper-plane ml-2"></i>
+                <form action="https://formspree.io/f/xdkdeazw" method="POST" class="cta-form-grid">
+                    <div class="form-field">
+                        <label for="contact-name">Nom complet</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Marie Dupont">
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="marie@email.com">
+                    </div>
+                    <div class="form-field">
+                        <label for="contact-phone">Téléphone</label>
+                        <input type="tel" id="contact-phone" name="phone" placeholder="06 75 43 02 57">
+                    </div>
+                    <div class="form-field form-field-full">
+                        <label for="contact-message">Votre message</label>
+                        <textarea id="contact-message" name="message" rows="4" required placeholder="Bonjour Estelle, je souhaiterais…"></textarea>
+                    </div>
+                    <input type="hidden" name="_subject" value="Bulleo — Nouveau message depuis le site">
+                    <input type="hidden" name="_next" value="https://bulleo-soins.com/?confirmation=sent">
+                    <div class="form-field form-field-full">
+                        <button type="submit" class="btn-v2 btn-primary-v2 w-full py-3.5">
+                            Envoyer le message <i class="fas fa-paper-plane ml-2 text-sm"></i>
                         </button>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -1410,52 +1488,61 @@
     </main>
 
     <!-- ============================================
-         FOOTER
+         FOOTER 4 COLONNES
          ============================================ -->
-    <footer class="footer-v2 py-16">
+    <footer class="footer-v3">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Brand -->
+            <div class="footer-v3-grid">
+                <!-- Col 1: Brand -->
                 <div>
-                    <span class="font-serif text-2xl font-bold text-primary tracking-wider mb-4 block">Bulleo</span>
-                    <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.6)">
-                        Institut Périnatal spécialisé dans le bien-être de la femme enceinte et du nouveau-né.
-                        Accompagnement professionnel par une Auxiliaire de Puériculture Diplômée d'État à Tarbes.
+                    <div class="footer-v3-brand">
+                        <img src="assets/images/logos/logo-main.webp" alt="Bulleo">
+                        <span class="footer-v3-brand-name">Bulleo</span>
+                    </div>
+                    <p class="footer-v3-blurb">
+                        Institut périnatal à Tarbes. Massage prénatal, bain enveloppé, soin Rebozo,
+                        drainage lymphatique balinais et ateliers bébé par une Auxiliaire de Puériculture D.E.
                     </p>
-                </div>
-
-                <!-- Infos -->
-                <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Informations</h4>
-                    <ul class="space-y-3 text-sm" style="color: rgba(255,255,255,0.6)">
-                        <li><i class="fas fa-map-marker-alt mr-2 text-primary"></i>108-6 rue du Magasin aux Tabacs, 65000 Tarbes</li>
-                        <li style="padding-left: 1.5rem; font-size: 0.75rem;">Interventions : Tarbes, Lourdes, Pau, Bagnères-de-Bigorre, Lannemezan</li>
-                        <li><i class="fas fa-phone mr-2 text-primary"></i><a href="tel:+33675430257" class="hover:text-primary">06 75 43 02 57</a></li>
-                        <li><i class="fas fa-clock mr-2 text-primary"></i>Lun — Ven : 09h00 - 17h00</li>
-                        <li><i class="fas fa-envelope mr-2 text-primary"></i><a href="mailto:contact@bulleo-soins.com" class="hover:text-primary">contact@bulleo-soins.com</a></li>
-                    </ul>
-                </div>
-
-                <!-- Liens -->
-                <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Liens Utiles</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="mentions-legales.html">Mentions Légales</a></li>
-                        <li><a href="politique-confidentialite.html">Politique de Confidentialité</a></li>
-                        <li><a href="cgv.html">CGV</a></li>
-                    </ul>
-                    <div class="mt-6 flex space-x-4">
-                        <a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
+                    <div class="footer-v3-socials">
+                        <a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="tel:+33675430257" aria-label="Téléphone"><i class="fas fa-phone"></i></a>
                     </div>
                 </div>
+
+                <!-- Col 2: Soins -->
+                <div>
+                    <h4>Soins</h4>
+                    <a href="#prestations">Tous les soins</a>
+                    <a href="#grossesse">Grossesse</a>
+                    <a href="#post-partum">Bain enveloppé</a>
+                    <a href="#drainage">Drainage lymphatique <span class="new-dot">●</span></a>
+                    <a href="#soin-signature">Rituel Douceur Bulleo</a>
+                    <a href="#cadeaux">Bons cadeaux</a>
+                </div>
+
+                <!-- Col 3: Institut -->
+                <div>
+                    <h4>L'institut</h4>
+                    <a href="#apropos">À propos d'Estelle</a>
+                    <a href="#temoignages">Témoignages</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener">Instagram</a>
+                </div>
+
+                <!-- Col 4: Légal -->
+                <div>
+                    <h4>Informations légales</h4>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+                    <a href="cgv.html">CGV</a>
+                </div>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-xs" style="color: rgba(255,255,255,0.4)">
-                &copy; 2026 Bulleo — Institut Périnatal. Tous droits réservés.
+
+            <div class="footer-v3-bottom">
+                <span>© 2026 Bulleo — Institut Périnatal · Tarbes (65)</span>
+                <span>SIRET 899 951 990 00014</span>
             </div>
         </div>
     </footer>
@@ -1555,6 +1642,6 @@
     </div>
 
     <!-- V2 JavaScript -->
-    <script src="assets/js/v2.js?v=20260425b"></script>
+    <script src="assets/js/v2.js?v=20260425d"></script>
 </body>
 </html>

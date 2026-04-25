@@ -1,0 +1,188 @@
+/* Modal styles */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(30, 22, 16, 0.72);
+  backdrop-filter: blur(10px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  animation: fadeIn .25s ease;
+}
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+.modal {
+  background: var(--white);
+  border-radius: 16px;
+  width: 100%; max-width: 720px;
+  max-height: 92vh;
+  display: flex; flex-direction: column;
+  box-shadow: 0 40px 100px rgba(0,0,0,.3);
+  position: relative;
+  animation: slideUp .3s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--paper); border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text); z-index: 10;
+  transition: background .2s;
+}
+.modal-close:hover { background: var(--secondary-warm); }
+
+.modal-stepper {
+  display: flex; gap: 6px;
+  padding: 24px 32px 0;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+.modal-step {
+  flex: 1; display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-soft);
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+.modal-step .num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--paper); border: 1px solid var(--line);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600;
+}
+.modal-step.active { color: var(--text); }
+.modal-step.active .num { background: var(--text); color: white; border-color: var(--text); }
+.modal-step.done .num { background: var(--primary); color: var(--text); border-color: var(--primary); }
+
+.modal-body {
+  padding: 32px;
+  overflow-y: auto;
+  flex: 1;
+}
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0 0 24px;
+  letter-spacing: -.01em;
+}
+.modal-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .12em;
+  color: var(--text-soft); font-weight: 600;
+  margin-bottom: 12px;
+}
+.modal-foot {
+  padding: 20px 32px;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--paper);
+  border-radius: 0 0 16px 16px;
+}
+
+.service-list { display: flex; flex-direction: column; gap: 8px; }
+.service-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  cursor: pointer;
+  text-align: left;
+  transition: all .2s;
+}
+.service-row:hover { border-color: var(--text-soft); }
+.service-row.selected { border-color: var(--text); background: var(--white); box-shadow: 0 0 0 4px rgba(45,36,30,.05); }
+.service-row img { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; }
+.service-row .info { flex: 1; }
+.service-row .name { font-weight: 500; font-size: 15px; }
+.service-row .meta { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+.service-row .price { font-family: var(--font-display); font-size: 18px; }
+
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+}
+.cal-day {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: inherit;
+}
+.cal-day:hover { border-color: var(--text-soft); }
+.cal-day.active { background: var(--text); color: white; border-color: var(--text); }
+.cal-day .dow { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; opacity: .6; }
+.cal-day .dn { font-family: var(--font-display); font-size: 18px; margin-top: 2px; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label {
+  display: block; font-size: 12px; font-weight: 500;
+  color: var(--text-soft); margin-bottom: 6px;
+}
+.form-field input, .form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--paper);
+  color: var(--text);
+  transition: border-color .2s;
+}
+.form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--text); }
+
+.recap {
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 24px;
+}
+.recap-row {
+  display: flex; justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.recap-row span { color: var(--text-soft); }
+.recap-total {
+  display: flex; justify-content: space-between;
+  padding-top: 16px;
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+
+.gift-card {
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--text) 0%, #3d3328 100%);
+  padding: 4px;
+}
+.gift-card-inner {
+  background: linear-gradient(135deg, var(--text) 0%, #3d3328 100%);
+  border-radius: 12px;
+  padding: 28px;
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.gift-card-inner::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  opacity: .25;
+}
+.gift-card-brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 22px; }
+.gift-card-brand img { height: 28px; filter: brightness(0) invert(1); }
+.gift-amount { font-family: var(--font-display); font-size: 56px; margin: 24px 0 8px; line-height: 1; }
+.gift-meta { display: flex; gap: 32px; font-size: 13px; opacity: .85; }
+.gift-meta strong { color: var(--primary); font-weight: 500; }
+.gift-msg { margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1); font-style: italic; font-size: 14px; opacity: .9; }
+
+@media (max-width: 720px) {
+  .modal-stepper { padding: 20px 20px 16px; }
+  .modal-step { font-size: 10px; }
+  .modal-body { padding: 24px 20px; }
+  .modal-foot { padding: 16px 20px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .modal-title { font-size: 22px; }
+}

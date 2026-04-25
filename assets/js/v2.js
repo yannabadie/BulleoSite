@@ -1048,6 +1048,57 @@ function showSuccessBanner(message) {
 }
 
 // ============================================
+// FILTRE GRILLE DES SOINS
+// ============================================
+function filterServices(category, btn) {
+    // Update active chip
+    document.querySelectorAll('.chips-row .chip').forEach(function(c) {
+        c.classList.remove('active');
+        c.setAttribute('aria-selected', 'false');
+    });
+    if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+    } else {
+        // Programmatic call: activate matching chip by data-filter
+        var chip = document.querySelector('.chips-row .chip[data-filter="' + category + '"]');
+        if (chip) {
+            chip.classList.add('active');
+            chip.setAttribute('aria-selected', 'true');
+        }
+    }
+    // Filter cards
+    document.querySelectorAll('.service-card').forEach(function(card) {
+        var match = category === 'all' || card.dataset.cat === category;
+        card.classList.toggle('hidden-by-filter', !match);
+    });
+    // GTM event
+    trackGTMEvent('filter_services', { category: category });
+}
+
+// Mappe les anciennes ancres aux catégories du filtre
+const HASH_FILTER_MAP = {
+    '#grossesse': 'grossesse',
+    '#drainage': 'soin',
+    '#bebe': 'bebe'
+};
+
+function applyHashFilter() {
+    var hash = window.location.hash;
+    var filter = HASH_FILTER_MAP[hash];
+    if (filter) {
+        filterServices(filter, null);
+        var grid = document.getElementById('prestations');
+        if (grid) {
+            setTimeout(function() {
+                var top = grid.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            }, 60);
+        }
+    }
+}
+
+// ============================================
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', function() {
@@ -1056,4 +1107,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     checkStripeReturn();
     checkConfirmation();
+    applyHashFilter();
+    window.addEventListener('hashchange', applyHashFilter);
 });

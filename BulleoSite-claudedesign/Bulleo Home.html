@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bulleo — Institut périnatal · Tarbes</title>
+<meta name="description" content="Bulleo, institut périnatal à Tarbes. Massage prénatal, bain enveloppé, soin Rebozo, ateliers bébé par une auxiliaire de puériculture diplômée d'État.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;700;900&family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="modals.css?v=4">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+/* Sticky mobile CTA */
+.sticky-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  display: flex; gap: 8px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.05);
+}
+.sticky-cta .btn { flex: 1; padding: 12px 16px; font-size: 13px; min-height: 44px; }
+@media (min-width: 1024px) { .sticky-cta { display: none; } }
+
+/* Loading */
+.app-loading {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--paper);
+  z-index: 1000;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--text-soft);
+}
+
+/* Mobile menu hidden initially */
+.mobile-menu { transform: translateX(100%); }
+</style>
+</head>
+<body class="theme-clay font-classic card-rounded card-shadow">
+<div id="root">
+  <div class="app-loading">Bulleo se prépare…</div>
+</div>
+
+<script src="data.js?v=4"></script>
+<script type="text/babel" src="components.jsx?v=4"></script>
+<script type="text/babel" src="modals.jsx?v=4"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" data-presets="env,react">
+const { useState, useEffect } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "clay",
+  "fontPair": "classic",
+  "cardStyle": "rounded",
+  "cardElevation": "shadow",
+  "density": "default",
+  "showTicker": true,
+  "showQuoteBadge": true,
+  "showStickyCTA": true,
+  "headlineMode": "editorial"
+}/*EDITMODE-END*/;
+
+function App() {
+  const [tweaks, setTweaks] = window.useTweaks(TWEAK_DEFAULTS);
+  const [editMode, setEditMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [reserveOpen, setReserveOpen] = useState(false);
+  const [reserveService, setReserveService] = useState(null);
+  const [giftOpen, setGiftOpen] = useState(false);
+  const [giftService, setGiftService] = useState(null);
+  const [lightboxIdx, setLightboxIdx] = useState(null);
+
+  window.useReveal();
+
+  // Edit mode wiring
+  useEffect(() => {
+    const onMsg = (e) => {
+      if (e.data?.type === '__activate_edit_mode') setEditMode(true);
+      if (e.data?.type === '__deactivate_edit_mode') setEditMode(false);
+    };
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({type: '__edit_mode_available'}, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  // Apply tweaks → body classes
+  useEffect(() => {
+    document.body.className = [
+      `theme-${tweaks.theme}`,
+      `font-${tweaks.fontPair}`,
+      `card-${tweaks.cardStyle}`,
+      `card-${tweaks.cardElevation}`,
+      tweaks.density === 'airy' ? 'card-density-airy' : '',
+      tweaks.density === 'compact' ? 'card-density-compact' : '',
+    ].filter(Boolean).join(' ');
+  }, [tweaks]);
+
+  const openReserve = (s = null) => { setReserveService(s); setReserveOpen(true); };
+  const openGift = (s = null) => { setGiftService(s); setGiftOpen(true); };
+
+  const scrollToGrossesse = () => {
+    const el = document.getElementById('prestations');
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
+  const { Nav, MobileMenu, Hero, Ticker, Portes, Prestations, FeatureBain, FeatureDrainage, RitualBanner, About, Gallery, Testimonials, FAQ, CTAFinal, Footer, ReserveModal, GiftModal, Lightbox, BulleoIcon } = window;
+
+  return (
+    <>
+      <Nav onBook={() => openReserve()} onMenu={() => setMenuOpen(true)} />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} onBook={() => openReserve()} />
+
+      <Hero onBook={() => openReserve()} onScrollGrossesse={scrollToGrossesse} />
+      {tweaks.showTicker && <Ticker />}
+      <Portes />
+      <div id="grossesse"></div>
+      <Prestations onBook={openReserve} onGift={openGift} />
+      <RitualBanner onBook={openReserve} />
+      <FeatureDrainage onBook={openReserve} onGift={openGift} />
+      <div id="postpartum"></div>
+      <FeatureBain onBook={openReserve} onGift={openGift} />
+      <About />
+      <Gallery onOpen={(i) => setLightboxIdx(i)} />
+      <Testimonials />
+      <FAQ />
+      <CTAFinal onBook={() => openReserve()} />
+      <Footer />
+
+      {tweaks.showStickyCTA && (
+        <div className="sticky-cta">
+          <button className="btn btn-ghost" onClick={() => openGift()}>{BulleoIcon.gift} Offrir</button>
+          <button className="btn btn-primary" onClick={() => openReserve()}>Réserver {BulleoIcon.arrow}</button>
+        </div>
+      )}
+
+      <ReserveModal open={reserveOpen} onClose={() => setReserveOpen(false)} service={reserveService} services={window.BULLEO_SERVICES} />
+      <GiftModal open={giftOpen} onClose={() => setGiftOpen(false)} service={giftService} />
+      <Lightbox open={lightboxIdx !== null} idx={lightboxIdx} onClose={() => setLightboxIdx(null)} items={window.BulleoData.gallery} />
+
+      {editMode && (
+        <window.TweaksPanel onClose={() => setEditMode(false)}>
+          <window.TweakSection title="Ambiance">
+            <window.TweakRadio label="Thème" value={tweaks.theme} onChange={v => setTweaks({ theme: v })}
+              options={[
+                { value: 'clay', label: 'Argile' },
+                { value: 'sage', label: 'Sauge' },
+                { value: 'rose', label: 'Rosée' },
+                { value: 'night', label: 'Nuit' }
+              ]} />
+            <window.TweakRadio label="Pairing typo" value={tweaks.fontPair} onChange={v => setTweaks({ fontPair: v })}
+              options={[
+                { value: 'classic', label: 'Classique (Playfair)' },
+                { value: 'modern', label: 'Moderne (Fraunces)' },
+                { value: 'grotesk', label: 'Sans-serif' }
+              ]} />
+          </window.TweakSection>
+          <window.TweakSection title="Cartes prestations">
+            <window.TweakRadio label="Style" value={tweaks.cardStyle} onChange={v => setTweaks({ cardStyle: v })}
+              options={[
+                { value: 'rounded', label: 'Arrondies' },
+                { value: 'flat', label: 'Plates' }
+              ]} />
+            <window.TweakRadio label="Élévation" value={tweaks.cardElevation} onChange={v => setTweaks({ cardElevation: v })}
+              options={[
+                { value: 'shadow', label: 'Ombre au survol' },
+                { value: 'flat', label: 'Sans ombre' }
+              ]} />
+            <window.TweakRadio label="Densité" value={tweaks.density} onChange={v => setTweaks({ density: v })}
+              options={[
+                { value: 'default', label: 'Standard' },
+                { value: 'airy', label: 'Aérée' },
+                { value: 'compact', label: 'Compacte' }
+              ]} />
+          </window.TweakSection>
+          <window.TweakSection title="Éléments décoratifs">
+            <window.TweakToggle label="Bandeau défilant" value={tweaks.showTicker} onChange={v => setTweaks({ showTicker: v })} />
+            <window.TweakToggle label="CTA fixe (mobile)" value={tweaks.showStickyCTA} onChange={v => setTweaks({ showStickyCTA: v })} />
+          </window.TweakSection>
+        </window.TweaksPanel>
+      )}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
