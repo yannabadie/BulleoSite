@@ -249,7 +249,7 @@
     <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
 
     <!-- V2 CSS -->
-    <link rel="stylesheet" href="assets/css/v2.css?v=20260425b">
+    <link rel="stylesheet" href="assets/css/v2.css?v=20260425c">
 
     <!-- LLMs.txt -->
     <link rel="llms-txt" href="/llms.txt" type="text/plain">
@@ -413,6 +413,47 @@
             </div>
         </div>
     </header>
+
+    <!-- ============================================
+         TICKER — bandeau défilant
+         ============================================ -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+            <span class="ticker-item">Massage Prénatal</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Drainage Lymphatique Balinais</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Bain Enveloppé</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Soin Rebozo</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Rituel Douceur Bulleo</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Auxiliaire de Puériculture D.E.</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Tarbes — 65</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Atelier Motricité</span>
+            <span class="ticker-dot">✦</span>
+            <!-- Duplication pour boucle continue -->
+            <span class="ticker-item">Massage Prénatal</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Drainage Lymphatique Balinais</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Bain Enveloppé</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Soin Rebozo</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Rituel Douceur Bulleo</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Auxiliaire de Puériculture D.E.</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Tarbes — 65</span>
+            <span class="ticker-dot">✦</span>
+            <span class="ticker-item">Atelier Motricité</span>
+            <span class="ticker-dot">✦</span>
+        </div>
+    </div>
 
     <main id="prestations">
 
@@ -1226,6 +1267,23 @@
                             Après plusieurs années d'expérience en maternité et en crèche, j'ai créé Bulleo pour offrir aux familles ce qui manque souvent dans le parcours médical classique :
                             du temps, de l'écoute, et une approche globale qui prend soin aussi bien du corps que des émotions.
                         </p>
+
+                        <!-- Chiffres-clés -->
+                        <div class="grid grid-cols-3 gap-4 mb-8 pb-8 border-b border-gray-100">
+                            <div class="text-center">
+                                <div class="font-serif text-3xl md:text-4xl font-bold text-primary">2018</div>
+                                <div class="text-xs uppercase tracking-wider text-gray-500 mt-1">Diplôme<br>d'État</div>
+                            </div>
+                            <div class="text-center border-l border-r border-gray-100 px-2">
+                                <div class="font-serif text-3xl md:text-4xl font-bold text-primary">7<sup class="text-xl">+</sup></div>
+                                <div class="text-xs uppercase tracking-wider text-gray-500 mt-1">Années<br>d'expérience</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-serif text-3xl md:text-4xl font-bold text-primary">90<sup class="text-xl">+</sup></div>
+                                <div class="text-xs uppercase tracking-wider text-gray-500 mt-1">Familles<br>accompagnées</div>
+                            </div>
+                        </div>
+
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div class="flex items-center">
                                 <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3 text-green-600 flex-shrink-0">

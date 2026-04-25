@@ -431,3 +431,65 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     .porte-card img { transform: none !important; }
     .card-v2:hover { transform: none; }
 }
+
+/* ============================================
+   TICKER — bandeau défilant
+   ============================================ */
+.ticker {
+    background: linear-gradient(90deg, #F2EBE0 0%, #F9F7F2 50%, #F2EBE0 100%);
+    border-top: 1px solid var(--gray-border);
+    border-bottom: 1px solid var(--gray-border);
+    overflow: hidden;
+    padding: 14px 0;
+    position: relative;
+}
+.ticker::before, .ticker::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+.ticker::before { left: 0; background: linear-gradient(90deg, #F2EBE0 0%, transparent 100%); }
+.ticker::after { right: 0; background: linear-gradient(270deg, #F2EBE0 0%, transparent 100%); }
+
+.ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    white-space: nowrap;
+    animation: ticker-scroll 60s linear infinite;
+    width: max-content;
+}
+
+.ticker-item {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text);
+    letter-spacing: 0.01em;
+    flex-shrink: 0;
+}
+
+.ticker-dot {
+    color: var(--primary);
+    font-size: 14px;
+    flex-shrink: 0;
+    opacity: 0.6;
+}
+
+@keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ticker-track { animation: none; }
+}
+
+@media (max-width: 640px) {
+    .ticker { padding: 11px 0; }
+    .ticker-item { font-size: 14px; }
+    .ticker-track { animation-duration: 45s; gap: 24px; }
+}
