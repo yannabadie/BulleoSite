@@ -267,6 +267,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     max-height: 90vh; max-height: 90dvh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     position: relative;
     box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
 }
@@ -393,6 +394,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
     box-shadow: -10px 0 30px rgba(0,0,0,0.1);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .mobile-menu-v2.open { transform: translateX(0); }
