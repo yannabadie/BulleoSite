@@ -459,7 +459,15 @@ function openGiftModal(serviceName, preselectVariantKey) {
     const hiddenService = modal.querySelector('#giftSelectedService');
     if (hiddenService) hiddenService.value = serviceName;
 
-    // Render variants chips + initial gift card visual
+    // Restore CTA skeleton AVANT renderGiftVariants (sinon [data-gift-cta-amount] manque
+    // si l'user a cliqué Offrir précédemment et que handleGiftPayment a basculé le bouton en spinner)
+    const payBtn = modal.querySelector('.gift-cta-btn');
+    if (payBtn) {
+        payBtn.disabled = false;
+        payBtn.innerHTML = '<span>Offrir <span data-gift-cta-amount>0</span>&nbsp;€</span><i class="fas fa-arrow-right ml-2"></i>';
+    }
+
+    // Render variants chips + initial gift card visual (met à jour [data-gift-cta-amount] avec le vrai prix)
     renderGiftVariants(service, preselectVariantKey);
 
     // Default mode = "Pour offrir"
