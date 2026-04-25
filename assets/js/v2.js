@@ -210,6 +210,14 @@ const serviceConfig = {
         price: '160,00 EUR',
         buyButtonId: 'buy_btn_1SJw4zCm8TYzw7cAgkiZH9Va'
     },
+    'Rituel Douceur Bulleo': {
+        name: 'Rituel Douceur Bulleo',
+        article: 'un',
+        giftText: 'Offrir un Rituel Douceur Bulleo',
+        bookText: 'Reserver un Rituel Douceur Bulleo',
+        price: '115,00 EUR',
+        buyButtonId: ''
+    },
     'Drainage Lymphatique Balinais': {
         name: 'Drainage Lymphatique Balinais',
         article: 'un',
@@ -324,6 +332,7 @@ const serviceToPriceId = {
     'Reflexologie plantaire Pediatrique': 'price_1RqWlgCm8TYzw7cANnCeRBdq',
     'Massage bebe & enfant': 'price_1SIyYXCm8TYzw7cA3eAcDt0z',
     'Soin postnatal complet - Massage & Rebozo': 'price_1SIyXlCm8TYzw7cAzFfc2qyB',
+    'Rituel Douceur Bulleo': 'price_1TQ0oNCm8TYzw7cAtExvvnpm',
     'Drainage Lymphatique Balinais': {
         default: 'price_1TQ0izCm8TYzw7cA3hGP3iXI',
         relatedOffers: {
