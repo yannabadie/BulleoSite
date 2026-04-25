@@ -4,6 +4,30 @@
  */
 
 // ============================================
+// GTM TRACKING (helpers locaux — index.html ne charge pas main.js)
+// ============================================
+function trackGTMEvent(eventName, eventParams) {
+    try {
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, eventParams);
+        } else if (typeof window.dataLayer !== 'undefined') {
+            window.dataLayer.push(Object.assign({ 'event': eventName }, eventParams || {}));
+        }
+    } catch (e) {
+        // GTM tracking unavailable
+    }
+}
+
+function trackVariantSelect(serviceName, variantKey, price) {
+    trackGTMEvent('add_variant', {
+        'service': serviceName,
+        'variant': variantKey,
+        'price': price,
+        'currency': 'EUR'
+    });
+}
+
+// ============================================
 // CONFIGURATION DES SERVICES
 // ============================================
 const serviceConfig = {
@@ -284,6 +308,14 @@ const serviceConfig = {
         price: '31,80 EUR',
         buyButtonId: 'buy_btn_1RqWYKCm8TYzw7cAWcMEeir5',
         requiresShipping: true
+    },
+    'Atelier Motricite & Eveil sensoriel': {
+        name: 'Atelier Motricite & Eveil sensoriel',
+        article: 'un',
+        giftText: 'Offrir un bon cadeau Atelier Motricite',
+        bookText: 'Reserver un Atelier Motricite',
+        price: '16,00 EUR',
+        buyButtonId: 'buy_btn_1RqWVWCm8TYzw7cAFHxH5XlR'
     }
 };
 
@@ -345,7 +377,8 @@ const serviceToPriceId = {
             'drainage_massage': 'price_1TQ0oNCm8TYzw7cAtExvvnpm'
         }
     },
-    'Agenda: Ma premiere annee de maman': 'price_1RqVTxCm8TYzw7cA6e88Upbg'
+    'Agenda: Ma premiere annee de maman': 'price_1RqVTxCm8TYzw7cA6e88Upbg',
+    'Atelier Motricite & Eveil sensoriel': 'price_1RzzLGCm8TYzw7cAFej7gEph'
 };
 
 // Stripe publishable key
@@ -520,7 +553,7 @@ function selectGiftVariant(key) {
 
 function getCurrentGiftAmount() {
     const service = serviceConfig[currentGiftService];
-    if (!service) return { label: '0,00 EUR', num: 0 };
+    if (!service) return { label: '0,00 EUR', display: '0', num: 0 };
     let priceLabel;
     if (service.hasRelatedOffers && currentGiftVariantKey) {
         const offer = service.relatedOffers.find(function(o) { return o.key === currentGiftVariantKey; });
@@ -528,9 +561,15 @@ function getCurrentGiftAmount() {
     } else {
         priceLabel = service.price || '';
     }
-    const numStr = (priceLabel || '').replace(/[^\d,]/g, '').split(',')[0];
-    const num = parseInt(numStr, 10) || 0;
-    return { label: priceLabel, num: num };
+    // Préserve les centimes : "31,80 EUR" → display "31,80", num 31.80 ; "70,00 EUR" → display "70", num 70
+    const cleaned = (priceLabel || '').replace(/[^\d,]/g, '');
+    const parts = cleaned.split(',');
+    const intPart = parts[0] || '0';
+    const decPart = parts[1] || '';
+    const hasCents = decPart && /[1-9]/.test(decPart);
+    const display = hasCents ? (intPart + ',' + decPart.slice(0, 2)) : intPart;
+    const num = parseFloat(intPart + (decPart ? '.' + decPart.slice(0, 2) : '')) || 0;
+    return { label: priceLabel, display: display, num: num };
 }
 
 function updateGiftCardPrice() {
@@ -539,8 +578,8 @@ function updateGiftCardPrice() {
     const amt = getCurrentGiftAmount();
     const service = serviceConfig[currentGiftService];
 
-    modal.querySelectorAll('[data-gift-amount]').forEach(function(el) { el.textContent = amt.num; });
-    modal.querySelectorAll('[data-gift-cta-amount]').forEach(function(el) { el.textContent = amt.num; });
+    modal.querySelectorAll('[data-gift-amount]').forEach(function(el) { el.textContent = amt.display; });
+    modal.querySelectorAll('[data-gift-cta-amount]').forEach(function(el) { el.textContent = amt.display; });
 
     // Service name on visual card
     const serviceNameEl = modal.querySelector('[data-gift-service-name]');
@@ -621,15 +660,14 @@ function handleGiftPayment() {
         return false;
     }
 
-    // Validate variant selection for services with related offers
+    // Validate variant selection for services with related offers (chips state in currentGiftVariantKey)
     if (service.hasRelatedOffers) {
-        const variantSelect = modal.querySelector('[data-gift-variant]');
-        if (!variantSelect || !variantSelect.value) {
+        if (!currentGiftVariantKey) {
             alert('Veuillez selectionner une formule.');
-            if (variantSelect) variantSelect.focus();
+            const firstChip = modal.querySelector('[data-gift-variants] .gift-chip');
+            if (firstChip) firstChip.focus();
             return false;
         }
-        currentGiftVariantKey = variantSelect.value;
     }
 
     // Validate required fields
@@ -801,7 +839,8 @@ const CALENDLY_SLUGS = {
     'Drainage Lymphatique Balinais 45min': 'drainage-lymphatique-balinais-1',
     'Drainage Lymphatique Balinais 1h': 'drainage-lymphatique-balinais-2',
     'Rituel Douceur Bulleo': 'soin-massage-drainage',
-    'Agenda: Ma premiere annee de maman': null
+    'Agenda: Ma premiere annee de maman': null,
+    'Atelier Motricite & Eveil sensoriel': null
 };
 
 // Slugs pour le mode "J'ai une carte cadeau"
@@ -818,7 +857,8 @@ const CALENDLY_GIFT_SLUGS = {
     'Bain Enveloppe Jumeaux': 'j-ai-une-carte-cadeau-bain-jumeaux',
     'Drainage Lymphatique Balinais': 'j-ai-une-carte-cadeau-massage-drainage',
     'Rituel Douceur Bulleo': 'j-ai-une-carte-cadeau-massage-drainage',
-    'Agenda: Ma premiere annee de maman': null
+    'Agenda: Ma premiere annee de maman': null,
+    'Atelier Motricite & Eveil sensoriel': null
 };
 
 function getCalendlyUrl(serviceName, isGiftRedemption) {
@@ -1016,6 +1056,23 @@ function initSmoothScroll() {
             if (!href || href === '#') return;
 
             e.preventDefault();
+
+            // Si l'ancre est mappée à un filtre, l'appliquer et scroller au prestations
+            const filterCategory = HASH_FILTER_MAP[href];
+            if (filterCategory) {
+                filterServices(filterCategory, null);
+                if (window.location.hash !== href) {
+                    history.replaceState(null, '', href);
+                }
+                const grid = document.getElementById('prestations');
+                if (grid) {
+                    const navH = document.querySelector('.nav-v2') ? document.querySelector('.nav-v2').offsetHeight : 0;
+                    const top = grid.getBoundingClientRect().top + window.scrollY - navH - 16;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+                return;
+            }
+
             const target = document.querySelector(href);
             if (target) {
                 const navHeight = document.querySelector('.nav-v2')
