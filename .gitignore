@@ -35,3 +35,9 @@ desktop.ini
 .env
 *.env
 *.png
+
+# Test artifacts & review outputs
+.test-e2e.log
+.codex-review.log
+.codex-review.md
+node_modules/
