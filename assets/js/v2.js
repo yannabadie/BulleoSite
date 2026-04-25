@@ -414,37 +414,33 @@ function openGiftModal(serviceName, preselectVariantKey) {
     currentGiftService = serviceName;
     currentGiftVariantKey = '';
 
-    // Pre-load Stripe script when modal opens (user will likely pay)
     loadStripeScript();
 
-    // Set modal title
+    // Update modal title : "Offrir un Massage Prénatal"
     const titleEl = modal.querySelector('[data-gift-title]');
     if (titleEl) {
         titleEl.textContent = 'Offrir ' + service.article + ' ' + service.name;
     }
 
-    // Populate service dropdown
-    const serviceSelect = modal.querySelector('[data-gift-service]');
-    if (serviceSelect) {
-        serviceSelect.innerHTML = '';
-        Object.keys(serviceConfig).forEach(function(key) {
-            const opt = document.createElement('option');
-            opt.value = key;
-            opt.textContent = serviceConfig[key].name;
-            if (key === serviceName) opt.selected = true;
-            serviceSelect.appendChild(opt);
-        });
+    // Sync hidden field for service
+    const hiddenService = modal.querySelector('#giftSelectedService');
+    if (hiddenService) hiddenService.value = serviceName;
 
-        // Clone to remove old listeners
-        const newSelect = serviceSelect.cloneNode(true);
-        serviceSelect.parentNode.replaceChild(newSelect, serviceSelect);
-        newSelect.addEventListener('change', function() {
-            updateGiftService(this.value);
-        });
-    }
+    // Render variants chips + initial gift card visual
+    renderGiftVariants(service, preselectVariantKey);
 
-    // Update variant and price display (with optional pre-selection)
-    updateGiftService(serviceName, preselectVariantKey);
+    // Default mode = "Pour offrir"
+    setGiftType('gift');
+
+    // Bind live update on from/to inputs (clone to remove old listeners)
+    ['data-gift-name', 'data-gift-recipient'].forEach(function(attr) {
+        const input = modal.querySelector('[' + attr + ']');
+        if (!input) return;
+        const newInput = input.cloneNode(true);
+        input.parentNode.replaceChild(newInput, input);
+        newInput.addEventListener('input', updateGiftCardMeta);
+    });
+    updateGiftCardMeta();
 
     // Show modal
     modal.classList.add('active');
@@ -452,11 +448,9 @@ function openGiftModal(serviceName, preselectVariantKey) {
     document.body.dataset.scrollY = window.scrollY;
     document.body.style.top = '-' + window.scrollY + 'px';
 
-    // Trap focus — focus first input
-    const firstInput = modal.querySelector('input:not([type="hidden"]), select');
-    if (firstInput) {
-        setTimeout(function() { firstInput.focus(); }, 100);
-    }
+    // Focus first visible input
+    const firstInput = modal.querySelector('[data-gift-name]');
+    if (firstInput) setTimeout(function() { firstInput.focus(); }, 120);
 
     // Close on backdrop click
     modal.addEventListener('click', function handler(e) {
@@ -465,7 +459,6 @@ function openGiftModal(serviceName, preselectVariantKey) {
             modal.removeEventListener('click', handler);
         }
     });
-
     // Close on Escape
     document.addEventListener('keydown', function handler(e) {
         if (e.key === 'Escape') {
@@ -475,30 +468,125 @@ function openGiftModal(serviceName, preselectVariantKey) {
     });
 }
 
+function renderGiftVariants(service, preselectKey) {
+    const modal = document.getElementById('giftModal');
+    if (!modal) return;
+    const section = modal.querySelector('[data-gift-variants-section]');
+    const container = modal.querySelector('[data-gift-variants]');
+    if (!section || !container) return;
+
+    container.innerHTML = '';
+
+    if (!service.hasRelatedOffers || !service.relatedOffers || !service.relatedOffers.length) {
+        section.style.display = 'none';
+        currentGiftVariantKey = '';
+        updateGiftCardPrice();
+        return;
+    }
+
+    section.style.display = '';
+    const preselectIdx = preselectKey
+        ? service.relatedOffers.findIndex(function(o) { return o.key === preselectKey; })
+        : -1;
+    const selectedIdx = preselectIdx >= 0 ? preselectIdx : 0;
+
+    service.relatedOffers.forEach(function(offer, idx) {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'gift-chip' + (idx === selectedIdx ? ' active' : '');
+        chip.dataset.key = offer.key;
+        chip.innerHTML = '<span class="chip-name">' + offer.name + '</span><span class="chip-price">' + offer.price + '</span>';
+        chip.addEventListener('click', function() { selectGiftVariant(offer.key); });
+        container.appendChild(chip);
+    });
+
+    currentGiftVariantKey = service.relatedOffers[selectedIdx].key;
+    updateGiftCardPrice();
+}
+
+function selectGiftVariant(key) {
+    const service = serviceConfig[currentGiftService];
+    if (!service || !service.relatedOffers) return;
+    const offer = service.relatedOffers.find(function(o) { return o.key === key; });
+    if (!offer) return;
+    currentGiftVariantKey = key;
+    document.querySelectorAll('.gift-chip').forEach(function(c) {
+        c.classList.toggle('active', c.dataset.key === key);
+    });
+    updateGiftCardPrice();
+    // GTM tracking
+    trackVariantSelect(currentGiftService, key, offer.price);
+}
+
+function getCurrentGiftAmount() {
+    const service = serviceConfig[currentGiftService];
+    if (!service) return { label: '0,00 EUR', num: 0 };
+    let priceLabel;
+    if (service.hasRelatedOffers && currentGiftVariantKey) {
+        const offer = service.relatedOffers.find(function(o) { return o.key === currentGiftVariantKey; });
+        priceLabel = offer ? offer.price : '';
+    } else {
+        priceLabel = service.price || '';
+    }
+    const numStr = (priceLabel || '').replace(/[^\d,]/g, '').split(',')[0];
+    const num = parseInt(numStr, 10) || 0;
+    return { label: priceLabel, num: num };
+}
+
+function updateGiftCardPrice() {
+    const modal = document.getElementById('giftModal');
+    if (!modal) return;
+    const amt = getCurrentGiftAmount();
+    const service = serviceConfig[currentGiftService];
+
+    modal.querySelectorAll('[data-gift-amount]').forEach(function(el) { el.textContent = amt.num; });
+    modal.querySelectorAll('[data-gift-cta-amount]').forEach(function(el) { el.textContent = amt.num; });
+
+    // Service name on visual card
+    const serviceNameEl = modal.querySelector('[data-gift-service-name]');
+    if (serviceNameEl && service) {
+        // If variant selected, show its name; else service name
+        if (service.hasRelatedOffers && currentGiftVariantKey) {
+            const offer = service.relatedOffers.find(function(o) { return o.key === currentGiftVariantKey; });
+            serviceNameEl.textContent = offer ? offer.name : service.name;
+        } else {
+            serviceNameEl.textContent = service.name;
+        }
+    }
+}
+
+function updateGiftCardMeta() {
+    const modal = document.getElementById('giftModal');
+    if (!modal) return;
+    const fromEl = modal.querySelector('[data-gift-name]');
+    const toEl = modal.querySelector('[data-gift-recipient]');
+    const fromDisplay = modal.querySelector('[data-gift-from-display]');
+    const toDisplay = modal.querySelector('[data-gift-to-display]');
+    if (fromDisplay) fromDisplay.textContent = (fromEl && fromEl.value.trim()) || '…';
+    if (toDisplay) toDisplay.textContent = (toEl && toEl.value.trim()) || '…';
+}
+
 function setGiftType(type) {
     const modal = document.getElementById('giftModal');
     if (!modal) return;
 
     const btnSelf = modal.querySelector('[data-gift-type-self]');
     const btnGift = modal.querySelector('[data-gift-type-gift]');
-    const recipientSection = modal.querySelector('[data-gift-recipient-section]');
     const recipientInput = modal.querySelector('[data-gift-recipient]');
+    const card = modal.querySelector('.gift-modal-v3');
 
     if (type === 'gift') {
-        // Activate gift button
-        if (btnGift) { btnGift.classList.add('bg-white', 'shadow-sm', 'text-primary'); btnGift.classList.remove('text-gray-500'); }
-        if (btnSelf) { btnSelf.classList.remove('bg-white', 'shadow-sm', 'text-primary'); btnSelf.classList.add('text-gray-500'); }
-        // Show recipient
-        if (recipientSection) recipientSection.style.display = '';
+        if (btnGift) btnGift.classList.add('active');
+        if (btnSelf) btnSelf.classList.remove('active');
+        if (card) card.classList.remove('gift-mode-self');
         if (recipientInput) recipientInput.setAttribute('required', 'required');
     } else {
-        // Activate self button
-        if (btnSelf) { btnSelf.classList.add('bg-white', 'shadow-sm', 'text-primary'); btnSelf.classList.remove('text-gray-500'); }
-        if (btnGift) { btnGift.classList.remove('bg-white', 'shadow-sm', 'text-primary'); btnGift.classList.add('text-gray-500'); }
-        // Hide recipient
-        if (recipientSection) recipientSection.style.display = 'none';
+        if (btnSelf) btnSelf.classList.add('active');
+        if (btnGift) btnGift.classList.remove('active');
+        if (card) card.classList.add('gift-mode-self');
         if (recipientInput) recipientInput.removeAttribute('required');
     }
+    updateGiftCardMeta();
 }
 
 function closeGiftModal() {
@@ -511,83 +599,11 @@ function closeGiftModal() {
     document.body.style.top = '';
     window.scrollTo(0, parseInt(scrollY || '0'));
 
-    // Reset form
     const form = modal.querySelector('form');
     if (form) form.reset();
 
     currentGiftService = '';
     currentGiftVariantKey = '';
-}
-
-function updateGiftService(serviceName, preselectVariantKey) {
-    const modal = document.getElementById('giftModal');
-    if (!modal) return;
-
-    const service = serviceConfig[serviceName];
-    if (!service) return;
-
-    currentGiftService = serviceName;
-    currentGiftVariantKey = '';
-
-    // Update title
-    const titleEl = modal.querySelector('[data-gift-title]');
-    if (titleEl) {
-        titleEl.textContent = 'Offrir ' + service.article + ' ' + service.name;
-    }
-
-    // Handle variant selector
-    const variantSection = modal.querySelector('[data-gift-variant-section]');
-    const variantSelect = modal.querySelector('[data-gift-variant]');
-    const priceEl = modal.querySelector('[data-gift-price]');
-
-    if (service.hasRelatedOffers && service.relatedOffers.length > 0) {
-        // Show variant selector
-        if (variantSection) { variantSection.classList.remove('hidden'); variantSection.style.display = ''; }
-
-        // Resolve which offer to pre-select (preselected key, fallback to first)
-        const preselectIndex = preselectVariantKey
-            ? service.relatedOffers.findIndex(function(o) { return o.key === preselectVariantKey; })
-            : -1;
-        const selectedIndex = preselectIndex >= 0 ? preselectIndex : 0;
-        const selectedOffer = service.relatedOffers[selectedIndex];
-
-        if (variantSelect) {
-            variantSelect.innerHTML = '';
-            service.relatedOffers.forEach(function(offer, index) {
-                const opt = document.createElement('option');
-                opt.value = offer.key;
-                opt.textContent = offer.name + ' — ' + offer.price;
-                if (index === selectedIndex) opt.selected = true;
-                variantSelect.appendChild(opt);
-            });
-            currentGiftVariantKey = selectedOffer.key;
-
-            // Clone to remove old listeners
-            const newVariantSelect = variantSelect.cloneNode(true);
-            variantSelect.parentNode.replaceChild(newVariantSelect, variantSelect);
-            newVariantSelect.addEventListener('change', function() {
-                const offer = service.relatedOffers.find(function(o) {
-                    return o.key === newVariantSelect.value;
-                });
-                if (offer && priceEl) {
-                    priceEl.textContent = offer.price;
-                    currentGiftVariantKey = offer.key;
-                } else if (priceEl) {
-                    priceEl.textContent = '--';
-                    currentGiftVariantKey = '';
-                }
-            });
-        }
-
-        // Set price display to the pre-selected offer
-        if (priceEl) {
-            priceEl.textContent = selectedOffer.price;
-        }
-    } else {
-        // Hide variant selector
-        if (variantSection) { variantSection.classList.add('hidden'); variantSection.style.display = 'none'; }
-        if (priceEl) priceEl.textContent = service.price || '--';
-    }
 }
 
 function handleGiftPayment() {
@@ -616,8 +632,9 @@ function handleGiftPayment() {
     const emailEl = modal.querySelector('[data-gift-email]');
     const phoneEl = modal.querySelector('[data-gift-phone]');
     const recipientEl = modal.querySelector('[data-gift-recipient]');
+    const messageEl = modal.querySelector('[data-gift-message]');
 
-    if (nameEl && !validateMinLength(nameEl, 2, 'Votre nom est requis (min 2 caracteres)')) {
+    if (nameEl && !validateMinLength(nameEl, 2, 'Votre prénom est requis (min 2 caractères)')) {
         return false;
     }
 
@@ -625,19 +642,20 @@ function handleGiftPayment() {
         return false;
     }
 
-    if (phoneEl && !validateField(phoneEl, VALIDATION_PATTERNS.phone, 'Telephone invalide (ex: 06 75 43 02 57)')) {
+    if (phoneEl && !validateField(phoneEl, VALIDATION_PATTERNS.phone, 'Téléphone invalide (ex: 06 75 43 02 57)')) {
         return false;
     }
 
-    // Only validate recipient if visible (gift mode)
-    const recipientSection = modal.querySelector('[data-gift-recipient-section]');
-    if (recipientEl && recipientSection && recipientSection.style.display !== 'none') {
-        if (!validateMinLength(recipientEl, 2, 'Le nom du beneficiaire est requis')) {
+    // Validate recipient only if mode is "gift" (not self)
+    const card = modal.querySelector('.gift-modal-v3');
+    const isGiftMode = !(card && card.classList.contains('gift-mode-self'));
+    if (recipientEl && isGiftMode) {
+        if (!validateMinLength(recipientEl, 2, 'Le prénom du destinataire est requis')) {
             return false;
         }
     }
 
-    // Save form data to localStorage
+    // Save form data to localStorage (Formspree consumed on success.html)
     const formData = {
         service: currentGiftService,
         variant: currentGiftVariantKey || '',
@@ -645,7 +663,8 @@ function handleGiftPayment() {
         email: emailEl ? emailEl.value : '',
         phone: phoneEl ? phoneEl.value : '',
         recipient: recipientEl ? recipientEl.value : '',
-        actionType: 'gift',
+        message: messageEl ? messageEl.value : '',
+        actionType: isGiftMode ? 'gift' : 'self',
         timestamp: Date.now()
     };
 
@@ -685,10 +704,10 @@ function handleGiftPayment() {
     }
 
     // Show loading state on payment button
-    const payBtn = modal.querySelector('[onclick="handleGiftPayment()"]');
+    const payBtn = modal.querySelector('.gift-cta-btn');
     if (payBtn) {
         payBtn.disabled = true;
-        payBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Redirection vers le paiement...';
+        payBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Redirection paiement…';
     }
 
     // Redirect to Stripe
