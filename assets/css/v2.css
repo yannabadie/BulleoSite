@@ -924,6 +924,28 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 }
 .card-action i { font-size: 14px; }
 
+/* "En savoir plus" link on grille cards */
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--primary);
+    text-decoration: none;
+    margin: -4px 0 12px;
+    padding: 4px 0;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: gap 0.2s ease, color 0.2s ease;
+    align-self: flex-start;
+}
+.card-link:hover {
+    color: var(--text);
+    gap: 10px;
+}
+.card-link i { font-size: 10px; }
+
 /* Anchor offset for fixed nav */
 .anchor-offset {
     display: block;

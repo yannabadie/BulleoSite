@@ -248,21 +248,21 @@ const serviceConfig = {
             },
             {
                 key: 'cure_30min',
-                name: 'Cure 30 min — 6 seances (5 payantes + 1 offerte)',
+                name: 'Cure 30 min · 5+1 offerte',
                 price: '250,00 EUR',
                 priceId: 'price_1TQ0lCCm8TYzw7cAEzLfY2pG',
                 buyButtonId: ''
             },
             {
                 key: 'cure_45min',
-                name: 'Cure 45 min — 6 seances (5 payantes + 1 offerte)',
+                name: 'Cure 45 min · 5+1 offerte',
                 price: '325,00 EUR',
                 priceId: 'price_1TQ0moCm8TYzw7cAZTLZ9tep',
                 buyButtonId: ''
             },
             {
                 key: 'cure_1h',
-                name: 'Cure 1 h — 6 seances (5 payantes + 1 offerte)',
+                name: 'Cure 1 h · 5+1 offerte',
                 price: '400,00 EUR',
                 priceId: 'price_1TQ0n9Cm8TYzw7cA7CUWDXfT',
                 buyButtonId: ''
@@ -574,6 +574,7 @@ function setGiftType(type) {
     const btnGift = modal.querySelector('[data-gift-type-gift]');
     const recipientInput = modal.querySelector('[data-gift-recipient]');
     const card = modal.querySelector('.gift-modal-v3');
+    const toDisplay = modal.querySelector('[data-gift-to-display]');
 
     if (type === 'gift') {
         if (btnGift) btnGift.classList.add('active');
@@ -585,6 +586,10 @@ function setGiftType(type) {
         if (btnGift) btnGift.classList.remove('active');
         if (card) card.classList.add('gift-mode-self');
         if (recipientInput) recipientInput.removeAttribute('required');
+        // En mode "Pour moi", le destinataire = soi → reset le champ ET le visuel
+        if (recipientInput) recipientInput.value = '';
+        if (toDisplay) toDisplay.textContent = '— pour vous —';
+        return;
     }
     updateGiftCardMeta();
 }
@@ -1098,6 +1103,7 @@ function filterServices(category, btn) {
 // Mappe les anciennes ancres aux catégories du filtre
 const HASH_FILTER_MAP = {
     '#grossesse': 'grossesse',
+    '#post-partum': 'postpartum',
     '#drainage': 'soin',
     '#bebe': 'bebe'
 };
