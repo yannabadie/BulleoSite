@@ -7,12 +7,14 @@ Site web de [Bulleo Soins](https://bulleo-soins.com/), cabinet d'accompagnement 
 Bulleo Soins est le site professionnel d'Estelle, auxiliaire de puericulture, proposant des soins de bien-etre pour les femmes enceintes, jeunes mamans et bebes :
 
 - Massage prenatal et postnatal (1h / 1h30)
-- Bain enveloppe pour nouveau-nes
+- Drainage lymphatique balinais (30 min / 45 min / 1 h, seance ou cure 5+1 offerte)
+- Bain enveloppe pour nouveau-nes (et formule jumeaux)
 - Soin rebozo (technique mexicaine)
 - Reflexologie plantaire (obstetrique et pediatrique)
 - Atelier massage bebe
 - Atelier motricite et eveil sensoriel
 - Soin postnatal complet (massage + rebozo)
+- Rituel Douceur Bulleo (massage + drainage lymphatique 1h30)
 
 ## Stack technique
 
@@ -60,6 +62,7 @@ bulleo-soins.com/
 |-- services/                   # Pages detaillees par prestation
 |   |-- massage-prenatal.html
 |   |-- massage-postnatal.html
+|   |-- drainage-lymphatique-balinais.html
 |   |-- bain-enveloppe.html
 |   |-- soin-rebozo.html
 |   |-- reflexologie.html
@@ -75,12 +78,14 @@ bulleo-soins.com/
 +-- _old/                       # Versions precedentes (index_old.html, success_old.html)
 ```
 
-## Services et tarifs (mars 2026)
+## Services et tarifs (avril 2026)
 
 | Service | Tarif |
 |---------|-------|
 | Massage prenatal / postnatal | 75 EUR (1h) / 110 EUR (1h30) |
-| Bain enveloppe | 70 EUR |
+| Drainage lymphatique balinais | 50 EUR (30 min) / 65 EUR (45 min) / 80 EUR (1 h) |
+| Cure drainage lymphatique (6 seances, 5+1 offerte) | 250 EUR / 325 EUR / 400 EUR |
+| Bain enveloppe | 70 EUR (120 EUR jumeaux) |
 | Soin rebozo | 90 EUR |
 | Reflexologie plantaire | 50 EUR |
 | Atelier massage bebe | 80 EUR |
@@ -89,7 +94,7 @@ bulleo-soins.com/
 | Atelier motricite & eveil sensoriel | 16 EUR |
 | Agenda : Ma premiere annee de maman | 31,80 EUR |
 
-**Offres combinees** : massage + bain (140 EUR), massage + rebozo (160 EUR), bain + rebozo (155 EUR).
+**Offres combinees** : massage + bain (140 EUR), massage + rebozo (160 EUR), bain + rebozo (155 EUR), Rituel Douceur Bulleo massage + drainage lymphatique 1h30 (115 EUR).
 
 ## Flux de paiement
 

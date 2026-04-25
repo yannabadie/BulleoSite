@@ -34,6 +34,13 @@ const serviceConfig = {
                 price: '140,00 EUR',
                 priceId: 'price_1SIyNOCm8TYzw7cAxuJCLweM',
                 buyButtonId: 'buy_btn_1SJthmCm8TYzw7cAEtki54MD'
+            },
+            {
+                key: 'prenatal_drainage',
+                name: 'Rituel Douceur Bulleo (Massage + Drainage Lymphatique 1h30)',
+                price: '115,00 EUR',
+                priceId: 'price_1TQ0oNCm8TYzw7cAtExvvnpm',
+                buyButtonId: ''
             }
         ]
     },
@@ -71,6 +78,13 @@ const serviceConfig = {
                 price: '160,00 EUR',
                 priceId: 'price_1SIyXlCm8TYzw7cAzFfc2qyB',
                 buyButtonId: 'buy_btn_1SJtHpCm8TYzw7cAcOxQmRrL'
+            },
+            {
+                key: 'postnatal_drainage',
+                name: 'Rituel Douceur Bulleo (Massage + Drainage Lymphatique 1h30)',
+                price: '115,00 EUR',
+                priceId: 'price_1TQ0oNCm8TYzw7cAtExvvnpm',
+                buyButtonId: ''
             }
         ]
     },
@@ -196,6 +210,64 @@ const serviceConfig = {
         price: '160,00 EUR',
         buyButtonId: 'buy_btn_1SJw4zCm8TYzw7cAgkiZH9Va'
     },
+    'Drainage Lymphatique Balinais': {
+        name: 'Drainage Lymphatique Balinais',
+        article: 'un',
+        giftText: 'Offrir un Drainage Lymphatique Balinais',
+        bookText: 'Reserver un Drainage Lymphatique Balinais',
+        hasRelatedOffers: true,
+        relatedOffers: [
+            {
+                key: '30min',
+                name: 'Seance 30 min — 1 zone',
+                price: '50,00 EUR',
+                priceId: 'price_1TQ0izCm8TYzw7cA3hGP3iXI',
+                buyButtonId: ''
+            },
+            {
+                key: '45min',
+                name: 'Seance 45 min — 2 zones',
+                price: '65,00 EUR',
+                priceId: 'price_1TQ0jdCm8TYzw7cAV0bmg1yw',
+                buyButtonId: ''
+            },
+            {
+                key: '1h',
+                name: 'Seance 1 h — corps entier',
+                price: '80,00 EUR',
+                priceId: 'price_1TQ0jtCm8TYzw7cApl7OXG7i',
+                buyButtonId: ''
+            },
+            {
+                key: 'cure_30min',
+                name: 'Cure 30 min — 6 seances (5 payantes + 1 offerte)',
+                price: '250,00 EUR',
+                priceId: 'price_1TQ0lCCm8TYzw7cAEzLfY2pG',
+                buyButtonId: ''
+            },
+            {
+                key: 'cure_45min',
+                name: 'Cure 45 min — 6 seances (5 payantes + 1 offerte)',
+                price: '325,00 EUR',
+                priceId: 'price_1TQ0moCm8TYzw7cAZTLZ9tep',
+                buyButtonId: ''
+            },
+            {
+                key: 'cure_1h',
+                name: 'Cure 1 h — 6 seances (5 payantes + 1 offerte)',
+                price: '400,00 EUR',
+                priceId: 'price_1TQ0n9Cm8TYzw7cA7CUWDXfT',
+                buyButtonId: ''
+            },
+            {
+                key: 'drainage_massage',
+                name: 'Rituel Douceur Bulleo (Massage + Drainage 1h30)',
+                price: '115,00 EUR',
+                priceId: 'price_1TQ0oNCm8TYzw7cAtExvvnpm',
+                buyButtonId: ''
+            }
+        ]
+    },
     'Agenda: Ma premiere annee de maman': {
         name: 'Agenda: Ma premiere annee de maman',
         article: 'un',
@@ -214,7 +286,8 @@ const serviceToPriceId = {
         relatedOffers: {
             '1h': 'price_1SIyPgCm8TYzw7cAgJTspWxo',
             '1h30': 'price_1SIyT1Cm8TYzw7cAo9urSwWp',
-            'prenatal_bain': 'price_1SIyNOCm8TYzw7cAxuJCLweM'
+            'prenatal_bain': 'price_1SIyNOCm8TYzw7cAxuJCLweM',
+            'prenatal_drainage': 'price_1TQ0oNCm8TYzw7cAtExvvnpm'
         }
     },
     'Massage Postnatal': {
@@ -223,7 +296,8 @@ const serviceToPriceId = {
             '1h': 'price_1SIyQxCm8TYzw7cADEHgfZ75',
             '1h30': 'price_1SIyTWCm8TYzw7cASFpVxPvS',
             'postnatal_bain': 'price_1SIyNqCm8TYzw7cAcgbBwTpa',
-            'postnatal_rebozo': 'price_1SIyXlCm8TYzw7cAzFfc2qyB'
+            'postnatal_rebozo': 'price_1SIyXlCm8TYzw7cAzFfc2qyB',
+            'postnatal_drainage': 'price_1TQ0oNCm8TYzw7cAtExvvnpm'
         }
     },
     'Bain Enveloppe': {
@@ -250,6 +324,18 @@ const serviceToPriceId = {
     'Reflexologie plantaire Pediatrique': 'price_1RqWlgCm8TYzw7cANnCeRBdq',
     'Massage bebe & enfant': 'price_1SIyYXCm8TYzw7cA3eAcDt0z',
     'Soin postnatal complet - Massage & Rebozo': 'price_1SIyXlCm8TYzw7cAzFfc2qyB',
+    'Drainage Lymphatique Balinais': {
+        default: 'price_1TQ0izCm8TYzw7cA3hGP3iXI',
+        relatedOffers: {
+            '30min': 'price_1TQ0izCm8TYzw7cA3hGP3iXI',
+            '45min': 'price_1TQ0jdCm8TYzw7cAV0bmg1yw',
+            '1h': 'price_1TQ0jtCm8TYzw7cApl7OXG7i',
+            'cure_30min': 'price_1TQ0lCCm8TYzw7cAEzLfY2pG',
+            'cure_45min': 'price_1TQ0moCm8TYzw7cAZTLZ9tep',
+            'cure_1h': 'price_1TQ0n9Cm8TYzw7cA7CUWDXfT',
+            'drainage_massage': 'price_1TQ0oNCm8TYzw7cAtExvvnpm'
+        }
+    },
     'Agenda: Ma premiere annee de maman': 'price_1RqVTxCm8TYzw7cA6e88Upbg'
 };
 
@@ -309,7 +395,7 @@ function validateMinLength(element, minLength, errorMessage) {
 let currentGiftService = '';
 let currentGiftVariantKey = '';
 
-function openGiftModal(serviceName) {
+function openGiftModal(serviceName, preselectVariantKey) {
     const modal = document.getElementById('giftModal');
     if (!modal) return;
 
@@ -348,8 +434,8 @@ function openGiftModal(serviceName) {
         });
     }
 
-    // Update variant and price display
-    updateGiftService(serviceName);
+    // Update variant and price display (with optional pre-selection)
+    updateGiftService(serviceName, preselectVariantKey);
 
     // Show modal
     modal.classList.add('active');
@@ -424,7 +510,7 @@ function closeGiftModal() {
     currentGiftVariantKey = '';
 }
 
-function updateGiftService(serviceName) {
+function updateGiftService(serviceName, preselectVariantKey) {
     const modal = document.getElementById('giftModal');
     if (!modal) return;
 
@@ -449,28 +535,34 @@ function updateGiftService(serviceName) {
         // Show variant selector
         if (variantSection) { variantSection.classList.remove('hidden'); variantSection.style.display = ''; }
 
+        // Resolve which offer to pre-select (preselected key, fallback to first)
+        const preselectIndex = preselectVariantKey
+            ? service.relatedOffers.findIndex(function(o) { return o.key === preselectVariantKey; })
+            : -1;
+        const selectedIndex = preselectIndex >= 0 ? preselectIndex : 0;
+        const selectedOffer = service.relatedOffers[selectedIndex];
+
         if (variantSelect) {
             variantSelect.innerHTML = '';
             service.relatedOffers.forEach(function(offer, index) {
                 const opt = document.createElement('option');
                 opt.value = offer.key;
                 opt.textContent = offer.name + ' — ' + offer.price;
-                if (index === 0) opt.selected = true;
+                if (index === selectedIndex) opt.selected = true;
                 variantSelect.appendChild(opt);
             });
-            // Pre-select first variant
-            currentGiftVariantKey = service.relatedOffers[0].key;
+            currentGiftVariantKey = selectedOffer.key;
 
             // Clone to remove old listeners
             const newVariantSelect = variantSelect.cloneNode(true);
             variantSelect.parentNode.replaceChild(newVariantSelect, variantSelect);
             newVariantSelect.addEventListener('change', function() {
-                const selectedOffer = service.relatedOffers.find(function(o) {
+                const offer = service.relatedOffers.find(function(o) {
                     return o.key === newVariantSelect.value;
                 });
-                if (selectedOffer && priceEl) {
-                    priceEl.textContent = selectedOffer.price;
-                    currentGiftVariantKey = selectedOffer.key;
+                if (offer && priceEl) {
+                    priceEl.textContent = offer.price;
+                    currentGiftVariantKey = offer.key;
                 } else if (priceEl) {
                     priceEl.textContent = '--';
                     currentGiftVariantKey = '';
@@ -478,9 +570,9 @@ function updateGiftService(serviceName) {
             });
         }
 
-        // Set default price display
+        // Set price display to the pre-selected offer
         if (priceEl) {
-            priceEl.textContent = service.relatedOffers[0].price;
+            priceEl.textContent = selectedOffer.price;
         }
     } else {
         // Hide variant selector
@@ -671,6 +763,11 @@ const CALENDLY_SLUGS = {
     'Massage bebe & enfant': 'massage-bebe',
     'Soin postnatal complet - Massage & Rebozo': 'soin-postnatal-complet',
     'Bain Enveloppe Jumeaux': 'bain-jumeaux',
+    'Drainage Lymphatique Balinais': 'drainage-lymphatique-balinais',
+    'Drainage Lymphatique Balinais 30min': 'drainage-lymphatique-balinais',
+    'Drainage Lymphatique Balinais 45min': 'drainage-lymphatique-balinais-1',
+    'Drainage Lymphatique Balinais 1h': 'drainage-lymphatique-balinais-2',
+    'Rituel Douceur Bulleo': 'soin-massage-drainage',
     'Agenda: Ma premiere annee de maman': null
 };
 
@@ -686,6 +783,8 @@ const CALENDLY_GIFT_SLUGS = {
     'Massage bebe & enfant': 'j-ai-une-carte-cadeau-massage-bebe',
     'Soin postnatal complet - Massage & Rebozo': null,
     'Bain Enveloppe Jumeaux': 'j-ai-une-carte-cadeau-bain-jumeaux',
+    'Drainage Lymphatique Balinais': 'j-ai-une-carte-cadeau-massage-drainage',
+    'Rituel Douceur Bulleo': 'j-ai-une-carte-cadeau-massage-drainage',
     'Agenda: Ma premiere annee de maman': null
 };
 
