@@ -46,7 +46,7 @@ Estelle Cazajous — Auxiliaire de Puericulture Diplomee d'Etat. Plusieurs annee
 
 - Adresse : 108-6 rue du Magasin aux Tabacs, 65000 Tarbes (3e etage, ascenseur)
 - Horaires : Lundi-Vendredi, 9h-17h (sur rendez-vous)
-- Zone d'intervention : Tarbes et 30 km autour (Lourdes, Pau, Bagneres-de-Bigorre, Lannemezan)
+- Lieu des prestations : cabinet Bulleo, 108-6 rue du Magasin aux Tabacs, 65000 Tarbes
 - Paiement : Carte bancaire (Stripe), especes
 
 ## Liens
