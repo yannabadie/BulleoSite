@@ -135,7 +135,7 @@
     <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
 
     <!-- V2 CSS -->
-    <link rel="stylesheet" href="../assets/css/v2.css">
+    <link rel="stylesheet" href="../assets/css/v2.css?v=20260726a">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
@@ -396,45 +396,96 @@
 
     <!-- Gift Modal -->
     <div id="giftModal" class="modal-v2" role="dialog" aria-modal="true" aria-label="Offrir un soin">
-        <div class="modal-v2-content">
+        <div class="modal-v2-content gift-modal-v3">
             <button class="modal-v2-close" onclick="closeGiftModal()" aria-label="Fermer">&times;</button>
-            <div class="text-center mb-6">
-                <h3 data-gift-title class="font-serif text-2xl text-primary mb-2">Offrir un soin</h3>
-                <div class="w-16 h-1 bg-gold mx-auto rounded-full"></div>
+
+            <!-- Header -->
+            <div class="gift-modal-header">
+                <span class="gift-modal-eyebrow">Bon cadeau</span>
+                <h3 data-gift-title class="gift-modal-title">Offrez un moment de douceur</h3>
             </div>
-            <form id="giftForm" class="space-y-4" onsubmit="return false;">
+
+            <!-- Carte cadeau visuelle -->
+            <div class="gift-card-visual">
+                <div class="gift-card-logo">
+                    <img src="../assets/images/logos/logo-main.webp" alt="Bulleo">
+                    <span>Bulleo</span>
+                </div>
+                <div class="gift-card-price">
+                    <span data-gift-amount>70</span><span class="gift-card-currency">&nbsp;€</span>
+                </div>
+                <div class="gift-card-service-name" data-gift-service-name>Bon cadeau</div>
+                <div class="gift-card-meta">
+                    <div class="meta-block">
+                        <span class="meta-label">De</span>
+                        <span class="meta-value" data-gift-from-display>…</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="meta-label">Pour</span>
+                        <span class="meta-value" data-gift-to-display>…</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="giftForm" class="gift-modal-form" onsubmit="return false;">
                 <input type="hidden" id="giftSelectedService" name="service">
                 <input type="hidden" id="giftSelectedVariantKey" name="variant">
                 <input type="hidden" id="giftActionType" name="action" value="gift">
-                <div class="flex gap-2 p-1 bg-gray-100 rounded-lg mb-4">
-                    <button type="button" data-gift-type-self class="flex-1 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-primary transition-all" onclick="setGiftType('self')">Pour moi</button>
-                    <button type="button" data-gift-type-gift class="flex-1 py-2 rounded-md text-sm font-bold bg-white shadow-sm text-primary transition-all" onclick="setGiftType('gift')">Pour offrir</button>
+
+                <!-- Toggle Pour moi / Offrir -->
+                <div class="gift-toggle">
+                    <button type="button" data-gift-type-self class="gift-toggle-btn" onclick="setGiftType('self')">
+                        <i class="fas fa-user mr-2"></i>Pour moi
+                    </button>
+                    <button type="button" data-gift-type-gift class="gift-toggle-btn active" onclick="setGiftType('gift')">
+                        <i class="fas fa-gift mr-2"></i>Pour offrir
+                    </button>
                 </div>
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Service</label>
-                    <select data-gift-service class="w-full p-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"></select>
+
+                <!-- Chips formules -->
+                <div data-gift-variants-section class="gift-variants">
+                    <label class="gift-form-label">Formule</label>
+                    <div class="gift-chips" data-gift-variants></div>
                 </div>
-                <div data-gift-variant-section class="hidden">
-                    <label class="block text-sm font-bold text-gray-700 mb-1">Formule</label>
-                    <select data-gift-variant class="w-full p-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"></select>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Votre Nom complet</label><input type="text" data-gift-name required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></div>
-                    <div><label class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" data-gift-email required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></div>
-                    <div class="md:col-span-2"><label class="block text-sm font-medium text-gray-700 mb-1">Telephone</label><input type="tel" data-gift-phone required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></div>
-                </div>
-                <div data-gift-recipient-section class="bg-primary/5 p-4 rounded-lg border border-primary/10">
-                    <label class="block text-sm font-bold text-primary mb-2">Pour qui est ce cadeau ?</label>
-                    <input type="text" data-gift-recipient placeholder="Prenom et Nom" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none">
-                </div>
-                <div class="mt-6 pt-6 border-t border-gray-100">
-                    <div class="flex justify-between items-end mb-4">
-                        <span class="text-sm text-gray-500">Total a regler</span>
-                        <span data-gift-price class="text-2xl font-serif font-bold text-primary">0,00 EUR</span>
+
+                <!-- Form -->
+                <div class="gift-form-grid">
+                    <div class="gift-form-field">
+                        <label>De la part de</label>
+                        <input type="text" data-gift-name required placeholder="Votre prénom" autocomplete="given-name">
                     </div>
-                    <button type="button" class="w-full btn-v2 btn-primary-v2 py-4" onclick="handleGiftPayment()">Acceder au paiement securise <i class="fas fa-lock ml-2"></i></button>
-                    <p class="text-center text-xs text-gray-400 mt-3"><i class="fas fa-shield-alt mr-1"></i>Paiement securise par Stripe</p>
+                    <div class="gift-form-field" data-gift-recipient-section>
+                        <label>Pour</label>
+                        <input type="text" data-gift-recipient placeholder="Prénom du / de la destinataire" autocomplete="off">
+                    </div>
+                    <div class="gift-form-field">
+                        <label>Email</label>
+                        <input type="email" data-gift-email required placeholder="vous@email.com" autocomplete="email">
+                    </div>
+                    <div class="gift-form-field">
+                        <label>Téléphone</label>
+                        <input type="tel" data-gift-phone required placeholder="06 12 34 56 78" autocomplete="tel">
+                    </div>
+                    <div class="gift-form-field gift-form-field-full">
+                        <label>Message personnalisé <span class="gift-form-optional">(optionnel)</span></label>
+                        <textarea data-gift-message rows="2" placeholder="Un mot doux pour la / le destinataire…" maxlength="280"></textarea>
+                    </div>
                 </div>
+
+                <!-- Footer CTA -->
+                <div class="gift-modal-footer">
+                    <span class="gift-validity">
+                        <i class="fas fa-shield-alt mr-1"></i>
+                        Bon valable 6 mois · envoyé par email
+                    </span>
+                    <button type="button" class="gift-cta-btn" onclick="handleGiftPayment()">
+                        <span>Offrir <span data-gift-cta-amount>70</span>&nbsp;€</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <p class="gift-stripe-note">
+                    <i class="fas fa-lock mr-1"></i>Paiement sécurisé par Stripe · Aucune donnée bancaire stockée
+                </p>
             </form>
         </div>
     </div>
@@ -452,7 +503,7 @@
     </div>
 
     <!-- V2 JavaScript -->
-    <script src="../assets/js/v2.js"></script>
+    <script src="../assets/js/v2.js?v=20260726a"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             initCalendlyInline('calendly-massage-prenatal', 'Massage Prenatal');

@@ -101,28 +101,9 @@
         <mobile:mobile/>
     </url>
 
-    <!-- Pages secondaires -->
-    <url>
-        <loc>https://bulleo-soins.com/contact.html</loc>
-        <lastmod>2026-03-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-        <mobile:mobile/>
-    </url>
-    <url>
-        <loc>https://bulleo-soins.com/galerie.html</loc>
-        <lastmod>2026-03-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-        <mobile:mobile/>
-    </url>
-    <url>
-        <loc>https://bulleo-soins.com/temoignages.html</loc>
-        <lastmod>2026-03-14</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-        <mobile:mobile/>
-    </url>
+    <!-- Pages secondaires : contact.html, galerie.html et temoignages.html
+         sont de simples redirections meta-refresh vers l'accueil. Les declarer
+         ici les fait classer "Page avec redirection" par Google : retirees. -->
 
     <!-- Pages legales -->
     <url>

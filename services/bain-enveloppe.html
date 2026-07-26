@@ -25,7 +25,7 @@
     <script>tailwind.config={theme:{extend:{colors:{primary:'#C48A69',secondary:'#F9F7F2',accent:'#8A9A5B',text:'#2C2C2C',gold:'#D4AF37'},fontFamily:{serif:['"Playfair Display"','serif'],sans:['"Lato"','sans-serif']}}}}</script>
     <script async src="https://js.stripe.com/v3/"></script><script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"><script async src="https://assets.calendly.com/assets/external/widget.js"></script>
-    <link rel="stylesheet" href="../assets/css/v2.css?v=20260314b">
+    <link rel="stylesheet" href="../assets/css/v2.css?v=20260726a">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png"><meta name="msapplication-TileColor" content="#F9F7F2"><meta name="theme-color" content="#F9F7F2">
     <script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
     <script type="text/javascript" charset="UTF-8">document.addEventListener('DOMContentLoaded',function(){cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"fr","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Bulleo"});});</script>
@@ -146,11 +146,104 @@
 
     <footer class="footer-v2 py-16"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="grid grid-cols-1 md:grid-cols-3 gap-12"><div><span class="font-serif text-2xl font-bold text-primary tracking-wider mb-4 block">Bulleo</span><p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.6)">Institut Perinatal specialise dans le bien-etre de la femme enceinte et du nouveau-ne. Accompagnement professionnel par une Auxiliaire de Puericulture Diplomee d'Etat a Tarbes.</p></div><div><h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Informations</h4><ul class="space-y-3 text-sm" style="color: rgba(255,255,255,0.6)"><li><i class="fas fa-map-marker-alt mr-2 text-primary"></i>108-6 rue du Magasin aux Tabacs, 65000 Tarbes</li><li><i class="fas fa-phone mr-2 text-primary"></i><a href="tel:+33675430257" class="hover:text-primary">06 75 43 02 57</a></li><li><i class="fas fa-clock mr-2 text-primary"></i>Lun — Ven : 09h00 - 17h00</li><li><i class="fas fa-envelope mr-2 text-primary"></i><a href="mailto:contact@bulleo-soins.com" class="hover:text-primary">contact@bulleo-soins.com</a></li></ul></div><div><h4 class="text-lg font-bold mb-6 border-b border-gray-700 pb-2 inline-block">Liens Utiles</h4><ul class="space-y-3 text-sm"><li><a href="/mentions-legales.html">Mentions Legales</a></li><li><a href="/politique-confidentialite.html">Politique de Confidentialite</a></li><li><a href="/cgv.html">CGV</a></li></ul><div class="mt-6 flex space-x-4"><a href="https://www.instagram.com/bulleo_" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://www.facebook.com/p/%F0%9D%90%84-%F0%9D%90%AC-%F0%9D%90%AD-%F0%9D%90%9E-%F0%9D%90%A5-%F0%9D%90%A5-%F0%9D%90%9E-Bulleo-100070531283259/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div></div></div><div class="border-t border-gray-800 mt-12 pt-8 text-center text-xs" style="color: rgba(255,255,255,0.4)">&copy; 2026 Bulleo — Institut Perinatal. Tous droits reserves.</div></div></footer>
 
-    <div id="giftModal" class="modal-v2" role="dialog" aria-modal="true" aria-label="Offrir un soin"><div class="modal-v2-content"><button class="modal-v2-close" onclick="closeGiftModal()" aria-label="Fermer">&times;</button><div class="text-center mb-6"><h3 data-gift-title class="font-serif text-2xl text-primary mb-2">Offrir un soin</h3><div class="w-16 h-1 bg-gold mx-auto rounded-full"></div></div><form id="giftForm" class="space-y-4" onsubmit="return false;"><input type="hidden" id="giftSelectedService" name="service"><input type="hidden" id="giftSelectedVariantKey" name="variant"><input type="hidden" id="giftActionType" name="action" value="gift"><div class="flex gap-2 p-1 bg-gray-100 rounded-lg mb-4"><button type="button" data-gift-type-self class="flex-1 py-2 rounded-md text-sm font-bold text-gray-500 hover:text-primary transition-all" onclick="setGiftType('self')">Pour moi</button><button type="button" data-gift-type-gift class="flex-1 py-2 rounded-md text-sm font-bold bg-white shadow-sm text-primary transition-all" onclick="setGiftType('gift')">Pour offrir</button></div><div><label class="block text-sm font-bold text-gray-700 mb-1">Service</label><select data-gift-service class="w-full p-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"></select></div><div data-gift-variant-section class="hidden"><label class="block text-sm font-bold text-gray-700 mb-1">Formule</label><select data-gift-variant class="w-full p-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"></select></div><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-sm font-medium text-gray-700 mb-1">Votre Nom complet</label><input type="text" data-gift-name required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></div><div><label class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" data-gift-email required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></div><div class="md:col-span-2"><label class="block text-sm font-medium text-gray-700 mb-1">Telephone</label><input type="tel" data-gift-phone required class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></div></div><div data-gift-recipient-section class="bg-primary/5 p-4 rounded-lg border border-primary/10"><label class="block text-sm font-bold text-primary mb-2">Pour qui est ce cadeau ?</label><input type="text" data-gift-recipient placeholder="Prenom et Nom" class="w-full p-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary outline-none"></div><div class="mt-6 pt-6 border-t border-gray-100"><div class="flex justify-between items-end mb-4"><span class="text-sm text-gray-500">Total a regler</span><span data-gift-price class="text-2xl font-serif font-bold text-primary">0,00 EUR</span></div><button type="button" class="w-full btn-v2 btn-primary-v2 py-4" onclick="handleGiftPayment()">Acceder au paiement securise <i class="fas fa-lock ml-2"></i></button><p class="text-center text-xs text-gray-400 mt-3"><i class="fas fa-shield-alt mr-1"></i>Paiement securise par Stripe</p></div></form></div></div>
+    <div id="giftModal" class="modal-v2" role="dialog" aria-modal="true" aria-label="Offrir un soin">
+        <div class="modal-v2-content gift-modal-v3">
+            <button class="modal-v2-close" onclick="closeGiftModal()" aria-label="Fermer">&times;</button>
+
+            <!-- Header -->
+            <div class="gift-modal-header">
+                <span class="gift-modal-eyebrow">Bon cadeau</span>
+                <h3 data-gift-title class="gift-modal-title">Offrez un moment de douceur</h3>
+            </div>
+
+            <!-- Carte cadeau visuelle -->
+            <div class="gift-card-visual">
+                <div class="gift-card-logo">
+                    <img src="../assets/images/logos/logo-main.webp" alt="Bulleo">
+                    <span>Bulleo</span>
+                </div>
+                <div class="gift-card-price">
+                    <span data-gift-amount>70</span><span class="gift-card-currency">&nbsp;€</span>
+                </div>
+                <div class="gift-card-service-name" data-gift-service-name>Bon cadeau</div>
+                <div class="gift-card-meta">
+                    <div class="meta-block">
+                        <span class="meta-label">De</span>
+                        <span class="meta-value" data-gift-from-display>…</span>
+                    </div>
+                    <div class="meta-block">
+                        <span class="meta-label">Pour</span>
+                        <span class="meta-value" data-gift-to-display>…</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="giftForm" class="gift-modal-form" onsubmit="return false;">
+                <input type="hidden" id="giftSelectedService" name="service">
+                <input type="hidden" id="giftSelectedVariantKey" name="variant">
+                <input type="hidden" id="giftActionType" name="action" value="gift">
+
+                <!-- Toggle Pour moi / Offrir -->
+                <div class="gift-toggle">
+                    <button type="button" data-gift-type-self class="gift-toggle-btn" onclick="setGiftType('self')">
+                        <i class="fas fa-user mr-2"></i>Pour moi
+                    </button>
+                    <button type="button" data-gift-type-gift class="gift-toggle-btn active" onclick="setGiftType('gift')">
+                        <i class="fas fa-gift mr-2"></i>Pour offrir
+                    </button>
+                </div>
+
+                <!-- Chips formules -->
+                <div data-gift-variants-section class="gift-variants">
+                    <label class="gift-form-label">Formule</label>
+                    <div class="gift-chips" data-gift-variants></div>
+                </div>
+
+                <!-- Form -->
+                <div class="gift-form-grid">
+                    <div class="gift-form-field">
+                        <label>De la part de</label>
+                        <input type="text" data-gift-name required placeholder="Votre prénom" autocomplete="given-name">
+                    </div>
+                    <div class="gift-form-field" data-gift-recipient-section>
+                        <label>Pour</label>
+                        <input type="text" data-gift-recipient placeholder="Prénom du / de la destinataire" autocomplete="off">
+                    </div>
+                    <div class="gift-form-field">
+                        <label>Email</label>
+                        <input type="email" data-gift-email required placeholder="vous@email.com" autocomplete="email">
+                    </div>
+                    <div class="gift-form-field">
+                        <label>Téléphone</label>
+                        <input type="tel" data-gift-phone required placeholder="06 12 34 56 78" autocomplete="tel">
+                    </div>
+                    <div class="gift-form-field gift-form-field-full">
+                        <label>Message personnalisé <span class="gift-form-optional">(optionnel)</span></label>
+                        <textarea data-gift-message rows="2" placeholder="Un mot doux pour la / le destinataire…" maxlength="280"></textarea>
+                    </div>
+                </div>
+
+                <!-- Footer CTA -->
+                <div class="gift-modal-footer">
+                    <span class="gift-validity">
+                        <i class="fas fa-shield-alt mr-1"></i>
+                        Bon valable 6 mois · envoyé par email
+                    </span>
+                    <button type="button" class="gift-cta-btn" onclick="handleGiftPayment()">
+                        <span>Offrir <span data-gift-cta-amount>70</span>&nbsp;€</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <p class="gift-stripe-note">
+                    <i class="fas fa-lock mr-1"></i>Paiement sécurisé par Stripe · Aucune donnée bancaire stockée
+                </p>
+            </form>
+        </div>
+    </div>
 
     <div class="sticky-footer-v2 md:hidden flex"><a href="tel:+33675430257" class="flex-none w-[30%] bg-gray-50 text-text flex flex-col items-center justify-center py-3 active:bg-gray-200"><i class="fas fa-phone text-lg mb-1"></i><span class="text-xs font-bold">Appeler</span></a><button onclick="openCalendlyPopup('Bain Enveloppe')" class="flex-auto w-[70%] bg-primary text-white flex flex-col items-center justify-center py-3 active:bg-primary/90"><span class="text-sm font-bold uppercase tracking-wide">Reserver un soin</span><span class="text-[10px] opacity-90">Creneaux disponibles</span></button></div>
 
-    <script src="../assets/js/v2.js?v=20260314b"></script>
+    <script src="../assets/js/v2.js?v=20260726a"></script>
     <script>document.addEventListener('DOMContentLoaded', function() { initCalendlyInline('calendly-bain-enveloppe', 'Bain Enveloppe'); });</script>
 </body>
 </html>

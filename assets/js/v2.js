@@ -307,7 +307,16 @@ const serviceConfig = {
         bookText: 'Commander un Agenda Maman',
         price: '31,80 EUR',
         buyButtonId: 'buy_btn_1RqWYKCm8TYzw7cAWcMEeir5',
-        requiresShipping: true
+        requiresShipping: true,
+        // Produit physique : passe par un Payment Link Stripe et non par
+        // redirectToCheckout, qui ne sait ni accepter un code promo ni collecter
+        // une adresse de livraison. Le lien s'en charge et redirige vers success.html.
+        paymentLink: 'https://buy.stripe.com/cNi9ASfPigfV9EGdG5a7C01'
+        // Un code promo existe cote Stripe pour ce produit (remise -10 %, echeance
+        // portee par Stripe). Il est diffuse hors du site et ne doit JAMAIS etre
+        // ecrit ici : tout ce qui figure dans serviceConfig se retrouve en clair
+        // dans le JS servi au public. Le champ de saisie est fourni par la page de
+        // paiement Stripe (allow_promotion_codes sur le Payment Link).
     },
     'Atelier Motricite & Eveil sensoriel': {
         name: 'Atelier Motricite & Eveil sensoriel',
@@ -472,6 +481,7 @@ function openGiftModal(serviceName, preselectVariantKey) {
 
     // Default mode = "Pour offrir"
     setGiftType('gift');
+
 
     // Bind live update on from/to inputs (clone to remove old listeners)
     ['data-gift-name', 'data-gift-recipient'].forEach(function(attr) {
@@ -731,6 +741,20 @@ function handleGiftPayment() {
         }
     }
 
+    // Produit disposant d'un Payment Link dedie (code promo + adresse de livraison).
+    // redirectToCheckout en mode client-only ne sait faire ni l'un ni l'autre : on
+    // court-circuite. pendingFormData vient d'etre ecrit ci-dessus, donc success.html
+    // postera bien vers Formspree au retour de Stripe.
+    if (service.paymentLink) {
+        const linkBtn = modal.querySelector('.gift-cta-btn');
+        if (linkBtn) {
+            linkBtn.disabled = true;
+            linkBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Redirection paiement…';
+        }
+        window.location.href = service.paymentLink;
+        return false;
+    }
+
     // Resolve price ID
     let priceId;
     const priceConfig = serviceToPriceId[currentGiftService];
@@ -902,10 +926,34 @@ function openCalendlyPopup(serviceName) {
     });
 }
 
-function initCalendlyInline(containerId, serviceName) {
-    if (typeof Calendly === 'undefined') return;
+// Rendu de secours si le script Calendly ne se charge pas du tout : mieux vaut un
+// lien cliquable qu'un conteneur vide et muet.
+function renderCalendlyFallback(container, serviceName) {
+    container.innerHTML =
+        '<div class="calendly-fallback">' +
+        '<p>Le module de réservation n\'a pas pu se charger.</p>' +
+        '<a class="btn-v2 btn-primary-v2" target="_blank" rel="noopener" href="' +
+        getCalendlyUrl(serviceName) + '">Ouvrir le calendrier <i class="fas fa-arrow-right ml-2"></i></a>' +
+        '<p class="calendly-fallback-alt">ou appelez le <a href="tel:+33675430257">06 75 43 02 57</a></p>' +
+        '</div>';
+}
+
+function initCalendlyInline(containerId, serviceName, _attempt) {
     const container = document.getElementById(containerId);
     if (!container) return;
+
+    // widget.js est chargé en async : il n'est pas forcément prêt au DOMContentLoaded.
+    // On patiente au lieu d'abandonner en silence — sinon le conteneur restait vide
+    // et la réservation devenait impossible sans aucun message.
+    if (typeof Calendly === 'undefined') {
+        const attempt = (_attempt || 0) + 1;
+        if (attempt <= 75) {
+            setTimeout(function() { initCalendlyInline(containerId, serviceName, attempt); }, 200);
+        } else {
+            renderCalendlyFallback(container, serviceName);
+        }
+        return;
+    }
 
     const url = getCalendlyUrl(serviceName);
 

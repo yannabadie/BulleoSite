@@ -38,13 +38,34 @@
     Require all denied
 </FilesMatch>
 
+# Block remaining WordPress leftovers.
+# readme.html divulgue la presence et la version de WordPress ; wp-load.php et
+# wp-settings.php etaient encore executes (200 / 500) faute d'etre listes ici.
+<FilesMatch "^(readme\.html|license\.txt|wp-load\.php|wp-settings\.php|wp-blog-header\.php|wp-comments-post\.php|wp-links-opml\.php)$">
+    Require all denied
+</FilesMatch>
+
+# Anciens points d'entree PHP desactives : l'extension .php_off n'etant pas
+# interpretee, le code source etait servi en clair.
+<FilesMatch "\.php_off[0-9]*$">
+    Require all denied
+</FilesMatch>
+
 # Block WordPress directories
 RedirectMatch 403 ^/wp-admin/.*$
 RedirectMatch 403 ^/wp-includes/.*$
 RedirectMatch 403 ^/wp-content/.*$
 
+# Repertoires internes jamais destines au public.
+# _old/ servait encore l'ancienne version complete du site (avec des tarifs
+# perimes) et includes/ ses fragments de template.
+RedirectMatch 403 ^/_old/.*$
+RedirectMatch 403 ^/includes/.*$
+RedirectMatch 403 ^/archives/.*$
+RedirectMatch 403 ^/memory-bank/.*$
+
 # Block sensitive files
-<FilesMatch "\.(env|bak|backup|sql|log)$">
+<FilesMatch "\.(env|bak|backup|sql|log|md|mjs)$">
     Require all denied
 </FilesMatch>
 
