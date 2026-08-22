@@ -61,7 +61,7 @@ const serviceConfig = {
             },
             {
                 key: 'prenatal_drainage',
-                name: 'Rituel Douceur Bulleo (Massage + Drainage Lymphatique 1h30)',
+                name: 'Rituel Douceur Bulleo (Massage + Drainage Lymphatique 1h15)',
                 price: '115,00 EUR',
                 priceId: 'price_1TQ0oNCm8TYzw7cAtExvvnpm',
                 buyButtonId: ''
@@ -105,7 +105,7 @@ const serviceConfig = {
             },
             {
                 key: 'postnatal_drainage',
-                name: 'Rituel Douceur Bulleo (Massage + Drainage Lymphatique 1h30)',
+                name: 'Rituel Douceur Bulleo (Massage + Drainage Lymphatique 1h15)',
                 price: '115,00 EUR',
                 priceId: 'price_1TQ0oNCm8TYzw7cAtExvvnpm',
                 buyButtonId: ''
@@ -293,7 +293,7 @@ const serviceConfig = {
             },
             {
                 key: 'drainage_massage',
-                name: 'Rituel Douceur Bulleo (Massage + Drainage 1h30)',
+                name: 'Rituel Douceur Bulleo (Massage + Drainage 1h15)',
                 price: '115,00 EUR',
                 priceId: 'price_1TQ0oNCm8TYzw7cAtExvvnpm',
                 buyButtonId: ''
